@@ -1,0 +1,144 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url(../images/Q&A.jpg);
+  
+  }
+/* nav styles */
+.topnav {
+    background-color: rgb(31, 20, 116, 1);
+    overflow: hidden;
+    
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.nav {
+    margin-right: 80px;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.Navbar_Link-brand {
+    float:left;
+    margin-left: 80px;
+}
+
+/* login form styles */
+
+form {
+    margin:0 auto;
+    width:300px;
+  
+  }
+  input {
+    margin:10px auto;
+    padding:10px;
+    width: 100%;
+    border:1px solid #CCC
+  }
+  
+  label {
+    cursor:pointer
+  }
+ 
+ 
+  
+  
+ 
+.form-container {
+   
+    width: 450px;
+    height: 280px;
+    background: #0860b8;
+    margin: 0px auto;
+    margin-top: 50px;
+    padding-top : 100px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border:1px solid rgb(2, 4, 34);
+   
+}
+
+.form-container a {
+ float:left;
+ 
+}
+
+
+form a {
+    text-decoration: none;
+    color:black;
+   margin:5px 10px;
+}
+
+
+
+form h2 {
+    margin-top: -70px;
+    margin-bottom :20px;
+    text-align: center
+}
+form p {
+  margin-top: -40px;
+ float: right
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 107%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity:1;
+}
+
+.link:hover{
+    color: white;
+}
+
+/* footer styles */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(31, 20, 116, 1);
+    color: white;
+    text-align: center;
+  }
+  
+.footer p {
+  
+    margin: 20px 0 8px;
+    
+}
+
