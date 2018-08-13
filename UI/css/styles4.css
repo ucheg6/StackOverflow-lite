@@ -65,6 +65,7 @@ html, body {
     grid-area: search;
     background: #ffffff;
     border-bottom: 1px solid #ede8f0;
+    margin-bottom: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -810,7 +811,7 @@ html, body {
     display: none;
   }
   
-  @media screen and (max-width: 600px) {
+  /* @media screen and (max-width: 600px) {
     .topnav a:not(:first-child) {display: none;}
     .topnav a.icon {
       float: right;
@@ -829,7 +830,7 @@ html, body {
 
       .main-col {
         position: absolute;
-        width: 385px;
+        width: 70%;
         min-height: 1000px;
         top: 950px;
         left: 70px;
@@ -837,10 +838,63 @@ html, body {
        
       }
 
+      .feed-item-actions .action-buttons .button {
+   
+        font-size: 7px;
+      }
+
+      
+
+    
+  } */
+
+  @media screen and (max-width: 769px) {
+    
+    .dashboard {
+        display: block;
+        width: 100%;
+        height: 100%;
+        grid-gap: 0;
+        grid-template-columns: 300px auto;
+        grid-template-rows: 80px auto;
+        grid-template-areas: 'menu search' 'menu content';
+      }
+
+      .main-col {
+        position: absolute;
+        width: 70%;
+        min-height: 1000px;
+        top: 950px;
+        left: 70px;
+        font-size: 12px;
+       
+      }
+
+      .feed-item-actions .action-buttons .button {
+   
+        font-size: 12px;
+      }
+      .content-wrap .content-head .action button {
+        border: 0;
+        background: #4b84fe;
+        color: #ffffff;
+        width: auto;
+        height: 3.5em;
+        padding: 0 2.25em;
+        margin-right: 1.5em;
+        border-radius: 3.5em;
+        font-size: 0.5em;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: background-color 0.15s ease;
+      }
       
 
     
   }
+
+
+  
   
   @media screen and (max-width: 600px) {
     .topnav.responsive {position: relative;}

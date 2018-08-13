@@ -2,6 +2,9 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 100%;
+     overflow-x: hidden; 
 }
 
 
@@ -200,7 +203,7 @@ form.search-form input.search-btn:hover {
   
   .main-col {
     position: absolute;
-    width: 485px;
+    width: 40%;
     min-height: 1000px;
     top: 460px;
     left: 160px;
@@ -210,7 +213,7 @@ form.search-form input.search-btn:hover {
   .side-col {
    
     position: absolute;
-    width: 265px;
+    width: 20%;
     min-height: 641px;
     top: 460px;
     left: 980px;
@@ -228,6 +231,7 @@ form.search-form input.search-btn:hover {
   .feed-switcher .list-contents {
     list-style: none;
     margin: 0;
+    margin-left: -50px;
     padding: 0;
   }
   
@@ -363,7 +367,7 @@ form.search-form input.search-btn:hover {
     display: inline-block;
     margin-top: 5px;
     margin-right: 10px;
-    font-size: 15px;
+    font-size: 12px;
   }
   
   .feed-item-actions .action-buttons .button img {
@@ -564,13 +568,14 @@ label {
     margin: 20px 0 8px;
     
 }
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   .main-col {
     position: absolute;
-    width: 385px;
+    width: 70%;
      min-height: 1000px;
     top: 750px;
-    left: 60px;
+    left: 160px;
+    font-size: 12px
    
   }
   
@@ -580,13 +585,47 @@ label {
     width: 200px;
     min-height: 641px;
     top: 500px;
-    left: 160px;
+    left: 400px;
   }
 
   #feed-tab-2 {
     margin-left: 90px;
     font-weight: bold; 
     font-size: 16px
+  }
+  
+
+}
+
+@media (max-width: 769px) {
+  .main-col {
+    position: absolute;
+    width: 70%;
+     min-height: 1000px;
+    top: 750px;
+    left: 60px;
+    font-size: 12px
+   
+  }
+  
+  .side-col {
+   
+    position: absolute;
+    width: 200px;
+    min-height: 641px;
+    top: 500px;
+    left: 100px;
+  }
+
+  #feed-tab-2 {
+    margin-left: 90px;
+    font-weight: bold; 
+    font-size: 16px
+  }
+
+  .feed-item-actions .action-buttons .button {
+   
+    font-size: 8px;
   }
   
 }
@@ -624,3 +663,34 @@ label {
     
 }
 }
+
+
+/* @media (min-width:1025px) { 
+  .main-col {
+    position: absolute;
+    width: 70%;
+     min-height: 1000px;
+    top: 750px;
+    left: 160px;
+    font-size: 12px
+   
+  }
+  
+  .side-col {
+   
+    position: absolute;
+    width: 200px;
+    min-height: 641px;
+    top: 500px;
+    left: 400px;
+  }
+
+  #feed-tab-2 {
+    margin-left: 90px;
+    font-weight: bold; 
+    font-size: 16px
+  }
+  
+
+}
+ */
