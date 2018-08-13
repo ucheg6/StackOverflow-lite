@@ -1,15 +1,46 @@
 html, body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+ 
 }
 
-body {
-    background: url(../images/Q&A.jpg);
-  
-  
-  }
 
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: rgb(173, 23, 99, 1);
+    overflow: hidden;
+    
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.nav {
+    margin-right: 80px;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: rgb(76, 139, 175);
+    color: white;
+}
+
+.Navbar_Link-brand {
+    float:left;
+    margin-left: 80px;
+    
+}
 
 
 /* login form styles */
@@ -78,18 +109,20 @@ button {
     color: white;
     padding: 14px 20px;
     margin: 20px 0;
-    border: none;
     cursor: pointer;
     width: 107%;
     opacity: 0.9;
+ 
 }
 
 button:hover {
     opacity:1;
+    
 }
 
 .link:hover{
     color: white;
+  
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
@@ -103,6 +136,14 @@ button:hover {
       }
       button {
         width: 87%;
+       
+    }
+
+    .form-container {
+   
+       
+        margin-top: 60px;
+       
        
     }
 }

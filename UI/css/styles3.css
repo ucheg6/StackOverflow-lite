@@ -1,25 +1,59 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    width:100%;
-    overflow: hidden;
+    
+  
   
 
 }
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: rgb(173, 23, 99, 1);
+    overflow: hidden;
+    
+}
 
-body {
-    background: url(../images/Q&A.jpg);
-  
-  }
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.nav {
+    margin-right: 80px;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: rgb(76, 139, 175);
+    color: white;
+}
+
+.Navbar_Link-brand {
+    float:left;
+    margin-left: 80px;
+    
+}
+
 /* login form styles */
 
 
 
 .form-container {
-      width: 450px;
+     width: 450px;
+     height: auto;
+     padding: 10px;
     background: #0860b8;
-    margin: 20px auto;
+    margin: 50px auto ;
+  
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -32,6 +66,7 @@ form p a {
     text-decoration: none;
     
 }
+
 form p a:hover {
     color: white;
     
@@ -54,7 +89,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 hr {
     border: 1px solid #f1f1f1;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 /* Set a style for all buttons */
@@ -81,18 +116,9 @@ button:hover {
   width: 100%;
 }
 
-/* Add padding to container elements */
-.container {
-    padding: 10px;
-  
-}
 
-/* Clear floats */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
+
+
 
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 500px) {
@@ -100,7 +126,7 @@ button:hover {
        width: 100%;
     }
     .form-container{
-        margin: 0 auto;
+        margin: 20px auto;
        
     }
     input[type=text], input[type=password] {
