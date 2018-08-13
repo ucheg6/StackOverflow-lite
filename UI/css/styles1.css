@@ -248,6 +248,7 @@ form.search-form input.search-btn:hover {
   #feed-tab-2 {
     color: #19558d;
     font-weight: normal; 
+    margin-left: 55px;
   }
   
   .feed {
