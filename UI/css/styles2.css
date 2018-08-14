@@ -4,6 +4,8 @@ html, body {
     font-family: 'Poppins', sans-serif;
     width: 100%;
     height: 100%;
+    background: #353b65 url("../images/Q.jpg") ;
+    background-size: cover;
   
  
 }
@@ -58,6 +60,7 @@ form {
     margin:10px auto;
     padding:10px;
     width: 100%;
+    border-radius: 5px;
     border:1px solid #CCC
   }
   
@@ -115,6 +118,7 @@ button {
     margin: 20px 0;
     cursor: pointer;
     width: 107%;
+    border-radius: 5px;
     opacity: 0.9;
  
 }
@@ -127,6 +131,12 @@ button:hover {
 .link:hover{
     color: white;
   
+}
+
+input[type=text]:focus, input[type=password]:focus {
+
+    outline: none;
+    border: 2px solid rgb(2, 4, 34);
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
@@ -147,7 +157,7 @@ button:hover {
       width: 100%;
       height: auto;
       margin: 0 auto;
-      margin-top: 85px;
+      margin-top: 75px;
 
        
        
@@ -155,6 +165,7 @@ button:hover {
 
     
 }
+
 
 
 

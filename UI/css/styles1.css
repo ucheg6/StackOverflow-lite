@@ -36,8 +36,8 @@ html, body {
 
 /* Add a color to the active/current link */
 .topnav a.active {
-    background-color: rgb(76, 139, 175);
-    color: white;
+   color: rgb(76, 139, 175);
+   
 }
 
 .Navbar_Link-brand {
@@ -642,7 +642,7 @@ label {
 
 
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
+  .topnav a:not(:last-child) {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
@@ -661,14 +661,12 @@ label {
     display: block;
     text-align: left;
   }
-  /* .Navbar_Link-brand {
-   display:none
-    
-  } */
+ 
   .topnav a {
     float: left;
     
  }
+
  
 }
 
