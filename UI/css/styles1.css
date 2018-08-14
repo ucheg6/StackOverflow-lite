@@ -437,14 +437,18 @@ form.search-form input.search-btn:hover {
     border-radius: 5px
   }
   button {
-    background-color: #538dc2;
-    color: white;
-    padding: 14px 20px;
-    margin: 0;
-    border: none;
-    cursor: pointer;
-    width: 72%;
-    opacity: 0.9;
+    border: 0;
+    background: #4b84fe;
+    color: #ffffff;
+    width: auto;
+    height: 3.5em;
+    padding: 0 2.25em;
+    margin-right: 1.5em;
+    border-radius: 3.5em;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: background-color 0.15s ease;
    
 }
 button:hover {
@@ -614,8 +618,8 @@ label {
     position: absolute;
     width: 200px;
     min-height: 641px;
-    top: 500px;
-    left: 100px;
+    top: 450px;
+    left: 90px;
   }
 
   #feed-tab-2 {
@@ -634,6 +638,7 @@ label {
 .topnav .icon {
   display: none;
 }
+
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
@@ -666,32 +671,5 @@ label {
 }
 
 
-/* @media (min-width:1025px) { 
-  .main-col {
-    position: absolute;
-    width: 70%;
-     min-height: 1000px;
-    top: 750px;
-    left: 160px;
-    font-size: 12px
-   
-  }
-  
-  .side-col {
-   
-    position: absolute;
-    width: 200px;
-    min-height: 641px;
-    top: 500px;
-    left: 400px;
-  }
 
-  #feed-tab-2 {
-    margin-left: 90px;
-    font-weight: bold; 
-    font-size: 16px
-  }
-  
 
-}
- */

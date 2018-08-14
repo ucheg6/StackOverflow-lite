@@ -811,43 +811,7 @@ html, body {
     display: none;
   }
   
-  /* @media screen and (max-width: 600px) {
-    .topnav a:not(:first-child) {display: none;}
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
-
-    .dashboard {
-        display: block;
-        width: 100%;
-        height: 100%;
-        grid-gap: 0;
-        grid-template-columns: 300px auto;
-        grid-template-rows: 80px auto;
-        grid-template-areas: 'menu search' 'menu content';
-      }
-
-      .main-col {
-        position: absolute;
-        width: 70%;
-        min-height: 1000px;
-        top: 950px;
-        left: 70px;
-        font-size: 12px;
-       
-      }
-
-      .feed-item-actions .action-buttons .button {
-   
-        font-size: 7px;
-      }
-
-      
-
-    
-  } */
-
+  
   @media screen and (max-width: 769px) {
     
     .dashboard {
@@ -864,7 +828,7 @@ html, body {
         position: absolute;
         width: 70%;
         min-height: 1000px;
-        top: 950px;
+        top: 890px;
         left: 70px;
         font-size: 12px;
        
@@ -872,7 +836,7 @@ html, body {
 
       .feed-item-actions .action-buttons .button {
    
-        font-size: 12px;
+        font-size: 7px;
       }
       .content-wrap .content-head .action button {
         border: 0;
