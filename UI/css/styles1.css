@@ -15,6 +15,7 @@ html, body {
     
 }
 
+
 /* Style the links inside the navigation bar */
 .topnav a {
     float: right;
@@ -29,8 +30,8 @@ html, body {
 }
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+      color: black;
+    
 }
 
 /* Add a color to the active/current link */
@@ -465,7 +466,7 @@ button a {
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
+  padding-top: 70px;
   left: 0;
   top: 0;
   width: 100%;
@@ -618,7 +619,7 @@ label {
     position: absolute;
     width: 200px;
     min-height: 641px;
-    top: 450px;
+    top: 500px;
     left: 90px;
   }
 
@@ -660,14 +661,15 @@ label {
     display: block;
     text-align: left;
   }
-  .Navbar_Link-brand {
+  /* .Navbar_Link-brand {
    display:none
     
-  }
+  } */
   .topnav a {
     float: left;
     
-}
+ }
+ 
 }
 
 
