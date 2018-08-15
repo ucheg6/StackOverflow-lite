@@ -43,7 +43,9 @@ html, body {
    color: rgb(76, 139, 175);
    
 }
-
+#logoo {
+  color: #00d4ff;
+}
 .Navbar_Link-brand {
     float:left;
     margin-left: 80px;
@@ -515,12 +517,20 @@ html, body {
     float: left;
     position: relative;
     display: block;
-    margin: 0;
-    padding: 0;
-    padding-bottom: 2px;
-    border-bottom: 1px solid #e0e0e0;
-    border-top: 0;
+    margin: 10px;
+    padding: 20px;
+    padding-bottom: 20px;
+    border: 1px solid #0d78c0;
+    background-color: #fff;
+    border-left: none;
+    border-radius: 5px;
     margin-bottom: 10px;
+  }
+
+  .feed-item:hover {
+    
+    border-left: 2px solid rgb(173, 23, 99, 1);
+   
   }
   
   .post-title {
@@ -624,6 +634,10 @@ html, body {
     margin-top: 5px;
     margin-right: 10px;
     font-size: 15px;
+    border: 1px solid #538dc2;
+    border-radius: 5px;
+    padding: 2px;
+    
   }
   
   .feed-item-actions .action-buttons .button img {
@@ -828,12 +842,12 @@ html, body {
         position: absolute;
         width: 70%;
         min-height: 1000px;
-        top: 890px;
-        left: 70px;
+        top: 950px;
+        left: 40px;
         font-size: 12px;
        
       }
-
+      
       .feed-item-actions .action-buttons .button {
    
         font-size: 7px;
@@ -851,6 +865,10 @@ html, body {
         text-transform: uppercase;
         font-weight: 600;
         transition: background-color 0.15s ease;
+      }
+
+      .feed-item {
+        border-right: none;
       }
       
 

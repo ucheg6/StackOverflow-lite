@@ -47,7 +47,9 @@ html, body {
     margin-left: 80px;
     
 }
-
+#logoo {
+    color: #00d4ff;
+  }
 
 /* login form styles */
 

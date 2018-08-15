@@ -5,6 +5,7 @@ html, body {
     width: 100%;
     height: 100%;
      overflow-x: hidden; 
+    
 }
 
 
@@ -38,6 +39,9 @@ html, body {
 .topnav a.active {
    color: rgb(76, 139, 175);
    
+}
+#logoo {
+  color: #00d4ff;
 }
 
 .Navbar_Link-brand {
@@ -82,6 +86,7 @@ form.search-form .input-common, form.search-form input.search-term, form.search-
 	vertical-align: bottom;
 }
 form.search-form input.search-term {
+  border-radius: 5px;
 	color: #858c91;
 	font-size: 14px;
     line-height: 17px;
@@ -96,7 +101,8 @@ form.search-form input.search-btn {
 	color: #fff;
 	font-size: 14px;
 	font-weight: 600;
-	line-height: 12px;
+  line-height: 12px;
+  border-radius: 5px;
 	padding: 14px 30px 15px;
 	text-transform: uppercase;
 }
@@ -261,12 +267,19 @@ form.search-form input.search-btn:hover {
     float: left;
     position: relative;
     display: block;
-    margin: 0;
-    padding: 0;
+    margin: 10px;
+    padding: 20px;
     padding-bottom: 2px;
-    border-bottom: 1px solid #e0e0e0;
-    border-top: 0;
+    border: 1px solid #0d78c0;
+    border-left: none;
+    border-radius: 5px;
+    
     margin-bottom: 10px;
+  }
+  .feed-item:hover {
+    
+    border-left: 2px solid rgb(173, 23, 99, 1);
+   
   }
   
   .post-title {
@@ -298,6 +311,8 @@ form.search-form input.search-btn:hover {
   
   .feed-user-pic .pic {
     height: 40px;
+    border: 2px solid #538dc2;
+    border-radius: 5px;
   }
   
   .vote-count-box {
@@ -367,9 +382,11 @@ form.search-form input.search-btn:hover {
   
   .feed-item-actions .action-buttons .button {
     display: inline-block;
-    margin-top: 5px;
-    margin-right: 10px;
-    font-size: 12px;
+   
+     border: 1px solid #538dc2;
+    border-radius: 5px;
+    padding: 2px;
+    font-size: 16px;
   }
   
   .feed-item-actions .action-buttons .button img {
@@ -433,7 +450,7 @@ form.search-form input.search-btn:hover {
    border-radius: 5px
   }
   .links li:hover {
-    background-color: #ddd;
+    color: black;
     cursor: pointer;
     border-radius: 5px
   }
