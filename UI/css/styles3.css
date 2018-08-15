@@ -8,17 +8,17 @@ html, body {
     background: #353b65 url("../images/Q.jpg") ;
     background-size: cover;
   
-  
 
 }
-/* Add a black background color to the top navigation */
+
+
+
+/* Style the links inside the navigation bar */
 .topnav {
     background-color: rgb(173, 23, 99, 1);
     overflow: hidden;
     
 }
-
-/* Style the links inside the navigation bar */
 .topnav a {
     float: right;
     color: #f2f2f2;
@@ -30,13 +30,12 @@ html, body {
 .nav {
     margin-right: 80px;
 }
-/* Change the color of links on hover */
+
 .topnav a:hover {
     
     color: black;
 }
 
-/* Add a color to the active/current link */
 .topnav a.active {
     background-color: rgb(76, 139, 175);
     color: white;
@@ -49,11 +48,10 @@ html, body {
 }
 #logoo {
     color: #00d4ff;
+    font-family: 'Fredericka the Great', cursive;
   }
-/* login form styles */
 
-
-
+  /* login form styles */
 .form-container {
      width: 450px;
      height: auto;
