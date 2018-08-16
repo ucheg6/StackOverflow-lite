@@ -4,7 +4,7 @@
   "description": "A platform for users to ask questions and give answers to asked questions.",
   "main": "server/app.js",
   "scripts": {
-    "start": "node server/app.js",
+    "start": "babel-node server/app.js",
     "start-dev": "nodemon --exec babel-node server/app.js",
     "test": "mocha --require babel-core/register --timeout 6000 server/test/**.js"
   },

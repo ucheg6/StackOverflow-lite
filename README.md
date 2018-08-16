@@ -3,9 +3,9 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
 
 
 [![Build Status](https://travis-ci.org/ucheg6/StackOverflow-lite.svg?branch=159806085-setup-api-endpoint-get-questions)](https://travis-ci.org/ucheg6/StackOverflow-lite)
-[![Coverage Status](https://coveralls.io/repos/github/ucheg6/StackOverflow-lite/badge.svg?branch=master)](https://coveralls.io/github/ucheg6/StackOverflow-lite?branch=159806085-setup-api-endpoint-get-questionsr)
+<!-- [![Coverage Status](https://coveralls.io/repos/github/ucheg6/StackOverflow-lite/badge.svg?branch=master)](https://coveralls.io/github/ucheg6/StackOverflow-lite?branch=159806085-setup-api-endpoint-get-questionsr)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d151392d36b3bc923567/maintainability)](https://codeclimate.com/github/ucheg6/StackOverflow-lite/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/d151392d36b3bc923567/test_coverage)](https://codeclimate.com/github/ucheg6/StackOverflow-lite/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d151392d36b3bc923567/test_coverage)](https://codeclimate.com/github/ucheg6/StackOverflow-lite/test_coverage) -->
 
 # Features
 
