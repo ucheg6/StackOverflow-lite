@@ -3,7 +3,7 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
 
 
 [![Build Status](https://travis-ci.org/ucheg6/StackOverflow-lite.svg?branch=159806085-setup-api-endpoint-get-questions)](https://travis-ci.org/ucheg6/StackOverflow-lite)
-[![Coverage Status](https://coveralls.io/repos/github/ucheg6/Book-A-Meal-App/badge.svg?branch=feature-server)](https://coveralls.io/github/ucheg6/Book-A-Meal-App?branch=feature-server)
+[![Coverage Status](https://coveralls.io/repos/github/ucheg6/StackOverflow-lite/badge.svg?branch=master)](https://coveralls.io/github/ucheg6/StackOverflow-lite?branch=159806085-setup-api-endpoint-get-questionsr)
 [![Maintainability](https://api.codeclimate.com/v1/badges/219d052de64353013d4f/maintainability)](https://codeclimate.com/github/ucheg6/Book-A-Meal-App/maintainability)
 
 # Features
