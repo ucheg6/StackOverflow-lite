@@ -22,6 +22,6 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
   Uche Akogwu
 # Project Management
 
-  Project is managed [here] (https://www.pivotaltracker.com/n/projects/2189581) using the project management tool, Pivotal Tracker.
+  Project is managed at (https://www.pivotaltracker.com/n/projects/2189581) using the project management tool, Pivotal Tracker.
 
-  View UI templates hosted on Github pages [here] (https://ucheg6.github.io/StackOverflow-lite/UI/) 
+  View UI templates hosted on Github pages at (https://ucheg6.github.io/StackOverflow-lite/UI/) 
