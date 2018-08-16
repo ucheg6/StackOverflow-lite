@@ -1,10 +1,10 @@
 language: node_js
 node_js:
-- "stable"
+  - "stable"
  
 after_success:
-- npm run coverage
+  - npm run coverage
 
 cache:
   directories:
-- "node_modules"
+    - "node_modules"
