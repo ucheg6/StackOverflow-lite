@@ -19,8 +19,8 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
 # Extra Features
 
    1. Authenticated users can upvote or downvote an answer.
-   2. Authenticated users get a notification when an answer is given to their      question.
-   3. Authenticated users can view all the questions they have ever asked on       the platform.
+   2. Authenticated users get a notification when an answer is given to their question.
+   3. Authenticated users can view all the questions they have ever asked on the platform.
 # License
   MIT © Uche Akogwu  
 # Author
