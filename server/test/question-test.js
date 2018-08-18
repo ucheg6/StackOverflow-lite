@@ -65,7 +65,10 @@ it('should return a validation error for wrong input', (done) => {
       if (err) done(err);
       expect(res).to.have.status(404);
       expect(res.body).to.be.an('object');
-      expect(res.body.message).to.deep.equal('Question does not exist');
+      expect(res.body).to.deep.equals({
+        status: 'error',
+        message: 'Question does not exist',
+      });
       done();
     });
 });
@@ -86,6 +89,39 @@ it('should return status code 201', (done) => {
       expect(res).to.have.status(201);
       expect(res.body).to.have.property('data');
       expect(res.body.status).to.deep.equals('success');
+      done();
+    });
+});
+});
+
+describe('function postAnswer of Question', () => {
+  it('it should post answer to a question', (done) => {
+    chai.request(app)
+      .post('/api/v1/questions/2/answers')
+      .send({
+        userId: 1,
+        answer: 'that is the answer',
+      })
+      .end((err, res) => {
+        if (err) done(err);
+        expect(res).to.have.status(201);
+        expect(res.body).to.be.an('object');
+        expect(res.body.message).to.deep.equal('Answer added successfully');
+        done();
+      });
+});
+it('should return status code 404', (done) => {
+  chai.request(app)
+    .post('/api/v1/questions/50/answers')
+    .send({
+      userId: 1,
+      answer: 'that is the answer',
+    })
+    .end((err, res) => {
+      if (err) done(err);
+      expect(res).to.have.status(404);
+      expect(res.body).to.be.an('object');
+      expect(res.body.message).to.deep.equal('Question does not exist');
       done();
     });
 });
