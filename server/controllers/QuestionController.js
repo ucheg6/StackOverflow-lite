@@ -1,6 +1,6 @@
 import db from '../models/index';
 
-const { questions} = db;
+const { questions } = db;
 /**
  * @class Question
  * 
@@ -74,6 +74,32 @@ class Question {
             status: 'success',
             message: 'Question added successfully',
             data,
+        });
+    }
+
+     /**
+     * @description - Delete Question 
+     * @static deleteQuestion
+     * 
+     * @param {object} request - HTTP Request
+     * @param {object} response - HTTP Response
+     * 
+     * @memberof Question
+     * 
+     * @returns {Promise<object>}
+     */
+    static deleteQuestion(request, response) {
+        const matchedQuestion = questions.find(question => question.id === parseInt(request.params.questionId, 10));
+        if (matchedQuestion) {
+            questions.splice(request.params.questionId - 1, 1);
+            return response.status(200).json({
+                status: 'success',
+                message: 'Question was successfully deleted',
+            });
+        }
+        return response.status(404).json({
+            status: 'error',
+            message: 'Question does not exist',
         });
     }
 }

@@ -126,3 +126,25 @@ it('should return status code 404', (done) => {
     });
 });
 });
+describe('function deleteQuestion of Question', () => {
+  it('it should delete any question with a specified id', (done) => {
+    chai.request(app)
+      .delete('/api/v1/questions/1/delete')
+      .end((err, res) => {
+        if (err) done(err);
+        expect(res).to.have.status(200);
+        expect(res.body.message).to.deep.equal('Question was successfully deleted');
+        done();
+      });
+  });
+  it('it should not deletea question if the id is unknown', (done) => {
+    chai.request(app)
+      .delete('/api/v1/questions/10/delete')
+      .end((err, res) => {
+        if (err) done(err);
+        expect(res).to.have.status(404);
+        expect(res.body.message).to.deep.equal('Question does not exist');
+        done();
+      });
+  });
+});
