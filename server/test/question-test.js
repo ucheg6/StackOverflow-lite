@@ -57,3 +57,36 @@ describe('function getQuestion of Question', () => {
       });
   });
 });
+
+it('should return a validation error for wrong input', (done) => {
+  chai.request(app)
+    .get('/api/v1/questions/o')
+    .end((err, res) => {
+      if (err) done(err);
+      expect(res).to.have.status(404);
+      expect(res.body).to.be.an('object');
+      expect(res.body.message).to.deep.equal('Question does not exist');
+      done();
+    });
+});
+
+
+describe('function post question of question ', () => {
+it('should return status code 201', (done) => {
+  chai.request(app)
+    .post('/api/v1/questions')
+    .send(
+      {
+        userId: 4,
+        question: 'What is Love?',
+      },
+    )
+    .end((err, res) => {
+      if (err) done(err);
+      expect(res).to.have.status(201);
+      expect(res.body).to.have.property('data');
+      expect(res.body.status).to.deep.equals('success');
+      done();
+    });
+});
+});

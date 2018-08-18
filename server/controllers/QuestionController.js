@@ -1,6 +1,6 @@
 import db from '../models/index';
 
-const { questions } = db;
+const { questions} = db;
 /**
  * @class Question
  * 
@@ -49,6 +49,31 @@ class Question {
             status: 'success',
             message: 'Question found successfully',
             matchedQuestion,
+        });
+    }
+
+    /**
+     * @description - Post Question 
+     * @static postQuestion
+     * 
+     * @param {object} request - HTTP Request
+     * @param {object} response - HTTP Response
+     * 
+     * @memberof Question
+     * 
+     * @returns {Promise<object>}
+     */
+    static postQuestion(request, response) {
+        const { userId, question } = request.body;
+        const id = questions[questions.length - 1].id + 1;
+        const data = {
+            id, userId, question,
+        };
+        questions.push(data);
+        return response.status(201).json({
+            status: 'success',
+            message: 'Question added successfully',
+            data,
         });
     }
 }
