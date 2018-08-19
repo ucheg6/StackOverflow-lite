@@ -92,6 +92,40 @@ it('should return status code 201', (done) => {
       done();
     });
 });
+it('should not create a question if body is missing', (done) => {
+  chai.request(app)
+    .post('/api/v1/questions')
+    .send(
+      {
+        userId: '',
+        question: 'What is an oxymoron?',
+      },
+    )
+    .end((err, res) => {
+      if (err) done(err);
+      expect(res).to.have.status(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body.message).to.deep.equals('userId must be provided');
+      done();
+    });
+});
+it('should not create a question if question is missing', (done) => {
+  chai.request(app)
+    .post('/api/v1/questions')
+    .send(
+      {
+        userId: 4,
+        question: '',
+      },
+    )
+    .end((err, res) => {
+      if (err) done(err);
+      expect(res).to.have.status(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body.message).to.deep.equals('question must be available');
+      done();
+    });
+});
 });
 
 describe('function postAnswer of Question', () => {
@@ -125,6 +159,40 @@ it('should return status code 404', (done) => {
       done();
     });
 });
+it('should not create an answer if user ID is missing', (done) => {
+  chai.request(app)
+    .post('/api/v1/questions/5/answers')
+    .send(
+      {
+        userId: '',
+        answer: 'Answer Me',
+      },
+    )
+    .end((err, res) => {
+      if (err) done(err);
+      expect(res).to.have.status(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body.message).to.deep.equals('userId must be provided');
+      done();
+    });
+});
+it('should not create a question if answer is missing', (done) => {
+  chai.request(app)
+    .post('/api/v1/questions/5/answers')
+    .send(
+      {
+        userId: 4,
+        answer: '',
+      },
+    )
+    .end((err, res) => {
+      if (err) done(err);
+      expect(res).to.have.status(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body.message).to.deep.equals('answer must be available');
+      done();
+    });
+});
 });
 describe('function deleteQuestion of Question', () => {
   it('it should delete any question with a specified id', (done) => {
@@ -137,7 +205,7 @@ describe('function deleteQuestion of Question', () => {
         done();
       });
   });
-  it('it should not deletea question if the id is unknown', (done) => {
+  it('it should not delete a question if the id is unknown', (done) => {
     chai.request(app)
       .delete('/api/v1/questions/10/delete')
       .end((err, res) => {
