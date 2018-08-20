@@ -21,6 +21,35 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
    1. Authenticated users can upvote or downvote an answer.
    2. Authenticated users get a notification when an answer is given to their question.
    3. Authenticated users can view all the questions they have ever asked on the platform.
+
+# API 
+    - Heroku => (https://stackoverflow-litee.herokuapp.com/)
+
+  | METHOD  | DESCRIPTION       | ENDPOINTS                     |
+  | --------| -------------     | ----------------              |
+  | Get     | Get a Question    | /questions                    |
+  | Get     | Get all Questions | /questions/:questionId        |
+  | Post    | Post a Question   | /questions                    |
+  | Delete  | Delete a Question | /questions/:questionId/delete | 
+  | Post    | Post an answer    | /questions/:questionId/answers| 
+
+# How to install project
+    Run the command on your command line git clone https://github.com/ucheg6/StackOverflow-lite.git
+
+# How to run tests
+     Run the command npm run test on your command line to run tests.
+
+# License
+  MIT © Uche Akogwu  
+
+# Author
+  Uche Akogwu
+
+# Project Management
+  Project is managed at (https://www.pivotaltracker.com/n/projects/2189581) using the project management tool, Pivotal Tracker.
+
+  View UI templates hosted on Github pages at (https://ucheg6.github.io/StackOverflow-lite/UI/) 
+
 # License
   MIT © Uche Akogwu  
 # Author
