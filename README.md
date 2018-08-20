@@ -23,7 +23,7 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
    3. Authenticated users can view all the questions they have ever asked on the platform.
 
 # API 
-    - Heroku => (https://stackoverflow-litee.herokuapp.com/)
+     Heroku => (https://stackoverflow-litee.herokuapp.com/)
 
   | METHOD  | DESCRIPTION       | ENDPOINTS                     |
   | --------| -------------     | ----------------              |
