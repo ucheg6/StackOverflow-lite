@@ -1,10 +1,12 @@
 {
-    "presets": [
-      "env"
-    ],
-    "env": {
-      "test": {
-        "plugins": [ "istanbul" ]
-      }
+  "presets": [
+    "env"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "istanbul"
+      ]
     }
   }
+}

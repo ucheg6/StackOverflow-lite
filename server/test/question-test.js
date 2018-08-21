@@ -75,57 +75,57 @@ it('should return a validation error for wrong input', (done) => {
 
 
 describe('function post question of question ', () => {
-it('should return status code 201', (done) => {
-  chai.request(app)
-    .post('/api/v1/questions')
-    .send(
-      {
-        userId: 4,
-        question: 'What is Love?',
-      },
+  it('should return status code 201', (done) => {
+    chai.request(app)
+      .post('/api/v1/questions')
+      .send(
+        {
+          userId: 4,
+          question: 'What is Love?',
+        },
     )
-    .end((err, res) => {
-      if (err) done(err);
-      expect(res).to.have.status(201);
-      expect(res.body).to.have.property('data');
-      expect(res.body.status).to.deep.equals('success');
-      done();
-    });
-});
-it('should not create a question if body is missing', (done) => {
-  chai.request(app)
-    .post('/api/v1/questions')
-    .send(
-      {
-        userId: '',
-        question: 'What is an oxymoron?',
-      },
+      .end((err, res) => {
+        if (err) done(err);
+        expect(res).to.have.status(201);
+        expect(res.body).to.have.property('data');
+        expect(res.body.status).to.deep.equals('success');
+        done();
+      });
+  });
+  it('should not create a question if body is missing', (done) => {
+    chai.request(app)
+      .post('/api/v1/questions')
+      .send(
+        {
+          userId: '',
+          question: 'What is an oxymoron?',
+        },
     )
-    .end((err, res) => {
-      if (err) done(err);
-      expect(res).to.have.status(400);
-      expect(res.body).to.be.an('object');
-      expect(res.body.message).to.deep.equals('userId must be provided');
-      done();
-    });
-});
-it('should not create a question if question is missing', (done) => {
-  chai.request(app)
-    .post('/api/v1/questions')
-    .send(
-      {
-        userId: 4,
-        question: '',
-      },
+      .end((err, res) => {
+        if (err) done(err);
+        expect(res).to.have.status(400);
+        expect(res.body).to.be.an('object');
+        expect(res.body.message).to.deep.equals('userId must be provided');
+        done();
+      });
+  });
+  it('should not create a question if question is missing', (done) => {
+    chai.request(app)
+      .post('/api/v1/questions')
+      .send(
+        {
+          userId: 4,
+          question: '',
+        },
     )
-    .end((err, res) => {
-      if (err) done(err);
-      expect(res).to.have.status(400);
-      expect(res.body).to.be.an('object');
-      expect(res.body.message).to.deep.equals('question must be available');
-      done();
-    });
-});
+      .end((err, res) => {
+        if (err) done(err);
+        expect(res).to.have.status(400);
+        expect(res.body).to.be.an('object');
+        expect(res.body.message).to.deep.equals('question must be available');
+        done();
+      });
+  });
 });
 
 describe('function postAnswer of Question', () => {
@@ -143,22 +143,22 @@ describe('function postAnswer of Question', () => {
         expect(res.body.message).to.deep.equal('Answer added successfully');
         done();
       });
-});
-it('should return status code 404', (done) => {
-  chai.request(app)
-    .post('/api/v1/questions/50/answers')
-    .send({
-      userId: 1,
-      answer: 'that is the answer',
-    })
-    .end((err, res) => {
-      if (err) done(err);
-      expect(res).to.have.status(404);
-      expect(res.body).to.be.an('object');
-      expect(res.body.message).to.deep.equal('Question does not exist');
-      done();
-    });
-});
+  });
+  it('should return status code 404', (done) => {
+    chai.request(app)
+      .post('/api/v1/questions/50/answers')
+      .send({
+        userId: 1,
+        answer: 'that is the answer',
+      })
+      .end((err, res) => {
+        if (err) done(err);
+        expect(res).to.have.status(404);
+        expect(res.body).to.be.an('object');
+        expect(res.body.message).to.deep.equal('Question does not exist');
+        done();
+      });
+  });
 });
 describe('function deleteQuestion of Question', () => {
   it('it should delete any question with a specified id', (done) => {
