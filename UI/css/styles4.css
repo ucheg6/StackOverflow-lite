@@ -12,7 +12,7 @@ html, body {
 }
 /* Style the links inside the navigation bar */
 .topnav {
-  background-color: rgb(173, 23, 99, 1);
+  background-color: #3b8beb;
   overflow: hidden;
   
 }
@@ -32,10 +32,10 @@ html, body {
       color: black;
 }
 .topnav a.active {
-   color: rgb(76, 139, 175);
+   color: #b23850;
 }
 #logoo {
-  color: #00d4ff;
+  color: #b23850;
   font-family: 'Fredericka the Great', cursive;
 }
 .Navbar_Link-brand {
@@ -559,10 +559,9 @@ label {
 position: fixed;
 left: 0;
 bottom: 0;
-
 width: 100%;
 height: 50px;
-background-color: rgb(173, 23, 99, 1);
+background-color: #3b8beb;
 color: white;
 text-align: center;
 }
@@ -595,9 +594,12 @@ position: absolute;
 width: 70%;
 min-height: 1000px;
 top: 950px;
-left: 40px;
+left: 25px;
 font-size: 12px;
 
+}
+.article-preview {
+  width: 80%;
 }
 
 .feed-item-actions .action-buttons .button {

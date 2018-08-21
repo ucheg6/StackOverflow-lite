@@ -9,7 +9,7 @@ html, body {
 }
 /* Style the links inside the navigation bar */
 .topnav {
-  background-color: rgb(173, 23, 99, 1);
+  background-color: #3b8beb;
   overflow: hidden;
   
 }
@@ -32,12 +32,12 @@ html, body {
 
 
 .topnav a.active {
-   color: rgb(76, 139, 175);
+   color: #b23850;
    
 }
 #logoo {
-  color: #00d4ff;
-  font-family: 'Fredericka the Great', cursive;
+  color: #b23850;
+
 }
 
 .Navbar_Link-brand {
@@ -53,7 +53,7 @@ html, body {
    
 }
 h3.search-title {
-    padding-top: 10px;
+    padding-top: 30px;
 	color: rgb(246, 246, 248);
 	font-size: 36px;
 	font-weight: bold;
@@ -87,14 +87,14 @@ form.search-form input.search-term {
 	color: #858c91;
 	font-size: 14px;
     line-height: 17px;
-    margin-top: 10px;
+    margin-top: 20px;
 	margin-bottom: 0;
 	margin-right: 10px;
 	padding: 12px;
-	width: 52%;
+	width: 22%;
 }
 form.search-form input.search-btn {
-	background-color: #1079cf;
+	background-color: #3b8beb;
 	color: #fff;
 	font-size: 14px;
 	font-weight: 600;
@@ -104,11 +104,12 @@ form.search-form input.search-btn {
 	text-transform: uppercase;
 }
 form.search-form input.search-btn:hover {
-	background-color: #4b5760;
+	background-color: #b23850;
 }
 .imgBanner {
-    background: #353b65 url("../images/Q&A.jpg");
-   padding-bottom: 90px;
+    background: #353b65 url("../images/Q.jpg");
+    background-size: cover;
+   padding-bottom: 150px;
  
 }
 
@@ -121,7 +122,7 @@ form.search-form input.search-btn:hover {
     position: absolute;
     width: 40%;
     min-height: 1000px;
-    top: 460px;
+    top: 480px;
     left: 160px;
    
 }
@@ -129,7 +130,7 @@ form.search-form input.search-btn:hover {
     position: absolute;
     width: 20%;
     min-height: 641px;
-    top: 460px;
+    top: 480px;
     left: 980px;
   }
   
@@ -177,12 +178,11 @@ form.search-form input.search-btn:hover {
   border: 1px solid #0d78c0;
   border-left: none;
   border-radius: 5px;
-  
   margin-bottom: 10px;
 }
 .feed-item:hover {
   
-  border-left: 2px solid rgb(173, 23, 99, 1);
+  border-left: 2px solid #b23850;
   
 }
   
@@ -321,7 +321,7 @@ button {
   width: auto;
   height: 3.5em;
   padding: 0 2.25em;
-  margin-right: 1.5em;
+  margin-right: 1em;
   border-radius: 3.5em;
   font-size: 1em;
   text-transform: uppercase;
@@ -330,7 +330,8 @@ button {
   
 }
 button:hover {
-    opacity: 0.8
+    opacity: 0.8;
+    background-color: #b23850
 }
 button a {
     color: white;
@@ -438,10 +439,9 @@ label {
     position: fixed;
     left: 0;
     bottom: 0;
-   
     width: 100%;
     height: 50px;
-    background-color: rgb(173, 23, 99, 1);
+    background-color: #3b8beb;
     color: white;
     text-align: center;
   }
@@ -498,7 +498,7 @@ label {
     position: absolute;
     width: 200px;
     min-height: 641px;
-    top: 500px;
+    top: 550px;
     left: 90px;
   }
 
@@ -512,6 +512,20 @@ label {
    
     font-size: 8px;
   }
+  .feed-item {
+    width: 100%;
+     margin: 10px;
+    padding: 20px;
+    padding-bottom: 2px;
+    border-top: 1px solid #0d78c0;
+    border-left: none;
+    border-right: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  form.search-form input.search-term {
+     width: 50%;
+  }  
   
 }
 
@@ -547,6 +561,7 @@ label {
     float: left;
     
  }
+
 
  
 }

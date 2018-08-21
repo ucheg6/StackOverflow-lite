@@ -12,13 +12,13 @@ html, body {
 
 /* Style the links inside the navigation bar */
 .topnav {
-    background-color: rgb(173, 23, 99, 1);
+    background-color: #3b8beb;
     overflow: hidden;
     
 }
 #logoo {
-    color: #00d4ff;
-    font-family: 'Fredericka the Great', cursive;
+    color: #b23850;
+
   }
 .topnav a {
     float: right;
@@ -70,7 +70,7 @@ cursor:pointer
 
     width: 450px;
     height: 280px;
-    background: #0860b8;
+    background: #e7e3d4;
     margin: 0 auto;
     margin-top: 130px;
     padding : 100px 10px 0 0;
@@ -106,7 +106,7 @@ form p {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #3b8beb;
     color: white;
     padding: 14px 20px;
     margin: 20px 0;
@@ -123,7 +123,7 @@ button:hover {
 }
 
 .link:hover{
-    color: white;
+    color: #b23850;
   
 }
 
@@ -148,7 +148,7 @@ input[type=text]:focus, input[type=password]:focus {
     }
 
     .form-container {
-      width: 100%;
+      width: 90%;
       height: auto;
       margin: 0 auto;
       margin-top: 75px;
