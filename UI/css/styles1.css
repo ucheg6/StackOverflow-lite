@@ -487,8 +487,8 @@ label {
     position: absolute;
     width: 70%;
      min-height: 1000px;
-    top: 750px;
-    left: 60px;
+    top: 800px;
+    left: 25px;
     font-size: 12px
    
   }
@@ -498,8 +498,25 @@ label {
     position: absolute;
     width: 200px;
     min-height: 641px;
-    top: 550px;
+    top: 600px;
     left: 90px;
+  }
+  .btn-nav {
+    margin-left: -10px;
+  }
+  .feed-user-pic .pic {
+     display:none
+    
+  }  
+  .feed-switcher .list-contents {
+     text-align: center;
+  }  
+  h3.search-title {
+    font-size: 25px;
+  }
+  p.search-tag-line {
+    font-size: 25px;
+    margin: 10px
   }
 
   #feed-tab-2 {
