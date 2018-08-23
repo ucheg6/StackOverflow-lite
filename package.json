@@ -6,6 +6,7 @@
   "scripts": {
     "start": "babel-node server/app.js",
     "start-dev": "nodemon --exec babel-node server/app.js",
+    "mig": "psql -U postgres -f  ./server/models/stackoverflowlite.sql",
     "test": "set NODE_ENV=test && nyc --reporter=html --reporter=text mocha --require babel-core/register --timeout 6000 server/test/**.js --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
@@ -20,11 +21,13 @@
   },
   "homepage": "https://github.com/ucheg6/StackOverflow-lite#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
-    "validator": "^9.4.1"
+    "validator": "^9.4.1",
+    "pg": "^7.0.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
