@@ -2,325 +2,324 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-    <link rel="stylesheet" href="css/styles1.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-    <title>StackOverflow-lite</title>
+  <meta charset="utf-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+  <link rel="stylesheet" href="css/styles1.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+  <title>StackOverflow-lite</title>
 </head>
 
 <body>
-    <div class="topnav" id="myTopnav">
-        <div class=" Navbar_Link-brand ">
-            <a href="#index.html" id="logoo">StackOverflow-lite®</a>
-        </div>
-        <div class="nav" class="topnav" id="myTopnav">
-            <a class=" active" href="index.html#">HOME</a>
-            <a href="dashboard.html">PROFILE</a>
-            <a href="login.html">LOGIN</a>
-            <a href="signup.html#">SIGNUP</a>
-            <a href="#" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-
-
-
+  <div class="topnav" id="myTopnav">
+    <div class=" Navbar_Link-brand ">
+      <a href="index.html" id="logoo">StackOverflow-lite®</a>
+    </div>
+    <div class="nav" class="topnav" id="myTopnav">
+      <a href="dashboard.html">PROFILE</a>
+      <a href="login.html">LOGIN</a>
+      <a href="signup.html#">SIGNUP</a>
+      <a href="#" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
 
-    <div class="header">
-        <div class="imgBanner">
-            <h3 class="search-title">Have a Question?</h3>
-            <p class="search-tag-line">If you have any question you can ask below or enter what you are looking for!</p>
-            <form autocomplete="off" method="get" class="search-form clearfix" id="search-form">
-                <input type="text" title="* Please enter a search term!" placeholder="Type your search terms here" class="search-term " autocomplete="off">
-                <input type="submit" value="Search" class="search-btn">
-            </form>
-        </div>
 
+
+  </div>
+
+  <div class="header">
+    <div class="imgBanner">
+      <h3 class="search-title">Have a Question?</h3>
+      <p class="search-tag-line">If you have any question you can ask below or enter what you are looking for!</p>
+      <form autocomplete="off" method="get" class="search-form clearfix" id="search-form">
+        <input type="text" title="* Please enter a search term!" placeholder="Type your search terms here" class="search-term " autocomplete="off">
+        <input type="submit" value="Search" class="search-btn">
+      </form>
     </div>
 
-    <div id="page-wrap">
-        <div class="main-col">
-            <div class="feed-switcher">
-                <ul class="list-contents">
-                    <li class="feed-tab" id="feed-tab-2">
-                        Recent Questions
-                    </li>
-                </ul>
-            </div>
-            <div class="feed">
-                <div class="feed-item">
-                    <div class="post-title">
-                        <span class="user-name">
-                            Jessica Su
-                        </span>
-                        <span class="light-grey">
-                            asked a question.
-                        </span>
-                        <span class="post-time">
-                            2m ago
-                        </span>
-                    </div>
+  </div>
 
-                    <div class="feed-user-pic">
-                        <img class="pic" src="images/1.jpg" />
-                    </div>
+  <div id="page-wrap">
+    <div class="main-col">
+      <div class="feed-switcher">
+        <ul class="list-contents">
+          <li class="feed-tab" id="feed-tab-2">
+            Recent Questions
+          </li>
+        </ul>
+      </div>
+      <div class="feed">
+        <div class="feed-item">
+          <div class="post-title">
+            <span class="user-name">
+              Jessica Su
+            </span>
+            <span class="light-grey">
+              asked a question.
+            </span>
+            <span class="post-time">
+              2m ago
+            </span>
+          </div>
 
-                    <div class="post-body">
-                        <div class="article-title">
-                            What are the basics of css positioning ?
-                        </div>
+          <div class="feed-user-pic">
+            <img class="pic" src="images/1.jpg" />
+          </div>
 
-                    </div>
-                    <div class="feed-item-actions">
-                        <ul class="action-buttons">
-
-                            <li class="button" id="button-up">
-                                <a href="question.html">
-                                    <i class="fa fa-edit"></i> Answer </a>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                </div>
-
-                <div class="feed-item">
-                    <div class="post-title">
-                        <span class="user-name">
-                            Paul Andre
-                        </span>
-                        <span class="light-grey">
-                            asked a question.
-                        </span>
-                        <span class="post-time">
-                            44m ago
-                        </span>
-                    </div>
-
-                    <div class="feed-user-pic">
-                        <img class="pic" src="images/2.jpg" />
-                    </div>
-
-                    <div class="post-body">
-                        <div class="article-title">
-                            Puerto Rico: Why is Puerto Rico not a state?
-                        </div>
-
-                    </div>
-                    <div class="feed-item-actions">
-                        <ul class="action-buttons">
-
-                            <li class="button" id="button-up">
-                                <a href="question.html">
-                                    <i class="fa fa-edit"></i> Answer </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="feed-item">
-                <div class="post-title">
-                    <span class="user-name">
-                        Jessica Su
-                    </span>
-                    <span class="light-grey">
-                        asked a question.
-                    </span>
-                    <span class="post-time">
-                        2m ago
-                    </span>
-                </div>
-
-                <div class="feed-user-pic">
-                    <img class="pic" src="images/1.jpg" />
-                </div>
-
-
-
-
-                <div class="post-body">
-                    <div class="article-title">
-                        What are the basics of CSS?
-                    </div>
-
-                </div>
-                <div class="feed-item-actions">
-                    <ul class="action-buttons">
-
-                        <li class="button" id="button-up">
-                            <a href="question.html">
-                                <i class="fa fa-edit"></i> Answer </a>
-                        </li>
-
-                    </ul>
-                </div>
-
+          <div class="post-body">
+            <div class="article-title">
+              What are the basics of css positioning ?
             </div>
 
-            <div class="feed-item">
-                <div class="post-title">
-                    <span class="user-name">
-                        Paul Andre
-                    </span>
-                    <span class="light-grey">
-                        asked a question.
-                    </span>
-                    <span class="post-time">
-                        44m ago
-                    </span>
-                </div>
+          </div>
+          <div class="feed-item-actions">
+            <ul class="action-buttons">
 
-                <div class="feed-user-pic">
-                    <img class="pic" src="images/2.jpg" />
-                </div>
+              <li class="button" id="button-up">
+                <a href="question.html">
+                  <i class="fa fa-edit"></i> Answer </a>
+              </li>
 
-
-
-
-                <div class="post-body">
-                    <div class="article-title">
-                        Puerto Rico: Why is Puerto Rico not a state?
-                    </div>
-
-
-                </div>
-                <div class="feed-item-actions">
-                    <ul class="action-buttons">
-
-                        <li class="button" id="button-up">
-                            <a href="question.html">
-                                <i class="fa fa-edit"></i> Answer </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-            <div class="feed-item">
-                <div class="post-title">
-                    <span class="user-name">
-                        Paul Andre
-                    </span>
-                    <span class="light-grey">
-                        asked a question.
-                    </span>
-                    <span class="post-time">
-                        44m ago
-                    </span>
-                </div>
-
-                <div class="feed-user-pic">
-                    <img class="pic" src="images/2.jpg" />
-                </div>
-
-                <div class="post-body">
-                    <div class="article-title">
-                        Puerto Rico: Why is Puerto Rico not a state?
-                    </div>
-
-                </div>
-                <div class="feed-item-actions">
-                    <ul class="action-buttons">
-
-                        <li class="button" id="button-up">
-                            <a href="question.html">
-                                <i class="fa fa-edit"></i> Answer </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="feed-item">
-                <div class="post-title">
-                    <span class="user-name">
-                        Jessica Su
-                    </span>
-                    <span class="light-grey">
-                        asked a question.
-                    </span>
-                    <span class="post-time">
-                        2m ago
-                    </span>
-                </div>
-
-                <div class="feed-user-pic">
-                    <img class="pic" src="images/1.jpg" />
-                </div>
-
-                <div class="post-body">
-                    <div class="article-title">
-                        What are the CSS Positioning Basics ?
-                    </div>
-
-                </div>
-
-                <div class="feed-item-actions">
-                    <ul class="action-buttons">
-
-                        <li class="button" id="button-up">
-                            <a href="question.html">
-                                <i class="fa fa-edit"></i> Answer </a>
-                        </li>
-
-                    </ul>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-    <div class="side-col">
-        <div class="side-col-question-area">
-            <div class="btn-nav">
-                <button type="submit" id="postQuestion">Post Question</button>
-
-            </div>
-
-
-        </div>
-        <div class="side-column-nav-box">
-            <ul class="links">
-
-                <li>
-                    <i class="fa fa-heart"></i>
-                    Popular Questions</li>
-
-                <div></div>
-
-                <li>
-                    <i class="fa fa-chart-line"></i>
-                    View Questions</li>
             </ul>
+          </div>
+
         </div>
-    </div>
 
-    <!-- New Entry Modal -->
-    <div id="entryModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h3>Ask your Question</h3>
+        <div class="feed-item">
+          <div class="post-title">
+            <span class="user-name">
+              Paul Andre
+            </span>
+            <span class="light-grey">
+              asked a question.
+            </span>
+            <span class="post-time">
+              44m ago
+            </span>
+          </div>
+
+          <div class="feed-user-pic">
+            <img class="pic" src="images/2.jpg" />
+          </div>
+
+          <div class="post-body">
+            <div class="article-title">
+              Puerto Rico: Why is Puerto Rico not a state?
             </div>
-            <div class="modal-body">
-                <form class="edit_form">
-                   
-                    <div class="form_group">
-                        <label>Question Title</label>
-                        <input type="text" placeholder="Entry Title">
-                    </div>
-                    <div class="form_group">
-                        <label>Question Body</label>
-                        <textarea rows="10" cols="100" class="form-control"></textarea>
-                    </div>
-                    <button class="btn btn-blue">Add Question</button>
-                </form>
-            </div>
+
+          </div>
+          <div class="feed-item-actions">
+            <ul class="action-buttons">
+
+              <li class="button" id="button-up">
+                <a href="question.html">
+                  <i class="fa fa-edit"></i> Answer </a>
+              </li>
+            </ul>
+          </div>
         </div>
+
+
+      </div>
+      <div class="feed-item">
+        <div class="post-title">
+          <span class="user-name">
+            Jessica Su
+          </span>
+          <span class="light-grey">
+            asked a question.
+          </span>
+          <span class="post-time">
+            2m ago
+          </span>
+        </div>
+
+        <div class="feed-user-pic">
+          <img class="pic" src="images/1.jpg" />
+        </div>
+
+
+
+
+        <div class="post-body">
+          <div class="article-title">
+            What are the basics of CSS?
+          </div>
+
+        </div>
+        <div class="feed-item-actions">
+          <ul class="action-buttons">
+
+            <li class="button" id="button-up">
+              <a href="question.html">
+                <i class="fa fa-edit"></i> Answer </a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="feed-item">
+        <div class="post-title">
+          <span class="user-name">
+            Paul Andre
+          </span>
+          <span class="light-grey">
+            asked a question.
+          </span>
+          <span class="post-time">
+            44m ago
+          </span>
+        </div>
+
+        <div class="feed-user-pic">
+          <img class="pic" src="images/2.jpg" />
+        </div>
+
+
+
+
+        <div class="post-body">
+          <div class="article-title">
+            Puerto Rico: Why is Puerto Rico not a state?
+          </div>
+
+
+        </div>
+        <div class="feed-item-actions">
+          <ul class="action-buttons">
+
+            <li class="button" id="button-up">
+              <a href="question.html">
+                <i class="fa fa-edit"></i> Answer </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <div class="feed-item">
+        <div class="post-title">
+          <span class="user-name">
+            Paul Andre
+          </span>
+          <span class="light-grey">
+            asked a question.
+          </span>
+          <span class="post-time">
+            44m ago
+          </span>
+        </div>
+
+        <div class="feed-user-pic">
+          <img class="pic" src="images/2.jpg" />
+        </div>
+
+        <div class="post-body">
+          <div class="article-title">
+            Puerto Rico: Why is Puerto Rico not a state?
+          </div>
+
+        </div>
+        <div class="feed-item-actions">
+          <ul class="action-buttons">
+
+            <li class="button" id="button-up">
+              <a href="question.html">
+                <i class="fa fa-edit"></i> Answer </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="feed-item">
+        <div class="post-title">
+          <span class="user-name">
+            Jessica Su
+          </span>
+          <span class="light-grey">
+            asked a question.
+          </span>
+          <span class="post-time">
+            2m ago
+          </span>
+        </div>
+
+        <div class="feed-user-pic">
+          <img class="pic" src="images/1.jpg" />
+        </div>
+
+        <div class="post-body">
+          <div class="article-title">
+            What are the CSS Positioning Basics ?
+          </div>
+
+        </div>
+
+        <div class="feed-item-actions">
+          <ul class="action-buttons">
+
+            <li class="button" id="button-up">
+              <a href="question.html">
+                <i class="fa fa-edit"></i> Answer </a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+
     </div>
+  </div>
+
+  <div class="side-col">
+    <div class="side-col-question-area">
+      <div class="btn-nav">
+        <button type="submit" id="postQuestion">Post Question</button>
+
+      </div>
+
+
+    </div>
+    <div class="side-column-nav-box">
+      <ul class="links">
+
+        <li>
+          <i class="fa fa-heart"></i>
+          Popular Questions</li>
+
+        <div></div>
+
+        <li>
+          <i class="fa fa-chart-line"></i>
+          View Questions</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- New Entry Modal -->
+  <div id="entryModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h3>Ask your Question</h3>
+      </div>
+      <div class="modal-body">
+        <form class="edit_form">
+
+          <div class="form_group">
+            <label>Question Title</label>
+            <input type="text" placeholder="Entry Title">
+          </div>
+          <div class="form_group">
+            <label>Question Body</label>
+            <textarea rows="10" cols="100" class="form-control"></textarea>
+          </div>
+          <button class="btn btn-blue">Add Question</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -328,13 +327,13 @@
 
 
 
-    <footer class="footer">
+  <footer class="footer">
 
-        <p>Designed by Uche Akogwu © 2018 </p>
+    <p>Designed by Uche Akogwu © 2018 </p>
 
-    </footer>
-    <script src="js/modal.js"></script>
-    <script src="js/tab.js"></script>
+  </footer>
+  <script src="js/modal.js"></script>
+  <script src="js/tab.js"></script>
 </body>
 
 </html>

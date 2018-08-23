@@ -15,7 +15,7 @@ html, body {
 
 /* Style the links inside the navigation bar */
 .topnav {
-    background-color: rgb(173, 23, 99, 1);
+    background-color: #3b8beb;
     overflow: hidden;
     
 }
@@ -37,7 +37,7 @@ html, body {
 }
 
 .topnav a.active {
-    background-color: rgb(76, 139, 175);
+    background-color: #b23850;
     color: white;
 }
 
@@ -47,7 +47,7 @@ html, body {
     
 }
 #logoo {
-    color: #00d4ff;
+    color: #b23850;
     font-family: 'Fredericka the Great', cursive;
   }
 
@@ -55,8 +55,8 @@ html, body {
 .form-container {
      width: 450px;
      height: auto;
-     padding: 10px;
-    background: #0860b8;
+     padding: 20px;
+    background: #e7e3d4;
     margin: 50px auto ;
     border-radius: 10px;
     -moz-border-radius: 10px;
@@ -72,7 +72,7 @@ form p a {
 }
 
 form p a:hover {
-    color: white;
+    color: #b23850;
     
 }
  
@@ -100,7 +100,7 @@ hr {
 
 /* Set a style for all buttons */
 button {
-    background-color: #4CAF50;
+    background-color: #3b8beb;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
