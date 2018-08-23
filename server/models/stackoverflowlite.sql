@@ -19,11 +19,15 @@ CREATE TABLE questions (
 );
 
 CREATE TABLE answers(
-  id SERIAL PRIMARY KEY,
+  answerId SERIAL PRIMARY KEY,
+  questionId INT NOT NULL,
+  userId INT NOT NULL,
   body VARCHAR (150) NOT NULL,
   is_preferred BOOLEAN DEFAULT false,
   FOREIGN KEY (questionId) REFERENCES questions (questionId),
   FOREIGN KEY (userId) REFERENCES users (userId)
 );
+
+
 
 
