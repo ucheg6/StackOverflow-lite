@@ -28,6 +28,29 @@ CREATE TABLE answers(
   FOREIGN KEY (userId) REFERENCES users (userId)
 );
 
+-- seeding
+    INSERT INTO users (fullName,email,pass) 
+    VALUES ('Uche Akogwu','akogwuuche@ymail.com','presley0080');
+    INSERT INTO users (fullName,email,pass) 
+    VALUES ('Dika Okwa','dikaeinstein@gmail.com','presley0080');
+    INSERT INTO users (fullName,email,pass) 
+    VALUES ('Ibrahim Ilyasu','ibravoh@gmail.com','presley0080');
+
+
+   INSERT INTO questions (userId,questionTopic,questionBody) 
+   VALUES (1,'Politics','How can we legally impeach a sitting president in a democracy?');
+   INSERT INTO questions (userId,questionTopic,questionBody) 
+   VALUES (2,'Programming','What are the fundamentals of software development?');
+   INSERT INTO questions (userId,questionTopic,questionBody) 
+   VALUES (3,'Religion','Do you think the backwardness of our economy should be blamed on religion?');
+
+   INSERT INTO answers (questionId,userId,body,is_preferred) 
+   VALUES (1,2,'We can by getting the majority of NASS members to vote against him',false);
+   INSERT INTO answers (questionId,userId,body,is_preferred)  
+   VALUES (2,3,'The fundamentals are html, css and javascript',false);
+   INSERT INTO answers (questionId,userId,body,is_preferred)  
+   VALUES (3,1,'I think it should be blamed on government and not religion',false);
+
 
 
 
