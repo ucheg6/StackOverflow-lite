@@ -1,4 +1,5 @@
 {
+  "root": true,
   "env": {
     "es6": true,
     "node": true,
@@ -11,6 +12,25 @@
   },
   "rules": {
     "no-console": 0,
-    "no-unused-vars": 0
+    "no-unused-vars": 0,
+    "valid-jsdoc": [
+      "error",
+      {
+        "requireReturn": true,
+        "requireReturnType": true,
+        "requireParamDescription": false,
+        "requireReturnDescription": true
+      }
+    ],
+    "require-jsdoc": [
+      "error",
+      {
+        "require": {
+          "FunctionDeclaration": false,
+          "MethodDefinition": false,
+          "ClassDeclaration": false
+        }
+      }
+    ]
   }
 }
