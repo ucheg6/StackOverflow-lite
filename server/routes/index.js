@@ -1,14 +1,13 @@
 import express from 'express';
-import Question from '../controllers/QuestionController';
-import Answer from '../controllers/AnswerController';
-import Validate from '../middleware/validate';
+import UserController from '../controllers/UserController';
+import SignupValidation from '../validation/user';
+import Middleware from '../middleware/users';
 
 const router = express.Router();
 
-router.get('/questions', Question.getAllQuestions);
-router.get('/questions/:questionId', Question.getQuestion);
-router.post('/questions', Validate.validateQuestion, Question.postQuestion);
-router.delete('/questions/:questionId/delete', Question.deleteQuestion);
-router.post('/questions/:questionId/answers', Answer.postAnswer);
+
+router.post('/auth/signup', SignupValidation.UserSignup, SignupValidation.validateInput, SignupValidation.checkLength, UserController.userSignup);
+router.post('/auth/login', SignupValidation.checkUserLogin, UserController.userLogin);
+router.get('/users', Middleware.checkUser, UserController.getAllUsers);
 
 export default router;

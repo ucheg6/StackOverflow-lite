@@ -22,12 +22,15 @@
   "homepage": "https://github.com/ucheg6/StackOverflow-lite#readme",
   "dependencies": {
     "bluebird": "^3.5.1",
+    "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1",
     "morgan": "^1.9.0",
     "validator": "^9.4.1",
-    "pg": "^7.0.3"
+    "pg": "^7.0.3",
+    "should": "^13.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
