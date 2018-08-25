@@ -1,5 +1,18 @@
 language: node_js
 node_js:
    - "8.11.1"
-after_success: npm run coverage
 sudo: false
+services:
+  - postgresql
+
+before_install:
+  - npm install -g npm@latest
+
+before_script:
+  - psql -c 'create database mtracker;' -U postgres
+
+script:
+  - npm test
+
+after_success:
+- npm run coverage
