@@ -1,0 +1,153 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background: #353b65 url("../images/Q.jpg") ;
+    background-size: cover;
+  
+
+}
+
+
+
+/* Style the links inside the navigation bar */
+.topnav {
+    background-color: #3b8beb;
+    overflow: hidden;
+    
+}
+.topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.nav {
+    margin-right: 80px;
+}
+
+.topnav a:hover {
+    
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #b23850;
+    color: white;
+}
+
+.Navbar_Link-brand {
+    float:left;
+    margin-left: 80px;
+    
+}
+#logoo {
+    color: #b23850;
+    font-family: 'Fredericka the Great', cursive;
+  }
+
+  /* login form styles */
+.form-container {
+     width: 450px;
+     height: auto;
+     padding: 20px;
+    background: #e7e3d4;
+    margin: 50px auto ;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border:1px solid rgb(2, 4, 34);
+    
+   
+}
+
+form p a {
+    text-decoration: none;
+    
+}
+
+form p a:hover {
+    color: #b23850;
+    
+}
+ 
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 12px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: rgb(245, 240, 240);
+    outline: none;
+    border: 2px solid rgb(2, 4, 34);
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 10px;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #3b8beb;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity:1;
+}
+
+
+
+/* Float signup buttons and add an equal width */
+ .signupbtn {
+
+  width: 100%;
+}
+
+
+
+
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 500px) {
+    .signupbtn {
+       width: 100%;
+    }
+    .form-container{
+        margin: 20px auto;
+        width: 80%;
+        height: auto;
+       
+    }
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 5px 12px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+    
+}
+
+
+
