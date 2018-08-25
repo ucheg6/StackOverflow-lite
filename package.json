@@ -7,6 +7,7 @@
     "start": "babel-node server/app.js",
     "start-dev": "nodemon --exec babel-node server/app.js",
     "mig": "psql -U postgres -f  ./server/models/stackoverflowlite.sql",
+    "lint": "eslint --init --fix",
     "test": "set NODE_ENV=test && nyc --reporter=html --reporter=text mocha --require babel-core/register --timeout 6000 server/test/**.js --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
@@ -43,6 +44,7 @@
     "chai-http": "^4.0.0",
     "coveralls": "^3.0.2",
     "eslint": "^5.2.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",
     "istanbul": "^0.4.5",

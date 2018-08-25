@@ -1,6 +1,3 @@
-DROP DATABASE IF EXISTS stackoverflowlite;
-CREATE DATABASE stackoverflowlite;
-
 \c stackoverflowlite;
 
 CREATE TABLE users (
