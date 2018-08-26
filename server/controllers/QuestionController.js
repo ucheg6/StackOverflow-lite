@@ -1,5 +1,6 @@
 import client from '../models/database';
-
+import validator from 'validator';
+import Question from '../models/questionQueries';
 
 /**
    * @class QuestionController
@@ -31,7 +32,35 @@ class QuestionController {
 
   }
 
-  
+  /**
+ * @description Query to create a new question
+ *
+ * @param {Object} request - HTTP Request
+ * @param {Object} response - HTTP Response
+ *
+ * @returns {object} response JSON Object
+ */
+  static postQuestion(request, response) {
+    const { userid: userId } = request.user;
+
+    const newQuestion = {
+      questionTopic: validator.trim(String(request.body.questionTopic.toLowerCase())),
+      questionBody: validator.trim(String(request.body.questionBody.toLowerCase())),
+    };
+    const query = {
+      text: 'INSERT INTO questions(userId, questionTopic, questionBody) VALUES($1, $2, $3) ',
+    values: [userId,
+        newQuestion.questionTopic,
+        newQuestion.questionBody],
+    };
+    client.query(query).then(() => response.status(201).json({
+      success: true,
+      message: 'Question Successfully created',
+      newQuestion,
+    })).catch(error => response.status(500).json({ message: error.message }));
+  }
+
+
 }
 
 
