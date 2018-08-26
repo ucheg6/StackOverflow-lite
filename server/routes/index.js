@@ -1,6 +1,7 @@
 import express from 'express';
 import UserController from '../controllers/UserController';
 import QuestionController from '../controllers/QuestionController';
+import AnswerController from '../controllers/AnswerController';
 import SignupValidation from '../validation/user';
 import Middleware from '../middleware/users';
 
@@ -13,5 +14,7 @@ router.get('/users', Middleware.checkUser, UserController.getAllUsers);
 
 router.get('/questions', Middleware.checkUser, QuestionController.getAllQuestions);
 
+
+router.post('/questions/:questionId/answers', Middleware.checkUser, AnswerController.postAnswer);
 
 export default router;
