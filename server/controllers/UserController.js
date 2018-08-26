@@ -13,7 +13,7 @@ class UserController {
    * @description Function to get all users available
    *
    * @param {Object} request - HTTP Request Object
-   * @param {Object} response - HTTP Response Object containing List of questions
+   * @param {Object} response - HTTP Response Object containing List of users
    *
    * @returns {object} response JSON Object
    */
