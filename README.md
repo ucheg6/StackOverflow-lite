@@ -5,7 +5,10 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
 [![Build Status](https://travis-ci.org/ucheg6/StackOverflow-lite.svg?branch=develop)](https://travis-ci.org/ucheg6/StackOverflow-lite)
 [![Coverage Status](https://coveralls.io/repos/github/ucheg6/StackOverflow-lite/badge.svg?branch=feature-server)](https://coveralls.io/github/ucheg6/StackOverflow-lite?branch=feature-server)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d151392d36b3bc923567/maintainability)](https://codeclimate.com/github/ucheg6/StackOverflow-lite/maintainability)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 87726f2f16650ec5a0b26b022f5054756098aa4a
 
 # Features
 
