@@ -40,11 +40,11 @@ html, body {
 
 /* Add a color to the active/current link */
 .topnav a.active {
-   color: #b23850;
+   color: #f2f2f2;
    
 }
 #logoo {
-    color: #b23850;
+    color:  #f2f2f2;
 }
 .Navbar_Link-brand {
     float:left;
@@ -509,7 +509,7 @@ html, body {
   }
   
   .feed-item {
-    width: 60%;
+    width: 80%;
     height: auto;
     float: left;
     position: relative;
@@ -610,7 +610,7 @@ html, body {
   .post-body {
     position: relative;
     left: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     
    
   }
