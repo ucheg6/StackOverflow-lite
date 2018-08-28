@@ -32,13 +32,11 @@ describe('User Controller', () => {
         .post('/api/v1/auth/login')
         .send(user3)
         .then((reply) => {
-          console.log(reply.body)
           reply.body.should.have.property('token');
           chai.request(app)
             .get('/api/v1/users')
             .set('authorization', `Bearer ${reply.body.token}`)
             .end((err, response) => {
-              console.log(response.body)
               expect(response).to.have.status(200);
               expect(response.body.status).to.equal('Users successfully retrieved');
               expect(response.body.data[1].fullname).to.equal('Dika Okwa');

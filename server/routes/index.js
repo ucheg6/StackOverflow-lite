@@ -3,7 +3,7 @@ import UserController from '../controllers/UserController';
 import QuestionController from '../controllers/QuestionController';
 import AnswerController from '../controllers/AnswerController';
 import SignupValidation from '../validation/user';
-import QuestionValidation from '../validation/questions'
+import QuestionValidation from '../validation/questions';
 import Middleware from '../middleware/users';
 
 const router = express.Router();

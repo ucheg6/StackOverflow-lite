@@ -20,7 +20,7 @@ class AnswerController {
   static postAnswer(request, response) {
     const { userid: userId } = request.user;
     const { questionId } = request.params;
-    const { answer} = request.body;
+    const { answer } = request.body;
 
     const newAnswer = {
      answer: validator.trim(String(request.body.answer.toLowerCase())),
