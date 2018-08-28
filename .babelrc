@@ -1,11 +1,13 @@
 {
   "presets": [
-    "env"
+    "env",
+    "stage-0"
   ],
   "env": {
     "test": {
       "plugins": [
-        "istanbul"
+          "transform-object-rest-spread", { "useBuiltIns": true },
+          "istanbul"
       ]
     }
   }

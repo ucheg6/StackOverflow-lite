@@ -9,9 +9,9 @@ chai.should();
 
 const user1 = { email: 'notexistent@gmail.com', password: 'faker' };
 const user2 = { email: 'tomiwa0456@gmail.com', password: '56789' };
-const user3 = { email: 'akogwuuche@ymail.com', password: 'presley0080' };
+const user3 = { email: 'chuks@gmail.com', password: 'presley0080' };
 
-describe('User Sign Up', () => {
+describe('User Controller', () => {
   describe('GET /api/v1', () => {
     it('should return a welcome message on the home page', (done) => {
       chai.request(app)
@@ -26,17 +26,19 @@ describe('User Sign Up', () => {
 
   });
 
-  describe('Get all users', () => {
-    it('Should return all users', (done) => {
+  describe('User Login', () => {
+    it('Should return user details', (done) => {
       chai.request(app)
         .post('/api/v1/auth/login')
         .send(user3)
         .then((reply) => {
+          console.log(reply.body)
           reply.body.should.have.property('token');
           chai.request(app)
             .get('/api/v1/users')
             .set('authorization', `Bearer ${reply.body.token}`)
             .end((err, response) => {
+              console.log(response.body)
               expect(response).to.have.status(200);
               expect(response.body.status).to.equal('Users successfully retrieved');
               expect(response.body.data[1].fullname).to.equal('Dika Okwa');
