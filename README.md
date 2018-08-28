@@ -34,8 +34,13 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
   | Delete  | Delete a Question | /questions/:questionId        | 
   | Post    | Post an answer    | /questions/:questionId/answers| 
 
+# Built With
+   - NodeJs/Express
+   - PostgreSQL
+   
 # How to install project
-    Run the command on your command line git clone https://github.com/ucheg6/StackOverflow-lite.git
+   - Run the command on your command line git clone https://github.com/ucheg6/StackOverflow-lite.git
+   - Run npm install to install npm packages for the project
 
 # How to run tests
      Run the command npm run test on your command line to run tests.
@@ -46,6 +51,10 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
 # Author
   Uche Akogwu
 
+# Acknowledgments
+   - Andela 
+   - StackOverflow
+  
 # Project Management
   Project is managed at (https://www.pivotaltracker.com/n/projects/2189581) using the project management tool, Pivotal Tracker.
 
