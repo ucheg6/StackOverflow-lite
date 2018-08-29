@@ -1,5 +1,6 @@
 \c stackoverflowlite;
 
+
 CREATE TABLE users (
  userId serial PRIMARY KEY,
  fullName VARCHAR (50) NOT NULL,

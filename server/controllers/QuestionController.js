@@ -49,7 +49,7 @@ class QuestionController {
     };
     const query = {
       text: 'INSERT INTO questions(userId, questionTopic, questionBody) VALUES($1, $2, $3) ',
-    values: [userId,
+      values: [userId,
         newQuestion.questionTopic,
         newQuestion.questionBody],
     };
@@ -61,56 +61,59 @@ class QuestionController {
   }
 
 
-   /**
-   * @description Query to delete existing question
-   *
-   * @param {Object} request - HTTP Request
-   * @param {Object} response - HTTP Response
-   *
-   * @returns {object} response JSON Object
-   */
+  /**
+  * @description Query to delete existing question
+  *
+  * @param {Object} request - HTTP Request
+  * @param {Object} response - HTTP Response
+  *
+  * @returns {object} response JSON Object
+  */
   static deleteQuestion(request, response) {
     const questId = parseInt(request.params.questionId, 10);
-       return client.query('DELETE FROM questions where questionId = $1', [questId])
+    return client.query('DELETE FROM questions where questionId = $1', [questId])
       .then(() => response.status(200)
         .json({
           success: true,
           message: 'Question successfully deleted',
         })).catch(error => response.status(500).json({ message: error.message }));
+  }
 
-  
-/**
-   * @description - get single Question by Id and associated answers
-   * @static getQuestion
-   * 
-   * @param {object} request - HTTP Request Object containing question id
-   * @param {object} response - HTTP Response Object containing question
-   * 
-   * @memberof QuestionController
-   * 
-   * @returns {Promise<object>}
-   */
+  /**
+     * @description - get single Question by Id and associated answers
+     * @static getQuestion
+     * 
+     * @param {object} request - HTTP Request Object containing question id
+     * @param {object} response - HTTP Response Object containing question
+     * 
+     * @memberof QuestionController
+     * 
+     * @returns {Promise<object>}
+     */
+
   static getQuestion(request, response) {
     const questId = parseInt(request.params.questionId, 10);
-    console.log(questId);
+
     Question.checkNaN(request, response);
-    return client.query('SELECT q.questionId, q.userId, q.questionTopic, q.questionBody, a.answer FROM questions q \
-    INNER JOIN answers a ON q.questionId = a.questionId \
-     where q.questionId = $1', [questId])  
-  
-      .then((data) => {
-        Question.noContent(request, response, data, 'There is no question with this ID');
-        return response.status(200)
-          .json({
-            success: true,
-            message: 'Question Retrieved',
-            data: data.rows,
-          });
+    client.query('SELECT a.answerId, a.answer, a.is_preferred, u.fullName  FROM answers a INNER JOIN users u ON a.userId = u.userId WHERE a.questionId=$1', [questId])
+      .then((answers) => {
+        return client.query('SELECT q.questionId, q.questionTopic, q.questionBody, u.fullName FROM questions q INNER JOIN users u ON q.userId = u.userId WHERE q.questionId=$1', [questId])
+          .then((data) => {
+            Question.noContent(request, response, data, 'There is no question with this ID');
+            return response.status(200)
+              .json({
+                success: true,
+                message: 'Question Retrieved',
+                data: data.rows,
+                answers: answers.rows,
+
+              });
+          })
       })
       .catch(error => response.status(500).json({ message: error.message }));
 
-  }
 
+  }
 
 }
 
