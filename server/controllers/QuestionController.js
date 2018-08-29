@@ -60,6 +60,24 @@ class QuestionController {
     })).catch(error => response.status(500).json({ message: error.message }));
   }
 
+
+   /**
+   * @description Query to delete existing question
+   *
+   * @param {Object} request - HTTP Request
+   * @param {Object} response - HTTP Response
+   *
+   * @returns {object} response JSON Object
+   */
+  static deleteQuestion(request, response) {
+    const questId = parseInt(request.params.questionId, 10);
+       return client.query('DELETE FROM questions where questionId = $1', [questId])
+      .then(() => response.status(200)
+        .json({
+          success: true,
+          message: 'Question successfully deleted',
+        })).catch(error => response.status(500).json({ message: error.message }));
+
   
 /**
    * @description - get single Question by Id and associated answers
@@ -90,6 +108,7 @@ class QuestionController {
           });
       })
       .catch(error => response.status(500).json({ message: error.message }));
+
   }
 
 
