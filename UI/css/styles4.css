@@ -32,11 +32,11 @@ html, body {
       color: black;
 }
 .topnav a.active {
-   color: #b23850;
+   color: #f2f2f2;
 }
 #logoo {
-  color: #b23850;
-  font-family: 'Fredericka the Great', cursive;
+  color:  #f2f2f2;
+ 
 }
 .Navbar_Link-brand {
     float:left;
