@@ -60,14 +60,7 @@ class Question {
       })
       .catch(error => response.status(500).json({ message: error.message }));
   }
-  /**
-   * @description Query to delete a question
-   *
-   * @param {Object} request - HTTP Request
-   * @param {Object} response - HTTP Response
-   *
-   * @returns {object} response JSON Object
-   */
+ 
   
 
 }
