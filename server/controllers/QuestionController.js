@@ -60,6 +60,7 @@ class QuestionController {
     })).catch(error => response.status(500).json({ message: error.message }));
   }
 
+
    /**
    * @description Query to delete existing question
    *
@@ -76,6 +77,38 @@ class QuestionController {
           success: true,
           message: 'Question successfully deleted',
         })).catch(error => response.status(500).json({ message: error.message }));
+
+  
+/**
+   * @description - get single Question by Id and associated answers
+   * @static getQuestion
+   * 
+   * @param {object} request - HTTP Request Object containing question id
+   * @param {object} response - HTTP Response Object containing question
+   * 
+   * @memberof QuestionController
+   * 
+   * @returns {Promise<object>}
+   */
+  static getQuestion(request, response) {
+    const questId = parseInt(request.params.questionId, 10);
+    console.log(questId);
+    Question.checkNaN(request, response);
+    return client.query('SELECT q.questionId, q.userId, q.questionTopic, q.questionBody, a.answer FROM questions q \
+    INNER JOIN answers a ON q.questionId = a.questionId \
+     where q.questionId = $1', [questId])  
+  
+      .then((data) => {
+        Question.noContent(request, response, data, 'There is no question with this ID');
+        return response.status(200)
+          .json({
+            success: true,
+            message: 'Question Retrieved',
+            data: data.rows,
+          });
+      })
+      .catch(error => response.status(500).json({ message: error.message }));
+
   }
 
 

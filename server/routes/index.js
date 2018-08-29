@@ -14,8 +14,13 @@ router.post('/auth/login', SignupValidation.checkUserLogin, UserController.userL
 router.get('/users', Middleware.checkUser, UserController.getAllUsers);
 
 router.get('/questions', Middleware.checkUser, QuestionController.getAllQuestions);
+
 router.post('/questions', Middleware.checkUser, QuestionValidation.checkQuestion, QuestionValidation.checkDuplicateQuery, QuestionController.postQuestion); 
 router.delete('/questions/:questionId', Middleware.checkUser, QuestionValidation.authorizeDeleteQuestion, QuestionController.deleteQuestion);
+
+router.get('/questions/:questionId', Middleware.checkUser, QuestionController.getQuestion);
+router.post('/questions', Middleware.checkUser, QuestionValidation.checkQuestion,QuestionValidation.checkDuplicateQuery, QuestionController.postQuestion); 
+
 
 router.post('/questions/:questionId/answers', Middleware.checkUser, AnswerController.postAnswer);
 
