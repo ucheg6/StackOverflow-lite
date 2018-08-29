@@ -1,5 +1,5 @@
 import validator from 'validator';
-
+import Question from '../models/questionQueries';
 import client from '../models/database';
 
 class QuestionValidation {
@@ -84,14 +84,22 @@ class QuestionValidation {
    */
   static authorizeDeleteQuestion(request, response, next) {
     const { userid: userId } = request.user;
-    console.log(response)
-    if (userId === request.data.userId) return next();
-    return response.status(403).json({
-      success: 'false',
-      message: 'You dont have permission to delete this question',
-    });
+    const questId = request.params.questionId;
+    Question.checkNaN(request, response);
+    client.query('SELECT userId FROM questions where questionId = $1', [questId])
+      .then((data) => {
+        if (userId === data.rows[0].userid) return next();
+        return response.status(403).json({
+          success: 'false',
+          message: 'You dont have permission to delete this question',
+        });
+
+      })
 
   }
+
 }
+
+
 
 export default QuestionValidation;
