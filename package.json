@@ -4,6 +4,7 @@
   "description": "A platform for users to ask questions and give answers to asked questions.",
   "main": "server/app.js",
   "scripts": {
+    "postinstall": "npm run mig-two",
     "start": "babel-node server/app.js",
     "start-dev": "nodemon --exec babel-node server/app.js",
     "mig": "npm run create:table",

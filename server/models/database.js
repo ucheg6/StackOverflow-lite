@@ -14,9 +14,8 @@ const DATABASE_URL = {
 };
 
 let dbString = '';
-
+if (process.env.NODE_ENV === 'production') dbString = DATABASE_URL
 if (process.env.NODE_ENV === 'test') dbString = process.env.DB_ONLINE_TEST;
-
 if (process.env.NODE_ENV === 'local') dbString = DATABASE_URL;
 
 const pool = new pg.Pool(dbString);
