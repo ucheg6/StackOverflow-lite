@@ -55,37 +55,6 @@ class AnswerController {
   *
   * @returns {object} response JSON Object
   */
-  //   static acceptAnswer(request, response) {
-  //   const QuestionId = parseInt(request.params.questionId, 10);
-  //   const AnswerId = parseInt(request.params.answerId, 10);
-  //   const is_preferred = 'true';
-  //   const { userid: userId } = request.user;
-
-  //   console.log(QuestionId)
-  //   client.query('SELECT questions.userId FROM questions WHERE questions.userId=$1', [userId])
-  //     .then((data) => {
-  //       if (data.length < 1) {
-  //         console.log(data)
-  //         return response.status(500).json({ message: 'You are not authorized for this action' });
-  //       }
-
-  //       client.query('UPDATE answers SET is_preferred=$1  where answerId=$2 AND questionId=$3',
-  //         [is_preferred, AnswerId, QuestionId])
-  //         .then(() => {
-  //           response.status(200).json({
-  //             status: 'success',
-  //             message: 'answer marked as accepted',
-  //           });
-  //         })
-  //         .catch(() => {
-  //           return response.status(500).json({ message: 'internal server error' });
-  //         });
-  //     })
-  //     .catch(() => {
-  //       return response.status(500).json({ message: 'internal server error' });
-  //     });
-  // }
-
   static acceptAnswer(request, response) {
     const questId = parseInt(request.params.questionId, 10);
     const answerId = parseInt(request.params.answerId, 10);
