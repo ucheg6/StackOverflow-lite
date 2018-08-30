@@ -13,7 +13,11 @@ const DATABASE_URL = {
   idleTimeoutMillis: 30000,
 };
 
-const pool = new pg.Pool(DATABASE_URL);
+let dbString = DATABASE_URL;
+
+if (process.env.NODE_ENV === 'test') dbString = process.env.DB_ONLINE_TEST;
+
+const pool = new pg.Pool(dbString);
 pool.connect();
 
 export default pool;
