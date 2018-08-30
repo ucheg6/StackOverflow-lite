@@ -1,17 +1,5 @@
 language: node_js
 node_js:
    - "8.11.1"
-services:
-  - postgresql
-
-before_install:
-  - npm install -g npm@latest
-
-before_script:
-  - psql -c 'create database stackoverflowlite;' -U postgres
-
-script:
-  - npm test
-
 after_success:
 - npm run coverage
