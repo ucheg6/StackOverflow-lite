@@ -31,6 +31,7 @@ class QuestionController {
     }).catch(error => next(error));
 
   }
+  
 
   /**
  * @description Query to create a new question

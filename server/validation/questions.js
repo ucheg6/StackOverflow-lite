@@ -36,6 +36,40 @@ class QuestionValidation {
     });
   }
 
+  static validateInputs(request, response, next) {
+     
+    const {
+      questionTopic, questionBody, 
+    } = request.body;
+    if (
+      !questionTopic ||  questionTopic === undefined ||  questionTopic.toString().trim() === '' || typeof  questionTopic !== 'string'
+    ) {
+      return response.status(400).send({
+        success: 'false',
+        message: 'Question Topic is required',
+      });
+    }
+
+    if (
+      !questionBody || questionBody === undefined || questionBody.toString().trim() === ''
+    ) {
+      return response.status(400).send({
+        success: 'false',
+        message: 'question body is required',
+      });
+    }
+    
+    if (
+      typeof  questionTopic !== 'string'
+    ) {
+      return response.status(400).send({
+        success: 'false',
+        message: ' Question Topic must be a string',
+      });
+    }
+    return next();
+  }
+
 
   /**
    *  @static
@@ -88,6 +122,7 @@ class QuestionValidation {
     Question.checkNaN(request, response);
     client.query('SELECT userId FROM questions where questionId = $1', [questId])
       .then((data) => {
+        Question.noContent(request, response, data, 'There is no question with this ID');
         if (userId === data.rows[0].userid) return next();
         return response.status(403).json({
           success: 'false',

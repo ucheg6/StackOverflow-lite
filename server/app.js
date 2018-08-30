@@ -15,11 +15,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/v1', routes);
 
-app.get('/', (req, res) => (
-  res.status(200).json({
-    message: 'Welcome to StackOverflow-lite',
-  })
-));
+
+app.get('/', (req, res) => {
+  const welcome = "<h1>Welcome to the StackOverflow-lite API Version 1.0</h1>  <h2>API Endpoints</h2>  These are the endpoints you can currently access.  <h2>GET /api/v1/questions/</h2>  This retrieves all the questions from the database.  <h2>GET /api/v1/questions/:id/</h2>  This retrieves a particular question by ID from the database.  <h2>POST /api/v1/questions/</h2>  This adds a question to the database.  <h2>POST /api/v1/questions/:id/answers/</h2>  This adds an answer to a question.  <h2>GET /api/v1/questions/:id/answers/</h2>  This retrieves all answers for a question.";
+  
+  res.status(200).send(welcome);
+});
 
 // Start server
 app.listen(port, () => {

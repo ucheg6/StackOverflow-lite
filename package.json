@@ -5,7 +5,7 @@
   "main": "server/app.js",
   "scripts": {
     "start": "babel-node server/app.js",
-    "start-dev": "nodemon --exec babel-node server/app.js",
+    "start-dev": "set NODE_ENV=local&& nodemon --exec babel-node server/app.js",
     "mig": "npm run create:table",
     "mig-two": "npm run create:table-two",
     "lint": "eslint --init --fix",

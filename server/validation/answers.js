@@ -8,24 +8,18 @@ class AnswerValidation {
  *
  * @returns {object} response JSON Object
  */
-  static checkAnswer(request, response, next) {
-    const { answer, } = request.body;
-    let isValid = true;
-    const errors = {};
-
-    if (!answer) {
-      isValid = false;
-      errors.answer = 'The answer is required';
-    }
-   
-    if (isValid) {
-      return next();
-    }
-    return response.status(400).json({
-      success: false,
-      errors,
+static validateAnswer(request, response, next) {
+  const { answer } = request.body;
+  if (
+    !answer || answer === undefined || answer.toString().trim() === '' || typeof answer !== 'string'
+  ) {
+    return response.status(400).send({
+      success: 'false',
+      message: 'you cannot submit an empty field',
     });
   }
+  return next();
+}
 
 }
 

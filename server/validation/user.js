@@ -1,51 +1,71 @@
 import validator from 'validator';
 
-
 class SignupValidation {
-  static UserSignup(request, response, next) {
-    const {
-      fullName, email, password,
-    } = request.body;
-    let isValid = true; const errors = {};
+  /**
+ * @method validateUserInputs
+ * @static
+ * @description This sanitizes auth data
+ * @param {object} request request object
+ * @param {object} response response object
+ * @returns {Object} Object
+ */
+static validateUserInputs(request, response, next) {
+  const {
+    fullName, email, password,
+  } = request.body;
+  const nameFormat = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
+  const emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if (!fullName) {
-      isValid = false;
-      errors.fullName = 'Full name is required';
-    }
-    if (!email) {
-      isValid = false;
-      errors.email = 'Your email is required';
-    }
-    if (!password) {
-      isValid = false;
-      errors.password = 'Your password is required';
-    }
-    if (isValid) {
-      return next();
-    }
+  if (fullName === undefined || email === undefined || password === undefined) {
     return response.status(400).json({
-      success: false,
-      errors,
+      success: 'false',
+      message: 'Please insert valid inputs in all fields'
+    });
+  }
+  if (fullName.trim() === '' || email.trim() === '' || password.trim() === '') {
+    return response.status(400).json({
+      success: 'false',
+      message: 'please fields cannot be empty'
+    });
+  }
+  if (nameFormat.test(fullName)) {
+    return response.status(400).json({
+      success: 'false',
+      message: 'Full Name cannot contain special character',
     });
   }
 
-  static validateInput(request, response, next) {
-    const { email } = request.body;
-    let isValid = true;
-    const errors = {};
-
-    if (email && !validator.isEmail(email)) {
-      isValid = false;
-      errors.email = 'Your email is invalid';
-    }
-    if (isValid) {
-      return next();
-    }
+  if (!emailPattern.test(email.trim())) {
     return response.status(400).json({
-      success: false,
-      errors,
+      success: 'false',
+      message: 'Email format is invalid',
     });
   }
+  
+  return next();
+}
+
+/**
+* @method signInValidation
+* @static
+* @description This validates user login
+* @param {object} request request object
+* @param {object} response response object
+*
+* @returns {Object} Object
+*/
+static signInValidation(request, response, next) {
+  const { email, password } = request.body;
+  if ((email === undefined || email.trim() === '') || (password.trim() === '' || password === undefined)) {
+    return response.status(400).json({
+      success: 'false',
+      message: 'Please insert valid input in fields'
+    });
+  }
+  return next();
+}
+
+  
 
   static checkLength(request, response, next) {
     const { password, fullName} = request.body;
@@ -69,27 +89,7 @@ class SignupValidation {
     });
   }
 
-  static checkUserLogin(request, response, next) {
-    const { email, password } = request.body;
-    let isValid = true;
-    const errors = {};
-
-    if (!email) {
-      isValid = false;
-      errors.email = 'Your email is required';
-    }
-    if (!password) {
-      isValid = false;
-      errors.password = 'Your password is required';
-    }
-    if (isValid) {
-      return next();
-    }
-    return response.status(400).json({
-      success: false,
-      errors,
-    });
-  }
+  
 }
 
 export default SignupValidation;

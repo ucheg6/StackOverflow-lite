@@ -47,7 +47,7 @@ class UserController {
   static userSignup(request, response, query) {
     const regMail = request.body.email;
     const newUser = {
-      fullName: validator.trim(String(request.body.fullName)).replace(/ +(?= )/g, ''),
+      fullName: validator.trim(String(request.body.fullName)).replace(/^[a-zA-Z_\-]+$/),
       email: request.body.email,
       password: validator.trim(String(request.body.password)).replace(/\s/g, ''),
     };
@@ -132,7 +132,9 @@ class UserController {
    */
   static getUserProfile(request, response) {
     const { userid: userId } = request.user;
-    client.query('SELECT * FROM users WHERE userId = $1', [userId]).then(data => response.status(200).json({
+    
+    client.query('SELECT * FROM users WHERE userId = $1', [userId])
+    .then(data => response.status(200).json({
       message: 'User details retrieved',
       data: data.rows,
     })).catch(error => response.status(500).json({ message: error.message }));
