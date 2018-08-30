@@ -3,6 +3,7 @@ import UserController from '../controllers/UserController';
 import QuestionController from '../controllers/QuestionController';
 import AnswerController from '../controllers/AnswerController';
 import SignupValidation from '../validation/user';
+import AnswerValidation from '../validation/answers';
 import QuestionValidation from '../validation/questions';
 import Middleware from '../middleware/users';
 
@@ -22,6 +23,7 @@ router.get('/questions/:questionId', Middleware.checkUser, QuestionController.ge
 router.post('/questions', Middleware.checkUser, QuestionValidation.checkQuestion,QuestionValidation.checkDuplicateQuery, QuestionController.postQuestion); 
 
 
-router.post('/questions/:questionId/answers', Middleware.checkUser, AnswerController.postAnswer);
+router.post('/questions/:questionId/answers', Middleware.checkUser, AnswerValidation.checkAnswer, AnswerController.postAnswer);
+router.put('/questions/:questionId/answers/:answerId', Middleware.checkUser, AnswerController.acceptAnswer);
 
 export default router;
