@@ -1,4 +1,4 @@
-\c bkiuragr
+\c stackoverflowlite
 
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (

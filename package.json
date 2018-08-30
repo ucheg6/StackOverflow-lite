@@ -7,10 +7,13 @@
     "start": "babel-node server/app.js",
     "start-dev": "nodemon --exec babel-node server/app.js",
     "mig": "npm run create:table",
+    "mig-two": "npm run create:table-two",
     "lint": "eslint --init --fix",
     "seed": "babel-node ./server/models/migrate.js",
-    "create:table": "psql -U postgres -f  ./server/models/stackoverflowlite.sql",
+    "create:table-two": "psql -U postgres -f  ./server/models/stackoverflowlite.sql",
+    "create:table": "psql -f ./server/models/stackoverflowlite.sql",
     "test": "npm run mig && nyc --reporter=html --reporter=text mocha --require babel-core/register --timeout 6000 server/test/**.js --exit",
+    "test-local": "set NODE_ENV=local&& npm run mig-two && nyc --reporter=html --reporter=text mocha --require babel-core/register --timeout 6000 server/test/**.js --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {

@@ -40,7 +40,7 @@ describe('User Controller', () => {
           expect(response).to.have.status(201);
           expect(response.body).to.be.an('object');
         //response.body.message.should.eql('success,user');
-         console.log(response.body)
+       
           done();
         });
     });
