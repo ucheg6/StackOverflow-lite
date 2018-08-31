@@ -29,6 +29,16 @@ CREATE TABLE answers(
   FOREIGN KEY (userId) REFERENCES users (userId)ON DELETE CASCADE
 );
 
+--seeding---
+ INSERT INTO users (fullName,email,pass) 
+    VALUES ('Chuma Ndoeche','chumaNdoeche@gmail.com','presley0080');
+     INSERT INTO users (fullName,email,pass) 
+    VALUES ('Ibrahim Ilyasu','ibravoh@gmail.com','presley0080');
+     INSERT INTO users (firstName,lastName,email,pass) 
+    VALUES ('Ginika Akogwu','ginika@gmail.com','presley0080');
+     INSERT INTO users (firstName,lastName,email,pass) 
+    VALUES ('Christy Akogwu','christy@gmail.com','presley0080');
 
-
+INSERT INTO questions (userId,questionTopic,questionBody) 
+    VALUES ('1','religion','who founded christianity');
 

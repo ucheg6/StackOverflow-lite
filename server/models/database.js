@@ -1,6 +1,5 @@
 import pg from 'pg';
 import dotenv from 'dotenv';
-pg.defaults.ssl = true;
 
 dotenv.config();
 

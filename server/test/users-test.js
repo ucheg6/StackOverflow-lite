@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 chai.should();
 
 const user1 = { email: 'notexistent@gmail.com', password: 'faker' };
-const user2 = { email: 'akogwuuche@ymail.com', password: 'presley0080' };
+const user2 = { email: 'chumaNdoeche@gmail.com', password: 'presley0080' };
 const user3 = { email: 'ibravoh@gmail.com', password: 'presley0080' };
 
 describe('User Controller', () => {
@@ -18,32 +18,14 @@ describe('User Controller', () => {
         .get('/')
         .end((error, response) => {
           response.status.should.eql(200);
-          response.type.should.eql('application/json');
-          response.body.message.should.eql('Welcome to StackOverflow-lite');
-          done();
+          response.type.should.eql('text/html');
+        done();
         });
     });
-
+   
   });
 
   describe('User Signup', () => {
-    it('should sign up a user with the right credentials', (done) => {
-      chai.request(app)
-        .post('/api/v1/auth/signup')
-        .send({
-          fullName: 'Ibrahim Ilyasu',
-          email: 'ibravoh@gmail.com',
-          password: 'presley0080',
-        })
-        .end((error, response) => {
-        
-          expect(response).to.have.status(201);
-          expect(response.body).to.be.an('object');
-        //response.body.message.should.eql('success,user');
-       
-          done();
-        });
-    });
     it('should not create user with an already existing email', (done) => {
       chai.request(app)
         .post('/api/v1/auth/signup')
@@ -70,7 +52,7 @@ describe('User Controller', () => {
         .end((error, response) => {
           expect(response).to.have.status(400);
           expect(response.body).to.be.an('object');
-          response.body.errors.fullName.should.eql('Full name is required');
+          response.body.message.should.eql('please fields cannot be empty');
           done();
         });
     });
@@ -79,13 +61,13 @@ describe('User Controller', () => {
         .post('/api/v1/auth/signup')
         .send({
           fullName: 'Sandra',
-          email: 'saandra@com',
-          password: 'mypassword',
+          email: 'saandracom',
+          password: 'mypa',
         })
         .end((error, response) => {
           expect(response).to.have.status(400);
           expect(response.body).to.be.an('object');
-          response.body.errors.email.should.eql('Your email is invalid');
+          response.body.message.should.eql('Email format is invalid');
           done();
         });
     });
@@ -94,7 +76,7 @@ describe('User Controller', () => {
     it('Should return users details', (done) => {
       chai.request(app)
         .post('/api/v1/auth/login')
-        .send(user3)
+        .send(user2)
         .then((reply) => {
           reply.body.should.have.property('token');
           chai.request(app)
@@ -103,9 +85,8 @@ describe('User Controller', () => {
             .end((err, response) => {
               expect(response).to.have.status(200);
               expect(response.body.status).to.equal('Users successfully retrieved');
-             
-              // expect(response.body.data[1].fullName).to.equal('Ibrahim Ilyasu');
-              // expect(response.body.data[1].email).to.equal('ibravoh@gmail.com');
+              expect(response.body.data[0].fullname).to.equal('Chuma Ndoeche');
+              expect(response.body.data[0].email).to.equal('chumaNdoeche@gmail.com');
               expect(response.body).to.be.an('object');
               done();
             });
@@ -144,13 +125,13 @@ describe('User Controller', () => {
       chai.request(app)
         .post('/api/v1/auth/login')
         .send({
-          email: 'saandra@com',
+          email: 'saandracom',
           password: 'paord',
         })
         .end((error, response) => {
           expect(response).to.have.status(400);
           expect(response.body).to.be.an('object');
-          response.body.message.should.eql('Your email or password is incorrect');
+          response.body.errors.password.should.eql('your Password length should be between 6 and 15');
           done();
         });
     });

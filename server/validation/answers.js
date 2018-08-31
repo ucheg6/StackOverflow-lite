@@ -8,18 +8,20 @@ class AnswerValidation {
  *
  * @returns {object} response JSON Object
  */
-static validateAnswer(request, response, next) {
-  const { answer } = request.body;
-  if (
-    !answer || answer === undefined || answer.toString().trim() === '' || typeof answer !== 'string'
-  ) {
-    return response.status(400).send({
-      success: 'false',
-      message: 'you cannot submit an empty field',
-    });
+  static validateAnswer(request, response, next) {
+    const { answer } = request.body;
+    const questionId = request.params;
+    if (
+      !answer || answer === undefined || answer.toString().trim() === '' || typeof answer !== 'string'
+    ) {
+      return response.status(400).send({
+        success: 'false',
+        message: 'you cannot submit an empty field',
+      });
+    }
+    
+    return next();
   }
-  return next();
-}
 
 }
 
