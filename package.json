@@ -4,17 +4,19 @@
   "description": "A platform for users to ask questions and give answers to asked questions.",
   "main": "server/app.js",
   "scripts": {
-    "start": "babel-node server/app.js",
-    "start-dev": "set NODE_ENV=local&& nodemon --exec babel-node server/app.js",
+   "start-dev": "set NODE_ENV=local&& nodemon --exec babel-node server/app.js",
     "mig": "npm run create:table",
     "mig-two": "npm run create:table-two",
     "lint": "eslint --init --fix",
     "seed": "babel-node ./server/models/migrate.js",
     "create:table-two": "psql -U postgres -f  ./server/models/stackoverflowlite.sql",
-    "create:table": "psql -f ./server/models/stackoverflowlite.sql postgres://bkiuragr:5L3w34ESbmek2qESWLImnkYy8cfGYbaE@baasu.db.elephantsql.com:5432/bkiuragr",
+    "create:table": "psql -f ./server/models/stackoverflowlite.sql postgres://fwanlhvagmiuxr:64e4a202c446db37dfbf22b09a1e25bf52e43b874a03927e9761feba1f015d4f@ec2-54-83-51-78.compute-1.amazonaws.com:5432/dckhi2b79ht09m",
     "test": "npm run mig && nyc --reporter=html --reporter=text mocha --require babel-core/register --timeout 6000 server/test/**.js --exit",
     "test-local": "set NODE_ENV=local&& npm run mig-two && nyc --reporter=html --reporter=text mocha --require babel-core/register --timeout 6000 server/test/**.js --exit",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "build-babel": "babel -d ./build ./server -s",
+    "build": "rm -rf build && npm run mig && npm run build-babel",
+    "start": "npm run build && node build/app.js"
   },
   "repository": {
     "type": "git",
