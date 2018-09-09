@@ -21,23 +21,25 @@ class AnswerController {
     const { userid: userId } = request.user;
     const { questionId } = request.params;
     const { answer } = request.body;
-
+   
     const newAnswer = {
       answer: validator.trim(String(request.body.answer.toLowerCase())),
       questionId: parseInt(questionId, 10),
 
     };
+    
     const query = {
       text: 'INSERT INTO answers(userId, answer, questionId) VALUES($1, $2, $3) ',
       values: [userId,
         answer,
         questionId],
     };
-    client.query(query).then(() => response.status(201).json({
+    client.query(query).then((data) => 
+    response.status(201).json({
       success: true,
       message: 'Answer Successfully created',
       newAnswer,
-    })).catch(error => response.status(500).json({ message: error.message }));
+    })).catch(error => response.status(400).json({ message: 'question id does not exist' }));
   }
 
   /**

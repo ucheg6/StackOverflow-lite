@@ -1,6 +1,5 @@
 import pg from 'pg';
 import dotenv from 'dotenv';
-pg.defaults.ssl = true;
 
 dotenv.config();
 
@@ -14,12 +13,23 @@ const DATABASE_URL = {
   idleTimeoutMillis: 30000,
 };
 
+const DATABASE_URL_TEST = {
+  user: process.env.DB_USERNAME_TEST,
+  host: process.env.DB_HOST,
+  database: process.env.DB_DATABASE_TEST,
+  password: process.env.DB_PASSWORD_TEST,
+  port: process.env.DB_PORT,
+ 
+};
+
 let dbString = '';
 if (process.env.NODE_ENV === 'production') dbString = DATABASE_URL
-if (process.env.NODE_ENV === 'test') dbString = process.env.DB_ONLINE_TEST;
+if (process.env.NODE_ENV === 'test') dbString = DATABASE_URL_TEST;
 if (process.env.NODE_ENV === 'local') dbString = DATABASE_URL;
 
 const pool = new pg.Pool(dbString);
+
+
 pool.connect();
 
 export default pool;

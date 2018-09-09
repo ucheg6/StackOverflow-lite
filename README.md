@@ -40,7 +40,10 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
    
 # How to install project
    - Run the command on your command line git clone https://github.com/ucheg6/StackOverflow-lite.git
-   - Run npm install to install npm packages for the project
+   - Run npm install to install npm packages for the project 
+   - Set up your dotenv file and store needed variables
+   - Run npm start-dev to start your server
+   - On Postman navigate to ``` localhost:5000/api/v1/ ``` and test routes on the router file.
 
 # How to run tests
      Run the command npm run test on your command line to run tests.
