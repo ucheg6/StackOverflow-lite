@@ -9,9 +9,11 @@ chai.should();
 
 const user1 = { email: 'notexistent@gmail.com', password: 'faker' };
 const user2 = { email: 'ibravoh@gmail.com', password: 'presley0080' };
+const user3 = { email: 'chumaNdoeche@gmail.com', password: 'presley0080' };
 
-const newAnswer = { answer: 'Answer!!!' };
+const newAnswer = { answer: 'Christina Sass!!!' };
 const invalidAnswer = { answer: '' };
+const newQuestion = { questionTopic: 'politics', questionBody: 'Who is the president of Andela'};
 
 describe(' Answer Controller TEST', () => {
   describe('POST Answer', () => {
@@ -26,6 +28,22 @@ describe(' Answer Controller TEST', () => {
           done();
         });
     });
+    it('should post questions for a user', (done) => {
+      chai.request(app)
+        .post('/api/v1/auth/login')
+        .send(user2)
+        .then((reply) => {
+         reply.body.should.have.property('token');
+          chai.request(app)
+            .post('/api/v1/questions')
+            .set('authorization', `Bearer ${reply.body.token}`)
+            .send(newQuestion)
+            .end((err, response) => {
+              response.should.have.status(201);
+             done();
+            });
+        });
+    });
     it('should successfully create a valid answer for a logged in user', (done) => {
       chai.request(app)
         .post('/api/v1/auth/login')
@@ -33,12 +51,12 @@ describe(' Answer Controller TEST', () => {
         .then((reply) => {
           reply.body.should.have.property('token');
           chai.request(app)
-            .post('/api/v1/questions/1/answers')
+            .post('/api/v1/questions/2/answers')
             .set('authorization', `Bearer ${reply.body.token}`)
             .send(newAnswer)
             .end((err, response) => {
               response.should.have.status(201);
-              expect(response.body.newAnswer.answer).to.equal('answer!!!');
+              expect(response.body.newAnswer.answer).to.equal('christina sass!!!');
               response.body.message.should.eql('Answer Successfully created');
               done();
             });
@@ -51,7 +69,7 @@ describe(' Answer Controller TEST', () => {
         .then((reply) => {
           reply.body.should.have.property('token');
           chai.request(app)
-            .post('/api/v1/questions/2/answers')
+            .post('/api/v1/questions/3/answers')
             .set('authorization', `Bearer ${reply.body.token}`)
             .send(newAnswer)
             .end((err, response) => {
@@ -78,6 +96,26 @@ describe(' Answer Controller TEST', () => {
             });
         });
     });
+    it(`should accept answer if user owns the question 
+    and owns the answer without providing an answer field`, (done) => {
+      chai.request(app)
+      .post('/api/v1/auth/login')
+      .send(user2)
+      .then((reply) => {
+        reply.body.should.have.property('token');
+        chai.request(app)
+          .put('/api/v1/questions/2/answers/1')
+          .set('Authorization', `Bearer ${reply.body.token}`)
+          .end((err, res) => {
+            if (err) done(err);
+            expect(res).to.have.status(200);
+            expect(res.body.message).to.deep
+              .equals('answer marked as accepted');
 
+            expect(res.body).to.have.keys('status', 'message');
+            done();
+          });
+      });
+    });
   });
 });

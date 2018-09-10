@@ -13,7 +13,6 @@ const router = express.Router();
 
 router.post('/auth/signup', SignupValidation.validateUserInputs, SignupValidation.checkLength, UserController.userSignup);
 router.post('/auth/login', SignupValidation.signInValidation, SignupValidation.checkLength, UserController.userLogin);
-router.get('/users', Middleware.checkUser, UserController.getAllUsers);
 
 router.get('/questions',  QuestionController.getAllQuestions);
 router.get('/user',  UserController.getUserProfile);

@@ -67,9 +67,7 @@ class AnswerController {
         Question.noContent(request, response, data, 'There is no question with this ID');
           client.query('SELECT questions.userId FROM questions WHERE questions.userId=$1', [userId])
           .then((data) => {
-            console.log(data.rows)
-            if (data.rows < 1) {
-              console.log(data)
+              if (data.rows < 1) {
               return response.status(500).json({ message: 'You are not authorized for this action' });
             }
 

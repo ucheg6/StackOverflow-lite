@@ -97,8 +97,54 @@ describe('Question Controller tests', () => {
             });
         });
     });
-   
-  
+    it('should get a question by the ID', (done) => {
+      chai.request(app)
+        .post('/api/v1/auth/login')
+        .send(user2)
+        .then((reply) => {
+          reply.body.should.have.property('token');
+          chai.request(app)
+            .get('/api/v1/questions/1')
+           .set('authorization', `Bearer ${reply.body.token}`)
+            .end((err, response) => {
+              response.should.have.status(200);
+              response.body.message.should.eql('Question Retrieved');
+              done();
+            });
+        });
+    });
+    it('should get all questions', (done) => {
+      chai.request(app)
+        .post('/api/v1/auth/login')
+        .send(user2)
+        .then((reply) => {
+          reply.body.should.have.property('token');
+          chai.request(app)
+            .get('/api/v1/questions')
+            .set('authorization', `Bearer ${reply.body.token}`)
+            .end((err, response) => {
+              response.should.have.status(200);
+              response.body.message.should.eql('Questions successfully retrieved');
+              done();
+            });
+        });
+    });
+    it('should throw an error when question ID does not exist', (done) => {
+      chai.request(app)
+        .post('/api/v1/auth/login')
+        .send(user2)
+        .then((reply) => {
+          reply.body.should.have.property('token');
+          chai.request(app)
+            .get('/api/v1/questions/8')
+            .set('authorization', `Bearer ${reply.body.token}`)
+            .end((err, response) => {
+              response.should.have.status(404);
+              response.body.message.should.eql('There is no question with this ID');
+              done();
+            });
+        });
+    });
   
   });
 });
@@ -117,7 +163,7 @@ describe('Question Controller Tests', () => {
         });
     });
     
-    it('should return error message if question s not found ', (done) => {
+    it('should return error message if question is not found ', (done) => {
       chai.request(app)
         .post('/api/v1/auth/login')
         .send(user2)
@@ -150,5 +196,22 @@ describe('Question Controller Tests', () => {
             });
         });
     });
+    it('should delete a question if it exists and user is authorised', (done) => {
+      chai.request(app)
+        .post('/api/v1/auth/login')
+        .send(user2)
+        .then((reply) => {
+          reply.body.should.have.property('token');
+          chai.request(app)
+            .delete('/api/v1/questions/1')
+            .set('authorization', `Bearer ${reply.body.token}`)
+            .end((err, response) => {
+              response.should.have.status(200);
+              response.body.message.should.eql('Question successfully deleted');
+              done();
+            });
+        });
+    });
+    
   });
 });

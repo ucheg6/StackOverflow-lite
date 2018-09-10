@@ -18,24 +18,7 @@ const saltRounds = 10;
  *
  */
 class UserController {
-  /**
-   * @description Function to get all users available
-   *
-   * @param {Object} request - HTTP Request Object
-   * @param {Object} response - HTTP Response Object containing List of users
-   *
-   * @returns {object} response JSON Object
-   */
-  static getAllUsers(request, response) {
-    client.query('SELECT * FROM users')
-      .then(data => response.status(200)
-        .json({
-          status: 'Users successfully retrieved',
-          data: data.rows,
-        }))
-      .catch(error => response.status(500).json({ message: error.message }));
-  }
-
+  
   /**
    * @description Sign up query for new users
    *
@@ -63,7 +46,7 @@ class UserController {
             return  response.status(201).json({
               success: true,
               user,
-              
+              message: 'user successfully created',
             });
           })
           .catch(error => response.status(500).json({ message: error.message })));
