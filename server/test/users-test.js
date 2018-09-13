@@ -38,25 +38,10 @@ describe('User Controller', () => {
         .end((error, response) => {
           expect(response).to.have.status(201);
           expect(response.body).to.be.an('object');
-          response.body.message.should.eql('user successfully created');
+          response.body.message.should.eql('Hello, Ibrahim Ilyasu welcome to stackOverflowLite');
           done();
         });
     });
-    // it('should create user with valid credentials', (done) => {
-    //   chai.request(app)
-    //     .post('/api/v1/auth/signup')
-    //     .send({
-    //       fullName: 'Chuma Ndoeche',
-    //       email: 'chumaNdoeche@gmail.com',
-    //       password: 'presley0080',
-    //     })
-    //     .end((error, response) => {
-    //       expect(response).to.have.status(201);
-    //       expect(response.body).to.be.an('object');
-    //       response.body.message.should.eql('user successfully created');
-    //       done();
-    //     });
-    // });
     it('should not create user with an already existing email', (done) => {
       chai.request(app)
         .post('/api/v1/auth/signup')
