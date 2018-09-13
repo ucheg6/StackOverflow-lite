@@ -31,7 +31,7 @@ class QuestionController {
     }).catch(error => next(error));
 
   }
-  
+
 
   /**
  * @description Query to create a new question
@@ -115,6 +115,43 @@ class QuestionController {
 
 
   }
+  /**
+     * @description - This method returns all question for a user
+     * @static getUserQuestions
+     * 
+     * @param {object} request - HTTP Request Object 
+     * @param {object} response - HTTP Response Object containing questions by the user
+     * 
+     * @memberof QuestionController
+     * 
+     * @returns {Promise<object>}
+     */
+  static getUserQuestions(request, response) {
+    const { userid: userId } = request.user;
+
+    client.query('SELECT a.answerId, a.answer, a.is_preferred, u.fullName  FROM answers a INNER JOIN users u ON a.userId = u.userId WHERE a.userId=$1', [userId])
+      .then((answers) => {
+        return client.query('SELECT q.questionId, q.questionTopic, q.questionBody, u.fullName FROM questions q INNER JOIN users u ON q.userId = u.userId WHERE q.userId=$1', [userId])
+          .then((data) => {
+            if (data.rows.length > 0) {
+              return response.status(200)
+                .json({
+                  success: true,
+                  message: 'User\'s Questions successfully Retrieved',
+                  data: data.rows,
+                  answers: answers.rows,
+
+                });
+            }
+            return response.status(404).json({
+              message: 'You have no questions to retrieve',
+            });
+          })
+      })
+      .catch(error => response.status(500).json({ message: error.message }));
+
+  }
+
 
 }
 

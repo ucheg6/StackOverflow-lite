@@ -21,6 +21,7 @@ router.post('/questions', Middleware.checkUser, QuestionValidation.validateInput
 router.delete('/questions/:questionId', Middleware.checkUser, QuestionValidation.authorizeDeleteQuestion, QuestionController.deleteQuestion);
 
 router.get('/questions/:questionId', Middleware.checkUser, QuestionController.getQuestion);
+router.get('/user/questions', Middleware.checkUser, QuestionController.getUserQuestions);
 router.post('/questions', Middleware.checkUser, QuestionValidation.checkQuestion,QuestionValidation.checkDuplicateQuery, QuestionController.postQuestion); 
 
 

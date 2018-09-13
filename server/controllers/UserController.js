@@ -9,6 +9,7 @@ dotenv.config();
 
 const key = process.env.JWT_KEY;
 const saltRounds = 10;
+const expiresIn = Number(process.env.JWT_EXPIRATION);
 
 
 /**
@@ -40,13 +41,13 @@ class UserController {
           'INSERT INTO users(fullName, email, pass) VALUES($1, $2, $3)',
           [newUser.fullName, newUser.email, hash],
         )
-          .then(() => client.query('SELECT userId, pass FROM users WHERE email = $1', [regMail]))
+          .then(() => client.query('SELECT userId, fullName, pass FROM users WHERE email = $1', [regMail]))
           .then((data) => {
-            const { password, ...user } = data.rows[0];
+            const { ...user } = data.rows[0];
             return  response.status(201).json({
               success: true,
-              user,
-              message: 'user successfully created',
+              message: `Hello, ${user.fullname} welcome to stackOverflowLite`,
+              user: user.fullname,
             });
           })
           .catch(error => response.status(500).json({ message: error.message })));
@@ -76,7 +77,7 @@ class UserController {
     const regMail = request.body.email;
     const regPass = request.body.password;
 
-    client.query({ text: 'SELECT userId, pass FROM users where email = $1', values: [regMail] })
+    client.query({ text: 'SELECT userId, fullName, pass FROM users where email = $1', values: [regMail] })
       .then((foundmail) => {
         if (foundmail.rowCount === 1) {
           const hash = foundmail.rows[0].pass;
@@ -85,10 +86,11 @@ class UserController {
               return response.status(500).json({ message: err });
             }
             if (result) {
-              const { password, ...user } = foundmail.rows[0];
-              return jwt.sign({ user }, key, (error, token) => response.json({
+              const { ...user } = foundmail.rows[0];
+              return jwt.sign({ user, expiresIn }, key, (error, token) => response.json({
                 success: true,
-                user,
+                message: `Welcome back ${user.fullname}, login succesfull!`,
+                user: user.fullname,
                 token,
               }));
             }
