@@ -163,11 +163,14 @@ class QuestionController {
      * @returns {Promise<object>}
      */
   static searchQuestions(request, response) {
-    const { searchQuery } = request.query
-
-    client.query('SELECT * FROM questions WHERE questionTopic ILIKE ${searchQuery}', { searchQuery })
+    const { searchQuery } = request.body
+    client.query({
+      text: `SELECT * FROM questions 
+     where questionTopic ilike 
+    '%${searchQuery}%' or questionBody ilike '%${searchQuery}%'`
+    })
       .then((questions) => {
-        if (questions.length === 0) {
+        if (questions.rows.length === 0) {
           return response.status(404).json({
             status: 'error',
             message: 'No questions found for that search input!',
@@ -177,11 +180,47 @@ class QuestionController {
         return response.status(200).json({
           status: 'success',
           message: 'Questions retrieved successfully!',
-          questions,
+          data: questions.rows,
         });
       })
       .catch(error => response.status(500).json({ message: error.message }));
   }
+  /**
+    * @static
+    *
+    * @param {object} request - The request object
+    * @param {object} response - The response object containing questions with the most answers
+    *
+    * @returns {Promise<object>}
+    *
+    * @description This method returns the question object
+    * 
+    */
+  static QuestionsWithMostAnswers(request, response) {
+    client.query({
+      text: `SELECT questions.*, count(answers.questionid) as answersnumber from questions 
+    left join answers on (questions.questionid = answers.questionid) group by questions.questionid order 
+    by count(answers.questionid) desc `
+    })
+      .then((questions) => {
+        if (questions.length === 0) {
+          return response.status(404).json({
+            status: 'error',
+            message: 'No question was found!'
+          });
+        }
+        return response.status(200).json({
+          status: 'success',
+          message: 'Questions retrieved successfully!',
+          data: questions.rows,
+        });
+      })
+      .catch(error => response.status(500).json({ message: error.message }));
+
+
+  }
+
+
 
 
 }

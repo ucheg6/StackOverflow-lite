@@ -19,10 +19,11 @@ router.get('/questions',  QuestionController.getAllQuestions);
 router.post('/questions', Middleware.checkUser, QuestionValidation.validateInputs, QuestionValidation.checkDuplicateQuery, QuestionController.postQuestion); 
 router.delete('/questions/:questionId', Middleware.checkUser, QuestionValidation.authorizeDeleteQuestion, QuestionController.deleteQuestion);
 
-router.get('/questions/:questionId', Middleware.checkUser, QuestionController.getQuestion);
 router.get('/user/questions', Middleware.checkUser, QuestionController.getUserQuestions);
 router.post('/questions', Middleware.checkUser, QuestionValidation.checkQuestion,QuestionValidation.checkDuplicateQuery, QuestionController.postQuestion); 
-router.post('/search', QuestionController.searchQuestions);
+router.post('/search', QuestionValidation.searchValidator, QuestionController.searchQuestions);
+router.get('/questions/mostanswers', QuestionController.QuestionsWithMostAnswers);
+router.get('/questions/:questionId', Middleware.checkUser, QuestionController.getQuestion);
 
 router.post('/questions/:questionId/answers', Middleware.checkUser, AnswerValidation.validateAnswer, AnswerController.postAnswer);
 router.put('/questions/:questionId/answers/:answerId', Middleware.checkUser, AnswerController.acceptAnswer);
