@@ -151,6 +151,37 @@ class QuestionController {
       .catch(error => response.status(500).json({ message: error.message }));
 
   }
+  /**
+     * @description - This method returns all searched questions
+     * @static getUserQuestions
+     * 
+     * @param {object} request - HTTP Request Object containing search query
+     * @param {object} response - HTTP Response Object containing searched questions 
+     * 
+     * @memberof QuestionController
+     * 
+     * @returns {Promise<object>}
+     */
+  static searchQuestions(request, response) {
+    const { searchQuery } = request.query
+
+    client.query('SELECT * FROM questions WHERE questionTopic ILIKE ${searchQuery}', { searchQuery })
+      .then((questions) => {
+        if (questions.length === 0) {
+          return response.status(404).json({
+            status: 'error',
+            message: 'No questions found for that search input!',
+          });
+        }
+
+        return response.status(200).json({
+          status: 'success',
+          message: 'Questions retrieved successfully!',
+          questions,
+        });
+      })
+      .catch(error => response.status(500).json({ message: error.message }));
+  }
 
 
 }

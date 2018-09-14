@@ -19,7 +19,7 @@ const expiresIn = Number(process.env.JWT_EXPIRATION);
  *
  */
 class UserController {
-  
+
   /**
    * @description Sign up query for new users
    *
@@ -44,7 +44,7 @@ class UserController {
           .then(() => client.query('SELECT userId, fullName, pass FROM users WHERE email = $1', [regMail]))
           .then((data) => {
             const { ...user } = data.rows[0];
-            return  response.status(201).json({
+            return response.status(201).json({
               success: true,
               message: `Hello, ${user.fullname} welcome to stackOverflowLite`,
               user: user.fullname,
@@ -117,12 +117,23 @@ class UserController {
    */
   static getUserProfile(request, response) {
     const { userid: userId } = request.user;
-    
     client.query('SELECT * FROM users WHERE userId = $1', [userId])
-    .then(data => response.status(200).json({
-      message: 'User details retrieved',
-      data: data.rows,
-    })).catch(error => response.status(500).json({ message: error.message }));
+      .then((user) => {
+        if (user.length < 1) {
+          return response.status(404).json({
+            status: 'error',
+            message: 'User not found!',
+          });
+        }
+
+        return response.status(200).json({
+          status: 'success',
+          message: 'User found!',
+          user: user[0],
+        });
+      })
+
+      .catch(error => response.status(500).json({ message: error.message }));
   }
 
 
