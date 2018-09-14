@@ -73,7 +73,7 @@ describe(' Answer Controller TEST', () => {
             .set('authorization', `Bearer ${reply.body.token}`)
             .send(newAnswer)
             .end((err, response) => {
-              response.should.have.status(400);
+              response.should.have.status(404);
               response.body.message.should.eql('question id does not exist');
               done();
             });
@@ -91,7 +91,7 @@ describe(' Answer Controller TEST', () => {
             .send(invalidAnswer)
             .end((err, response) => {
               response.should.have.status(400);
-              response.body.message.should.eql('you cannot submit an empty field');
+              response.body.message.should.eql('answer is required');
               done();
             });
         });

@@ -72,6 +72,7 @@ class QuestionController {
   */
   static deleteQuestion(request, response) {
     const questId = parseInt(request.params.questionId, 10);
+    Question.checkNaN(request, response);
     return client.query('DELETE FROM questions where questionId = $1', [questId])
       .then(() => response.status(200)
         .json({
