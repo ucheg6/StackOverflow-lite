@@ -69,6 +69,26 @@ class QuestionValidation {
     }
     return next();
   }
+  static searchValidator(request, response, next) {
+    const { searchQuery } = request.body;
+
+    if (!searchQuery) {
+      return response.status(400).json({
+        status: 'error',
+        message: 'Search input field is missing!',
+      });
+    }
+
+    if (searchQuery.trim().length < 1) {
+      return response.status(400).json({
+        status: 'error',
+        message: 'Search input field cannot be empty!',
+      });
+    }
+
+  
+    next();
+}
 
 
   /**
