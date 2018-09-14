@@ -2,11 +2,12 @@ import express from 'express';
 import UserController from '../controllers/UserController';
 import QuestionController from '../controllers/QuestionController';
 import AnswerController from '../controllers/AnswerController';
+import CommentController from '../controllers/CommentController';
 import SignupValidation from '../validation/user';
 import AnswerValidation from '../validation/answers';
 import QuestionValidation from '../validation/questions';
+import CommentValidation from '../validation/comments';
 import Middleware from '../middleware/users';
-
 
 const router = express.Router();
 
@@ -27,6 +28,9 @@ router.get('/questions/:questionId', Middleware.checkUser, QuestionController.ge
 
 router.post('/questions/:questionId/answers', Middleware.checkUser, AnswerValidation.validateAnswer, AnswerController.postAnswer);
 router.put('/questions/:questionId/answers/:answerId', Middleware.checkUser, AnswerController.acceptAnswer);
+
+router.post('/questions/answers/:answerId/comments', Middleware.checkUser, CommentValidation.validateComment, CommentController.postComment);
+router.get('/questions/answers/:answerId/comments', CommentController.getComments);
 
 router.all('*', (request, response) => {
   const error = {

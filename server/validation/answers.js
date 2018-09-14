@@ -10,16 +10,17 @@ class AnswerValidation {
  */
   static validateAnswer(request, response, next) {
     const { answer } = request.body;
-    const questionId = request.params;
+    
     if (
       !answer || answer === undefined || answer.toString().trim() === '' || typeof answer !== 'string'
-    ) {
+    ) 
+    {
       return response.status(400).send({
         success: 'false',
-        message: 'you cannot submit an empty field',
+        message: 'answer is required',
       });
     }
-    
+
     return next();
   }
 

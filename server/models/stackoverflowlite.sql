@@ -29,7 +29,18 @@ CREATE TABLE answers(
   is_preferred BOOLEAN DEFAULT false,
   created_at TIMESTAMP DEFAULT NOW(),
   FOREIGN KEY (questionId) REFERENCES questions (questionId) ON DELETE CASCADE,
-  FOREIGN KEY (userId) REFERENCES users (userId)ON DELETE CASCADE
+  FOREIGN KEY (userId) REFERENCES users (userId) ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS comments CASCADE;
+CREATE TABLE comments (
+  commentId SERIAL PRIMARY KEY,
+  answerId INT NOT NULL,
+  userId INT NOT NULL,
+  commentBody VARCHAR NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW(),
+  FOREIGN KEY (answerId) REFERENCES answers (answerId) ON DELETE CASCADE,
+  FOREIGN KEY (userId) REFERENCES users (userId) ON DELETE CASCADE
 );
 
 -- INSERT INTO users (fullName,email,pass) 
