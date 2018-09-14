@@ -39,7 +39,7 @@ router.all('*', (request, response) => {
   return response.status(404).json({
     message: error.message,
     status: 'error',
-    error,
+    
   });
 });
 

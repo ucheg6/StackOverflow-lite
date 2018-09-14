@@ -74,7 +74,7 @@ describe(' Answer Controller TEST', () => {
             .send(newAnswer)
             .end((err, response) => {
               response.should.have.status(404);
-              response.body.message.should.eql('question id does not exist');
+              response.body.message.should.eql('There is no question with this ID');
               done();
             });
         });
