@@ -28,6 +28,8 @@ router.get('/questions/:questionId', Middleware.checkUser, QuestionController.ge
 
 router.post('/questions/:questionId/answers', Middleware.checkUser, AnswerValidation.validateAnswer, AnswerController.postAnswer);
 router.put('/questions/:questionId/answers/:answerId', Middleware.checkUser, AnswerController.acceptAnswer);
+router.put('/questions/:questionId/answers/:answerId/upvotes', Middleware.checkUser, AnswerController.upVoteAnswer);
+router.put('/questions/:questionId/answers/:answerId/downvotes', Middleware.checkUser, AnswerController.downVoteAnswer);
 
 router.post('/questions/answers/:answerId/comments', Middleware.checkUser, CommentValidation.validateComment, CommentController.postComment);
 router.get('/questions/answers/:answerId/comments', CommentController.getComments);
