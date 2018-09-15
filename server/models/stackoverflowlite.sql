@@ -27,6 +27,8 @@ CREATE TABLE answers(
   userId INT NOT NULL,
   answer VARCHAR (150) NOT NULL,
   is_preferred BOOLEAN DEFAULT false,
+  upvotes INT DEFAULT 0,
+  downvotes INT DEFAULT 0,
   created_at TIMESTAMP DEFAULT NOW(),
   FOREIGN KEY (questionId) REFERENCES questions (questionId) ON DELETE CASCADE,
   FOREIGN KEY (userId) REFERENCES users (userId) ON DELETE CASCADE
@@ -43,14 +45,3 @@ CREATE TABLE comments (
   FOREIGN KEY (userId) REFERENCES users (userId) ON DELETE CASCADE
 );
 
--- INSERT INTO users (fullName,email,pass) 
---     VALUES ('Chuma Ndoeche','chumaNdoeche@gmail.com','presley0080');
---      INSERT INTO users (fullName,email,pass) 
---     VALUES ('Ibrahim Ilyasu','ibravoh@gmail.com','presley0080');
---      INSERT INTO users (fullName,email,pass) 
---     VALUES ('Ginika Akogwu','ginika@gmail.com','presley0080');
---      INSERT INTO users (fullName, email,pass) 
---     VALUES ('Christy Akogwu','christy@gmail.com','presley0080');
-
--- INSERT INTO questions (userId,questionTopic,questionBody) 
---     VALUES ('1','religion','who founded christianity');
