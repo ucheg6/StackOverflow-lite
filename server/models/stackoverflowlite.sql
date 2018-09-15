@@ -1,4 +1,5 @@
--- \c stackoverflow_lite_test;
+\c stackoverflow_lite_test;
+
 
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
