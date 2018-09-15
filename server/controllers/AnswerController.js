@@ -97,6 +97,92 @@ class AnswerController {
       }).catch(error => response.status(500).json({ message: error.message }));
 
   }
- 
+  /**
+* @description method to upvote an answer
+* 
+* @static voteAnswer
+* 
+* @param {Object} request - HTTP Request
+* @param {Object} response - HTTP Response
+*
+* @returns {object} response JSON Object
+* 
+*
+* @returns { Object } JSON Object
+*/
+  static upVoteAnswer(request, response) {
+    const questId = parseInt(request.params.questionId, 10);
+    const answerId = parseInt(request.params.answerId, 10);
+   
+    client.query('SELECT * FROM questions WHERE questionId =$1', [questId])
+      .then((data) => {
+        Question.noContent(request, response, data, 'There is no question with this ID');
+        client.query('SELECT * FROM answers WHERE answerid = $1', [answerId])
+          .then((answer) => {
+            if (answer.length < 1) {
+              return response.status(404).json({
+                status: 'error',
+                message: 'Answer not found!',
+              });
+            }
+
+            return client.query('UPDATE answers SET upvotes = upvotes + 1 where answerId=$1 AND questionId=$2 RETURNING upvotes',
+              [ answerId, questId])
+              .then((upvote) => {
+                response.status(200).json({
+                  status: 'success',
+                  message: 'answer upvoted successfully',
+                  result: upvote.rows,
+                })
+              })
+
+          })
+      }).catch(error => response.status(500).json({ message: error.message }));
+   
+    }
+
+     /**
+* @description method to downvote an answer
+* 
+* @static voteAnswer
+* 
+* @param {Object} request - HTTP Request
+* @param {Object} response - HTTP Response
+*
+* @returns {object} response JSON Object
+* 
+*
+* @returns { Object } JSON Object
+*/
+  static downVoteAnswer(request, response) {
+    const questId = parseInt(request.params.questionId, 10);
+    const answerId = parseInt(request.params.answerId, 10);
+   
+    client.query('SELECT * FROM questions WHERE questionId =$1', [questId])
+      .then((data) => {
+        Question.noContent(request, response, data, 'There is no question with this ID');
+        client.query('SELECT * FROM answers WHERE answerid = $1', [answerId])
+          .then((answer) => {
+            if (answer.length < 1) {
+              return response.status(404).json({
+                status: 'error',
+                message: 'Answer not found!',
+              });
+            }
+
+            return client.query('UPDATE answers SET downvotes = downvotes + 1 where answerId=$1 AND questionId=$2 RETURNING downvotes',
+              [ answerId, questId])
+              .then((downvote) => {
+                response.status(200).json({
+                  status: 'success',
+                  message: 'answer downvoted successfully',
+                  result: downvote.rows,
+                })
+              })
+
+          })
+      }).catch(error => response.status(500).json({ message: error.message }));
+   
+    }
 }
-export default AnswerController;
+  export default AnswerController;
