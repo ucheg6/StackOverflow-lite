@@ -45,6 +45,28 @@ static validateUserInputs(request, response, next) {
   return next();
 }
 
+static checkLength(request, response, next) {
+  const { password, fullName} = request.body;
+  let isValid = true;
+  const errors = {};
+
+  if (fullName && !(validator.isLength(fullName, { min: 2, max: 20 }))) {
+    isValid = false;
+    errors.fullName = 'The length of your full name should be between 2 and 20';
+  }
+  if (password && !(validator.isLength(password, { min: 6, max: 15 }))) {
+    isValid = false;
+    errors.password = 'your Password length should be between 6 and 15';
+  }
+  if (isValid) {
+    return next();
+  }
+  return response.status(400).json({
+    success: false,
+    errors,
+  });
+}
+
 /**
 * @method signInValidation
 * @static
@@ -64,30 +86,6 @@ static signInValidation(request, response, next) {
   }
   return next();
 }
-
-  
-
-  static checkLength(request, response, next) {
-    const { password, fullName} = request.body;
-    let isValid = true;
-    const errors = {};
-
-    if (fullName && !(validator.isLength(fullName, { min: 1, max: 20 }))) {
-      isValid = false;
-      errors.fullName = 'The length of your full name should be between 1 and 20';
-    }
-    if (password && !(validator.isLength(password, { min: 6, max: 15 }))) {
-      isValid = false;
-      errors.password = 'your Password length should be between 6 and 15';
-    }
-    if (isValid) {
-      return next();
-    }
-    return response.status(400).json({
-      success: false,
-      errors,
-    });
-  }
 
   
 }

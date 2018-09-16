@@ -171,7 +171,7 @@ class QuestionController {
     '%${searchQuery}%' or questionBody ilike '%${searchQuery}%'`
     })
       .then((questions) => {
-        if (questions.rows.length === 0) {
+        if (questions.rows < 1) {
           return response.status(404).json({
             status: 'error',
             message: 'No questions found for that search input!',
@@ -204,7 +204,7 @@ class QuestionController {
     by count(answers.questionid) desc `
     })
       .then((questions) => {
-        if (questions.length === 0) {
+        if (questions.rows < 1) {
           return response.status(404).json({
             status: 'error',
             message: 'No question was found!'

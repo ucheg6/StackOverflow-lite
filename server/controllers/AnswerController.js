@@ -62,15 +62,7 @@ class AnswerController {
   * @returns {object} Updated answer object
   * or error object if answer is not found
   */
-  /**
-  * @description Query to check for duplicates and update an existing request
-  *
-  * @param {Object} request - HTTP Request
-  * @param {Object} response - HTTP Response
-  *
-  * @returns {object} response JSON Object
-  */
-  static acceptAnswer(request, response) {
+   static acceptAnswer(request, response) {
     const questId = parseInt(request.params.questionId, 10);
     const answerId = parseInt(request.params.answerId, 10);
     const is_preferred = 'true';
@@ -81,7 +73,7 @@ class AnswerController {
         client.query('SELECT questions.userId FROM questions WHERE questions.userId=$1', [userId])
           .then((data) => {
             if (data.rows < 1) {
-              return response.status(500).json({ message: 'You are not authorized for this action' });
+              return response.status(401).json({ message: 'You are not authorized for this action' });
             }
 
             return client.query('UPDATE answers SET is_preferred=$1  where answerId=$2 AND questionId=$3',
@@ -119,7 +111,7 @@ class AnswerController {
         Question.noContent(request, response, data, 'There is no question with this ID');
         client.query('SELECT * FROM answers WHERE answerid = $1', [answerId])
           .then((answer) => {
-            if (answer.length < 1) {
+            if (answer.rows < 1) {
               return response.status(404).json({
                 status: 'error',
                 message: 'Answer not found!',
@@ -163,7 +155,7 @@ class AnswerController {
         Question.noContent(request, response, data, 'There is no question with this ID');
         client.query('SELECT * FROM answers WHERE answerid = $1', [answerId])
           .then((answer) => {
-            if (answer.length < 1) {
+            if (answer.rows < 1) {
               return response.status(404).json({
                 status: 'error',
                 message: 'Answer not found!',

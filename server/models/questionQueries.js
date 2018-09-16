@@ -36,32 +36,7 @@ class Question {
     return null;
   }
 
-  /**
-   * @description Query to select a question
-   *
-   * @param {Object} request - HTTP Request
-   * @param {Object} response - HTTP Response
-   *
-   * @returns {object} response JSON Object
-   */
-  static selectAQuestion(request, response) {
-    const questId = parseInt(request.params.questionId, 10);
-    const { userid: userId } = request.user;
-    Question.checkNaN(request, response);
-    return client.query('select * from questions where userId = $1 and questionId = $2', [userId, questId])
-      .then((data) => {
-        Question.noContent(request, response, data, 'You have no question with this ID');
-        return response.status(200)
-          .json({
-            success: true,
-            message: 'Retrieved one question',
-            data: data.rows,
-          });
-      })
-      .catch(error => response.status(500).json({ message: error.message }));
-  }
- 
-  
+   
 
 }
 

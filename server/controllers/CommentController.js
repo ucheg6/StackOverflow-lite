@@ -41,7 +41,7 @@ class CommentController {
     };
     client.query('SELECT * FROM answers WHERE answerId = $1', [answerId],)
       .then((answer) => {
-        if (answer.length === 0) {
+        if (answer.rows < 1) {
           return response.status(404).json({
             status: 'error',
             message: 'You Can\'t comment on a nonexistent answer!',
@@ -83,7 +83,7 @@ class CommentController {
 
     client.query('SELECT c.commentId, c.commentBody, u.fullName  FROM comments c INNER JOIN users u ON c.userId = u.userId WHERE c.answerId=$1', [answerId])
       .then((comments) => {
-        if (comments.length === 0) {
+        if (comments.rows < 1) {
           return response.status(404).json({
             status: 'success',
             message: 'There are no comments yet for this answer!',

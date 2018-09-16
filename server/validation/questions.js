@@ -2,6 +2,7 @@ import validator from 'validator';
 import Question from '../models/questionQueries';
 import client from '../models/database';
 
+
 class QuestionValidation {
   /**
    * @static
@@ -14,28 +15,7 @@ class QuestionValidation {
    *
    * @returns {object} response JSON Object
    */
-  static checkQuestion(request, response, next) {
-    const { questionTopic, questionBody } = request.body;
-    let isValid = true;
-    const errors = {};
-
-    if (!questionTopic) {
-      isValid = false;
-      errors.questionTopic = 'The question topic is required';
-    }
-    if (!questionBody) {
-      isValid = false;
-      errors.questionBody = 'The question Body is required';
-    }
-    if (isValid) {
-      return next();
-    }
-    return response.status(400).json({
-      success: false,
-      errors,
-    });
-  }
-
+  
   static validateInputs(request, response, next) {
      
     const {
@@ -59,14 +39,7 @@ class QuestionValidation {
       });
     }
     
-    if (
-      typeof  questionTopic !== 'string'
-    ) {
-      return response.status(400).send({
-        success: 'false',
-        message: ' Question Topic must be a string',
-      });
-    }
+    
     return next();
   }
   static searchValidator(request, response, next) {

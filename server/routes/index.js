@@ -13,15 +13,15 @@ const router = express.Router();
 
 
 router.post('/auth/signup', SignupValidation.validateUserInputs, SignupValidation.checkLength, UserController.userSignup);
-router.post('/auth/login', SignupValidation.signInValidation, SignupValidation.checkLength, UserController.userLogin);
+router.post('/auth/login', SignupValidation.signInValidation, UserController.userLogin);
 
-router.get('/user',  UserController.getUserProfile);
+//router.get('/user',  UserController.getUserProfile);
 router.get('/questions',  QuestionController.getAllQuestions);
 router.post('/questions', Middleware.checkUser, QuestionValidation.validateInputs, QuestionValidation.checkDuplicateQuery, QuestionController.postQuestion); 
 router.delete('/questions/:questionId', Middleware.checkUser, QuestionValidation.authorizeDeleteQuestion, QuestionController.deleteQuestion);
 
 router.get('/user/questions', Middleware.checkUser, QuestionController.getUserQuestions);
-router.post('/questions', Middleware.checkUser, QuestionValidation.checkQuestion,QuestionValidation.checkDuplicateQuery, QuestionController.postQuestion); 
+router.post('/questions', Middleware.checkUser,QuestionValidation.checkDuplicateQuery, QuestionController.postQuestion); 
 router.post('/search', QuestionValidation.searchValidator, QuestionController.searchQuestions);
 router.get('/questions/mostanswers', QuestionController.QuestionsWithMostAnswers);
 router.get('/questions/:questionId', Middleware.checkUser, QuestionController.getQuestion);
