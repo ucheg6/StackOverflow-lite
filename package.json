@@ -1,6 +1,7 @@
 {
   "name": "stackoverflow-lite",
   "version": "1.0.0",
+  "engines" : { "node" :   "8.11.2"},
   "description": "A platform for users to ask questions and give answers to asked questions.",
   "main": "server/app.js",
   "scripts": {
@@ -10,7 +11,7 @@
     "lint": "eslint --init --fix",
     "seed": "babel-node ./server/models/migrate.js",
     "create:table-two": "psql -U postgres -f  ./server/models/stackoverflowlite.sql",
-    "create:table": " psql -U postgres -f ./server/models/stackoverflowlite.sql ",
+    "create:table": "psql -f ./server/models/stackoverflowlite.sql",
     "test": "cross-env NODE_ENV=test&&  npm run mig && nyc --reporter=html --reporter=text mocha --require babel-core/register --timeout 6000 server/test/index.js --exit",
     "test-local": "set NODE_ENV=local&& npm run mig-two && nyc --reporter=html --reporter=text mocha --require babel-core/register --timeout 6000 server/test/index.js --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",

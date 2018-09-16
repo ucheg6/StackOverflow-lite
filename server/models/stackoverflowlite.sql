@@ -1,6 +1,5 @@
 \c stackoverflow_lite_test;
 
-
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
  userId serial PRIMARY KEY,
