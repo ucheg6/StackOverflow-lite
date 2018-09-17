@@ -22,17 +22,32 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
    1. Authenticated users can upvote or downvote an answer.
    2. Authenticated users get a notification when an answer is given to their question.
    3. Authenticated users can view all the questions they have ever asked on the platform.
+   
+ View UI templates hosted on Github pages at (https://ucheg6.github.io/StackOverflow-lite/UI/) 
 
 # API 
    Heroku  https://stackoverflow-litee.herokuapp.com/
 
-  | METHOD  | DESCRIPTION       | ENDPOINTS                     |
-  | --------| -------------     | ----------------              |
-  | Get     | Get a Question    | /questions                    |
-  | Get     | Get all Questions | /questions/:questionId        |
-  | Post    | Post a Question   | /questions                    |
-  | Delete  | Delete a Question | /questions/:questionId        | 
-  | Post    | Post an answer    | /questions/:questionId/answers| 
+   Apiary API documentation https://uchechukwuakogwu.docs.apiary.io
+
+  | METHOD  | DESCRIPTION                  |             ENDPOINTS                                 |
+  | --------| -------------                |          -------------------------------              |
+  | Get     | Get all Question             |      /questions                                       |
+  | Get     | Get a Questions              |     /questions/:questionId                            |
+  | Post    | Post a Question              |     /questions                                        |
+  | Delete  | Delete a Question            |     /questions/:questionId                            | 
+  | Post    | Post an answer               |     /questions/:questionId/answers                    | 
+  | Post    | signup a user                |     /auth/signup                                      | 
+  | Post    | Login in a user              |     /auth/login                                       | 
+  | Get     | User details                 |     /user                                             | 
+  | Get     | Get user Question            |     /user/questions                                   | 
+  | Get     | Question with most answers   |     /questions/mostanswers                            | 
+  | Put     | accept an answer             |     /questions/:questionId/answers/:answerId          |  
+  | Put     | upvote an answer             |     /questions/:questionId/answers/:answerId/upvotes  |
+  | Put     | downvote an answer           |     /questions/:questionId/answers/:answerId/downvotes|
+  | Post    | comment on an answer         |     /questions/answers/:answerId/comments             |
+  | Get     | get comment on an answer     |     /questions/answers/:answerId/comments             |
+  
 
 # Built With
    - NodeJs/Express
@@ -60,9 +75,7 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
   
 # Project Management
   Project is managed at (https://www.pivotaltracker.com/n/projects/2189581) using the project management tool, Pivotal Tracker.
-
-  View UI templates hosted on Github pages at (https://ucheg6.github.io/StackOverflow-lite/UI/) 
-
+ 
 # License
   MIT © Uche Akogwu  
 # Author
