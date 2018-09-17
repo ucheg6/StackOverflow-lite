@@ -1,0 +1,665 @@
+FORMAT: 1A
+HOST: https://stackoverflow-litee.herokuapp.com/
+
+# StackOverflowLite API Documentation
+
+StackOverflow-lite is a platform where people can ask questions and provide answers to questions.
+
+## Users Signup [/auth/signup]
+
+### Register a user [POST]
+
+
++ Request (application/json)
+
+            {
+              "fullName": "string",
+              "email": "string",
+              "password": "string"
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+
+            {
+                  "message": "string",
+                  "newUser": {
+                      "fullName": "string",
+                    "email": "string"
+                  }
+                }
+
+
++ Response 400 (application/json)
+              
+              bad request
+                        {
+                "success": false,
+                "message":  "string"
+                }
+
++ Response 409 (application/json)
+               
+               Conflict in resource
+               
+                        {
+                "success": false,
+                "message":  "string"
+                }
+
+
+## Users Login [/auth/login]
+
+
+### Login a user [POST]
+
+
++ Request (application/json)
+
+            {
+              "email": "string",
+              "password": "string"
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+
+                        {
+                "success": true,
+                "message": "string",
+                "user": "string",
+                "token": "string"
+            }
+
+
++ Response 400 (application/json)
+              
+              bad request
+                        {
+                "success": false,
+                "message":  "string"
+                }
+
++ Response 409 (application/json)
+               
+               Conflict in resource
+               
+                        {
+                "success": false,
+                "message":  "string"
+                }
+
+
+##  Questions  [/questions]
+
+
+### Get all questions  [GET]
+
+
++ Response 201 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+                
+                              {
+                    "success": true,
+                    "message": "string",
+                    "newQuestion": {
+                        "questionTopic": "string",
+                        "questionBody": "string"
+                    }
+                }
+
+
++ Response 400 (application/json)
+              
+              bad request(There is no question with this ID)
+                        {
+                "success": false,
+                "message":  "string"
+                }
+
+
+### Post a question  [POST]
+
+
++ Request (application/json)
+
+            {
+              "questionBody": "string",
+              "questionTopic": "string"
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+            
+                          {
+                "success": true,
+                "message": "string",
+                "newQuestion": {
+                    "questionTopic": "string",
+                    "questionBody": "string"
+                }
+            }
+
+
++ Response 400 (application/json)
+              
+              bad request
+                            {
+                "success": "false",
+                "message": "string"
+            }
+
+
++ Response 401 (application/json)
+              
+              unauthorized
+                            {
+                "success": "false",
+                "message": "string"
+            } 
+            
+            
+### Delete a question  [DELETE]
+
++ Parameters
+    + questionId (number) - ID of the Question in the form of an integer
+
++ Response 200 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+            
+                          {
+                "success": true,
+                "message": "string",
+               
+            }
+
+
++ Response 404 (application/json)
+              
+              resource not found
+                            {
+                "success": "false",
+                "message": "string"
+            }
+
+
+
++ Response 401 (application/json)
+              
+              unauthorized
+                            {
+                "success": "false",
+                "message": "string"
+            } 
+            
+            
+##  Questions with Most answers  [/questions/mostanswers]
+
+### Get questions with the most answers  [GET]
+
++ Response 200 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+            
+                            {
+                "status": "success",
+                "message": "Questions retrieved successfully!",
+                "data": [
+                    {
+                        "questionid": 3,
+                        "userid": 1,
+                        "questiontopic": "literature",
+                        "questionbody": "what is an oxymoron?",
+                        "created_at": "2018-09-17T06:51:47.607Z",
+                        "answersnumber": "4"
+                    }
+                ]
+            }
+
+
+
++ Response 404 (application/json)
+              
+              resource not found
+                            {
+                "success": "false",
+                "message": "string"
+            }
+
+##  Get a single question  [/questions/questionId]
+
+### Get a question by the Id  [GET]
+
+
++ Parameters
+    + questionId (number) - ID of the Question in the form of an integer
+
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+                                                            
+                             {
+                "success": true,
+                "message": "Question Retrieved",
+                "data": [
+                    {
+                        "questionid": 3,
+                        "questiontopic": "literature",
+                        "questionbody": "what is an oxymoron?",
+                        "fullname": "Bello Rasheed"
+                    }
+                ],
+                "answers": [
+                    {
+                        "answerid": 1,
+                        "answer": "another answer to oxymoron",
+                        "is_preferred": false,
+                        "fullname": "Bello Rasheed"
+                    }
+                ]
+            }
+
+
++ Response 404 (application/json)
+              
+              resource not found
+                            {
+                "success": "false",
+                "message": "string"
+            }
+
++ Response 400 (application/json)
+              
+              Bad request
+                            {
+                "success": "false",
+                "message": "string"
+            }
+
+##  Search Questions  [/search]
+
+### search for questions in the app  [POST]
+
+
++ Request (application/json)
+
+            {
+              "searchQuery": "string",
+             
+            }
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+                                    
+                             {
+                "status": "success",
+                "message": "Questions retrieved successfully!",
+                "data": [
+                    {
+                        "questionid": 3,
+                        "userid": 1,
+                        "questiontopic": "literature",
+                        "questionbody": "what is an oxymoron?",
+                        "created_at": "2018-09-17T06:51:47.607Z"
+                    }
+                ]
+            }
+
+
++ Response 404 (application/json)
+              
+              resource not found
+                            {
+                "success": "false",
+                "message": "string"
+            }
+
++ Response 404 (application/json)
+              
+              Bad request
+                            {
+                "success": "false",
+                "message": "string"
+            }
+
+
+##  Post an answer  [/questions/:questionId/answers]
+
+### Post an answer to a question  [POST]
+
+
++ Parameters
+    + question_id (number) - ID of the Question in the form of an integer
+
+
++ Request (application/json)
+
+            {
+              "answer": "string",
+             
+            }
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+                                                
+                          {
+                "success": true,
+                "message": "Answer Successfully created",
+                "newAnswer": {
+                    "answer": "another answer to oxymoron",
+                    "questionId": 3
+                }
+            }
+
+
++ Response 404 (application/json)
+              
+              resource not found
+                            {
+                "success": "false",
+                "message": "string"
+            }
+
++ Response 400 (application/json)
+              
+              Bad request
+                            {
+                "success": "false",
+                "message": "string"
+            }
+            
+
+
+
++ Response 401 (application/json)
+              
+              unauthorized
+                            {
+                "success": "false",
+                "message": "string"
+            } 
+            
+            
+            
+##  Accept an answer  [/questions/:questionId/answers/:answerId]
+
+### Accept an answer to a question  [PUT]
+
+
++ Parameters
+    + question_id (number) - ID of the Question in the form of an integer
+    + answer_id (number) - ID of the answer in the form of an integer
+
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+                                                            
+                            {
+                "status": "success",
+                "message": "answer marked as accepted"
+            }
+
+
++ Response 404 (application/json)
+              
+              resource not found
+                            {
+                "success": "false",
+                "message": "string"
+            }
+
+
++ Response 401 (application/json)
+              
+              unauthorized
+                            {
+                "success": "false",
+                "message": "string"
+            }               
+            
+
+##  upvote an answer  [/questions/questionId/answers/answerId/upvotes]
+
+### upvote an answer to a question  [PUT]
+
+
++ Parameters
+    + questionId (number) - ID of the Question in the form of an integer
+    + answerId (number) - ID of the answer in the form of an integer
+
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+                                                                        
+                              {
+                "status": "success",
+                "message": "answer upvoted successfully",
+                "result": [
+                    {
+                        "upvotes": 1
+                    }
+                ]
+            }
+
+
++ Response 404 (application/json)
+              
+              resource not found
+                            {
+                "success": "false",
+                "message": "string"
+            }
+
+
++ Response 401 (application/json)
+              
+              unauthorized
+                            {
+                "success": "false",
+                "message": "string"
+            }                           
+            
+
+##  downvote an answer  [/questions/:questionId/answers/:answerId/downvotes]
+
+### downvote an answer to a question  [PUT]
+
+
++ Parameters
+    + questionId (number) - ID of the Question in the form of an integer
+    + answerId (number) - ID of the answer in the form of an integer
+
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+                                                                        
+                              {
+                "status": "success",
+                "message": "answer upvoted successfully",
+                "result": [
+                    {
+                        "downvotes": 1
+                    }
+                ]
+            }
+
+
++ Response 404 (application/json)
+              
+              resource not found
+                            {
+                "success": "false",
+                "message": "string"
+            }
+
+
++ Response 401 (application/json)
+              
+              unauthorized
+                            {
+                "success": "false",
+                "message": "string"
+            }                    
+            
+            
+##  Comments  [/questions/answers/:answerId/comments]
+
+### Comment on an answer  [POST]
+
+
++ Parameters
+     + answerId (number) - ID of the answer in the form of an integer
+
+
++ Request (application/json)
+
+            {
+              "commentBody": "string",
+             
+            }
+
++ Response 200 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+                                                                        
+                                          {
+                            {
+                "success": true,
+                "message": "Comment Successfully created",
+                "newComment": {
+                    "commentBody": "so i am just gonna drop a comment",
+                    "answerId": 1
+                }
+            }
+
++ Response 404 (application/json)
+              
+              resource not found
+                            {
+                "success": "false",
+                "message": "string"
+            }
+
+
++ Response 401 (application/json)
+              
+              unauthorized
+                            {
+                "success": "false",
+                "message": "string"
+            } 
+            
+            
+
+### Get Comments on an answer  [GET]
+
+
++ Parameters
+     + answerId (number) - ID of the answer in the form of an integer
+
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+         
+
+    + Body
+                                                                        
+                     {
+                "status": "success",
+                "message": "All comments retrieved!",
+                "data": [
+                    {
+                        "commentid": 1,
+                        "commentbody": "so i am just gonna drop a comment",
+                        "fullname": "Bello Rasheed"
+                    }
+                ]
+            }
++ Response 404 (application/json)
+              
+              resource not found
+                            {
+                "success": "false",
+                "message": "string"
+            }
+
+
++ Response 401 (application/json)
+              
+              unauthorized
+                            {
+                "success": "false",
+                "message": "string"
+            }
