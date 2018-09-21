@@ -15,7 +15,7 @@ describe('User Controller', () => {
   describe('GET /api/v1', () => {
     it('should return a welcome message on the home page', (done) => {
       chai.request(app)
-        .get('/')
+        .get('/api/v1')
         .end((error, response) => {
           response.status.should.eql(200);
           response.type.should.eql('text/html');

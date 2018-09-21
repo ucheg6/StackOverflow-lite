@@ -34,15 +34,4 @@ router.put('/questions/:questionId/answers/:answerId/downvotes', Middleware.chec
 router.post('/questions/answers/:answerId/comments', Middleware.checkUser, CommentValidation.validateComment, CommentController.postComment);
 router.get('/questions/answers/:answerId/comments', CommentController.getComments);
 
-router.all('*', (request, response) => {
-  const error = {
-    message: "I'm pretty sure this is not what you are looking for, please enter a valid route",
-  };
-  return response.status(404).json({
-    message: error.message,
-    status: 'error',
-    
-  });
-});
-
 export default router;

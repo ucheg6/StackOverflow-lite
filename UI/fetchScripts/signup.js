@@ -28,15 +28,15 @@ const signUpUser = () => {
 
     if (!signupBody.firstName) {
       fullNameAlert.style.display = 'block';
-      fullNameAlert.innerHTML = data.message;
+      fullNameAlert.innerHTML = data.body.message;
     }
     if (!signupBody.email) {
       emailAlert.style.display = 'block';
-      emailAlert.innerHTML = data.message;
+      emailAlert.innerHTML = data.body.message;
     }
     if (!signupBody.password) {
       passwordAlert.style.display = 'block';
-      passwordAlert.innerHTML = data.message;
+      passwordAlert.innerHTML = data.body.message;
     }
   };
 
@@ -46,9 +46,9 @@ const signUpUser = () => {
       console.log(data)
       if (data.success === false) {
         checkInput(data);
-      } else {
-          window.location.href = './index.html ';
-      }
+      } //else {
+      //     window.location.href = './index.html ';
+      // }
     }).catch((error) => {
       console.log(error);
     });

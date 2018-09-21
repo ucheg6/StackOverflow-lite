@@ -24,10 +24,12 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
    3. Authenticated users can view all the questions they have ever asked on the platform.
    
  View UI templates hosted on Github pages at (https://ucheg6.github.io/StackOverflow-lite/UI/) 
+ 
+ Front End APP https://stackoverflow-litee.herokuapp.com/
 
 # API 
-   Heroku  https://stackoverflow-litee.herokuapp.com/
-
+   Heroku  https://stackoverflow-litee.herokuapp.com/api/v1
+  
    Apiary API documentation https://uchechukwuakogwu.docs.apiary.io
 
   | METHOD  | DESCRIPTION                  |             ENDPOINTS                                 |
