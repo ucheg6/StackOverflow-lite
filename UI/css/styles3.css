@@ -122,8 +122,15 @@ button:hover {
 
   width: 100%;
 }
-
-
+/* error alert for signup */
+.alert-class {
+  background: #ddd;
+  color: #000;
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+  display: none;
+}
 
 
 
