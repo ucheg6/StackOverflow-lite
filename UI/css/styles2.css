@@ -17,7 +17,7 @@ html, body {
     
 }
 #logoo {
-    color: #b23850;
+    color:  #f2f2f2;
 
   }
 .topnav a {
@@ -27,6 +27,7 @@ html, body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    
 }
 .nav {
     margin-right: 80px;
