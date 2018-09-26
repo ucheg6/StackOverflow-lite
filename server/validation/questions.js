@@ -88,7 +88,7 @@ class QuestionValidation {
       .then((data) => {
         if (data.rowCount > 0) {
           return response.status(409).json({
-            success: false,
+            success: 'false',
             message: 'You cannot make duplicate questions',
           });
         }

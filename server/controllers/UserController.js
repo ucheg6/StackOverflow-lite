@@ -44,7 +44,7 @@ class UserController {
           .then((data) => {
             const { ...user } = data.rows[0];
             return response.status(201).json({
-              success: true,
+              success: 'true',
               message: `Hello, ${user.fullname} welcome to stackOverflowLite`,
               user: user.fullname,
             });
@@ -87,20 +87,20 @@ class UserController {
             if (result) {
               const { ...user } = foundmail.rows[0];
               return jwt.sign({ user, expiresIn }, key, (error, token) => response.json({
-                success: true,
+                success: 'true',
                 message: `Welcome back ${user.fullname}, login succesfull!`,
                 user: user.fullname,
                 token,
               }));
             }
             return response.status(400).json({
-              success: false,
+              success: 'false',
               message: 'Your email or password is incorrect',
             });
           });
         }
         return response.status(400).json({
-          success: false,
+          success: 'false',
           message: 'Your email or password is incorrect',
         });
       });

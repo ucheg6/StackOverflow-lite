@@ -26,7 +26,7 @@ class CommentController {
 
     if (isNaN(answerId)) {
       return response.status(400).json({
-        success: false,
+        success: 'false',
         message: 'Your answer ID is invalid. Please enter a number',
       });
     }
@@ -50,7 +50,7 @@ class CommentController {
 
         return client.query(query).then((data) => {
           response.status(201).json({
-            success: true,
+            success: 'true',
             message: 'Comment Successfully created',
             newComment,
           })

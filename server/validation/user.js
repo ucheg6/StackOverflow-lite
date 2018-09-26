@@ -62,7 +62,7 @@ static checkLength(request, response, next) {
     return next();
   }
   return response.status(400).json({
-    success: false,
+    success: 'false',
     errors,
   });
 }

@@ -24,7 +24,7 @@ class AnswerController {
 
     if (isNaN(questionId)) {
       return response.status(400).json({
-        success: false,
+        success: 'false',
         message: 'Your question ID is invalid. Please enter a number',
       });
     }
@@ -46,7 +46,7 @@ class AnswerController {
         Question.noContent(request, response, data, 'There is no question with this ID');
         return client.query(query).then((data) => {
           response.status(201).json({
-            success: true,
+            success: 'true',
             message: 'Answer Successfully created',
             newAnswer,
           })

@@ -55,7 +55,7 @@ class QuestionController {
         newQuestion.questionBody],
     };
     client.query(query).then(() => response.status(201).json({
-      success: true,
+      success: 'true',
       message: 'Question Successfully created',
       newQuestion,
     })).catch(error => response.status(500).json({ message: error.message }));
@@ -76,7 +76,7 @@ class QuestionController {
     return client.query('DELETE FROM questions where questionId = $1', [questId])
       .then(() => response.status(200)
         .json({
-          success: true,
+          success: 'true',
           message: 'Question successfully deleted',
         })).catch(error => response.status(500).json({ message: error.message }));
   }
@@ -104,7 +104,7 @@ class QuestionController {
             Question.noContent(request, response, data, 'There is no question with this ID');
             return response.status(200)
               .json({
-                success: true,
+                success: 'true',
                 message: 'Question Retrieved',
                 data: data.rows,
                 answers: answers.rows,
@@ -137,7 +137,7 @@ class QuestionController {
             if (data.rows.length > 0) {
               return response.status(200)
                 .json({
-                  success: true,
+                  success: 'true',
                   message: 'User\'s Questions successfully Retrieved',
                   data: data.rows,
                   answers: answers.rows,

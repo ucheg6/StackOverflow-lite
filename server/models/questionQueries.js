@@ -11,7 +11,7 @@ class Question {
     const questId = parseInt(request.params.questionId, 10);
     if (Number.isNaN(questId)) {
       return response.status(400).json({
-        success: false,
+        success: 'false',
         message: 'Your question ID is invalid. Please enter a number',
       });
     }
@@ -29,7 +29,7 @@ class Question {
   static noContent(request, response, data, errorMessage) {
     if (data.rows.length === 0) {
       return response.status(404).json({
-        success: false,
+        success: 'false',
         message: errorMessage,
       });
     }
