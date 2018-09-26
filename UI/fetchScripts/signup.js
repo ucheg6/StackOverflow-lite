@@ -6,6 +6,15 @@ const passwordInput = document.getElementById('password');
 
 const registerBtn = document.getElementById('register');
 
+const dangerDiv = document.getElementById('danger-alert');
+
+const dangerTimeout = () => {
+  setTimeout(() => {
+    dangerDiv.style.display = 'none';
+  }, 3000);
+};
+
+
 const signUpUser = (e) => {
   e.preventDefault();
   const signupBody = {
@@ -21,17 +30,25 @@ const signUpUser = (e) => {
       'Content-Type': 'application/json',
     },
   };
+  
+  const checkInput = (data) => {
+    if (data.success === 'false') {
+      dangerDiv.innerHTML = `${data.message}`;
+      dangerDiv.style.display = 'block';
+    }
+  };
 
   fetch(signupUrl, options)
     .then(response => response.json())
     .then((data) => {
       console.log(data)
-      if (data.success === false) {
-        console.log(data.message)
-      } else {
+      if (data.success === 'false') {
+        dangerDiv.innerHTML = '';
+        checkInput(data);
+        dangerTimeout();
+        } else {
           window.location.href = './index.html ';
-         console.log(data)
-       }
+      }
     }).catch((error) => {
       console.log(error);
     });
