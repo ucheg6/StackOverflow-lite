@@ -6,10 +6,18 @@ const passwordInput = document.getElementById('password');
 const loginBtn = document.getElementById('loginUser');
 
 const dangerDiv = document.getElementById('danger-alert');
+const successDiv = document.getElementById('success-alert');
 
 const dangerTimeout = () => {
   setTimeout(() => {
     dangerDiv.style.display = 'none';
+  }, 3000);
+};
+
+const successTimeout = () => {
+  setTimeout(() => {
+    successDiv.style.display = 'none';
+    window.location.href = './dashboard.html ';
   }, 3000);
 };
 
@@ -42,10 +50,15 @@ const loginUser = (e) => {
         dangerDiv.innerHTML = '';
         checkInput(data);
         dangerTimeout();
+        console.log(data)
         }
       else {
         localStorage.setItem('authToken', `Bearer ${data.token}`);
-       window.location.href = './dashboard.html';
+        emailInput.value = '';
+        passwordInput.value = '';
+        successDiv.innerHTML = `${data.message}`;
+        successDiv.style.display = 'block';
+        successTimeout();
         }
 
     }).catch((error) => {

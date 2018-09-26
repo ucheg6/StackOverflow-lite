@@ -52,7 +52,7 @@ class UserController {
           .catch(error => response.status(500).json({ message: error.message })));
       }
       return response.status(409).json({
-        success: false,
+        success: 'false',
         message: 'An account has already been created with this email address',
       });
     }).catch(error => response.status(500).json({ message: error.message }));
