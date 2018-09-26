@@ -5,6 +5,14 @@ const passwordInput = document.getElementById('password');
 
 const loginBtn = document.getElementById('loginUser');
 
+const dangerDiv = document.getElementById('danger-alert');
+
+const dangerTimeout = () => {
+  setTimeout(() => {
+    dangerDiv.style.display = 'none';
+  }, 3000);
+};
+
 const loginUser = (e) => {
   e.preventDefault();
   const loginBody = {
@@ -20,17 +28,25 @@ const loginUser = (e) => {
     },
   };
 
+  const checkInput = (data) => {
+    if (data.success === 'false') {
+      dangerDiv.innerHTML = `${data.message}`;
+      dangerDiv.style.display = 'block';
+    }
+  };
+
   fetch(loginUrl, options)
     .then(response => response.json())
     .then((data) => {
-      if (data.success === false) {
-        console.log(data.message)
-      }
-      if (data.success === true) {
+      if (data.success === 'false') {
+        dangerDiv.innerHTML = '';
+        checkInput(data);
+        dangerTimeout();
+        }
+      else {
         localStorage.setItem('authToken', `Bearer ${data.token}`);
        window.location.href = './dashboard.html';
-       console.log(data)
-      }
+        }
 
     }).catch((error) => {
       console.log(error);

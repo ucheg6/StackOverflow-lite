@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <title> StackOverflow-lite</title>
   <link href="css/styles3.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/alert.css">
 
 </head>
 
@@ -13,15 +14,17 @@
   <div class="topnav">
     <div class=" Navbar_Link-brand ">
       <a href="index.html" id="logoo">StackOverflow-lite®</a>
-     
+
     </div>
     <div class="nav" class="topnav" id="myTopnav">
       <a href="login.html">LOGIN</a>
     </div>
-    
+
   </div>
 
   <div class="form-container ">
+        
+   <div class="alert-div danger" id="danger-alert"></div>
     <form id="signupForm">
 
       <h1>Sign Up </h1>
@@ -32,7 +35,6 @@
         <b>Full Name</b>
 
         <input id="fullname" type="text" placeholder="Enter Full Name" name="fullname" required> </label>
-        <p id="fullname-alert" class="alert-class"></p>
 
 
       <label for="email">
@@ -40,13 +42,13 @@
 
         <input id="email" type="text" placeholder="Enter Email" name="email" required>
       </label>
-      <p id="email-alert" class="alert-class"></p>
+
       <label for="psw">
         <b>Password</b>
 
         <input id="password" type="password" placeholder="Enter Password" name="psw" required>
       </label>
-      <p id="password-alert" class="alert-class"></p>
+
       <!-- <label for="psw-repeat">
         <b>Repeat Password</b>
 

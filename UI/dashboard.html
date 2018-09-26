@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   <link rel="stylesheet" href="css/styles4.css">
+  <link rel="stylesheet" href="css/alert.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
   <title>StackOverflow-lite</title>
 </head>
@@ -179,7 +180,7 @@
             </span>
           </div>
 
-         
+
 
 
 
@@ -233,7 +234,7 @@
           </span>
         </div>
 
-        
+
 
         <div class="post-body">
           <div class="article-title">
@@ -282,7 +283,7 @@
           </span>
         </div>
 
-      
+
 
 
 
@@ -330,6 +331,19 @@
   <!-- New Entry Modal -->
   <div id="entryModal" class="modal">
     <!-- Modal content -->
+    <div class="alert-div success" id="success-alert">
+      SUCCESS!
+      <span id="close-success">
+        <i class="fa fa-close"></i>
+      </span>
+    </div>
+
+    <div class="alert-div danger" id="danger-alert">
+      ERROR!
+      <span id="close-danger">
+        <i class="fa fa-close"></i>
+      </span>
+    </div>
     <div class="modal-content">
       <div class="modal-header">
         <span class="close">&times;</span>
@@ -339,13 +353,13 @@
         <form class="edit_form">
           <div class="form_group">
             <label>Question Title</label>
-            <input type="text" placeholder="Entry Title">
+            <input id="questionTopic" type="text" placeholder="Entry Title">
           </div>
           <div class="form_group">
             <label>Question Body</label>
-            <textarea rows="10" cols="100" class="form-control"></textarea>
+            <textarea id="questionBody" rows="10" cols="100" class="form-control"></textarea>
           </div>
-          <button class="btn btn-blue">Add Question</button>
+          <button id="submitQuestion" class="btn btn-blue">Add Question</button>
         </form>
       </div>
     </div>
@@ -364,6 +378,7 @@
   </footer>
   <script src="js/modal.js"></script>
   <script src="js/tab.js"></script>
+  <script src="./fetchScripts/postQuestion.js"></script> 
 </body>
 
 </html>

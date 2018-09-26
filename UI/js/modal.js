@@ -7,10 +7,11 @@ btn.onclick = () => {
 }
 
 span.onclick = () => {
-  modal.style.display = 'none';
+   modal.style.display = 'none';
 }
 
 window.onclick = (event) => {
+ event.preventDefault()
   if (event.target === modal) {
     modal.style.display = 'none';
   }
