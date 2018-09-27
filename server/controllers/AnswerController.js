@@ -36,7 +36,7 @@ class AnswerController {
     };
 
     const query = {
-      text: 'INSERT INTO answers(userId, answer, questionId) VALUES($1, $2, $3) ',
+      text: 'INSERT INTO answers(userId, answer, questionId) VALUES($1, $2, $3)',
       values: [userId,
         answer,
         questionId],
@@ -44,13 +44,14 @@ class AnswerController {
     client.query('SELECT * FROM questions WHERE questionid = $1', [questionId], )
       .then((data) => {
         Question.noContent(request, response, data, 'There is no question with this ID');
-        return client.query(query).then((data) => {
-          response.status(201).json({
-            success: 'true',
-            message: 'Answer Successfully created',
-            newAnswer,
-          })
-        })
+      return client.query(query).then(() => {
+           client.query('UPDATE users SET answerCount = answerCount + 1 where userId=$1 ',
+            [userId])
+        }).then(() => response.status(201).json({
+          success: 'true',
+          message: 'Answer Successfully created',
+          newAnswer,
+        }))
 
       }).catch(error => response.status(500).json({ message: error.message }));
   }
@@ -62,7 +63,7 @@ class AnswerController {
   * @returns {object} Updated answer object
   * or error object if answer is not found
   */
-   static acceptAnswer(request, response) {
+  static acceptAnswer(request, response) {
     const questId = parseInt(request.params.questionId, 10);
     const answerId = parseInt(request.params.answerId, 10);
     const is_preferred = 'true';
@@ -105,7 +106,7 @@ class AnswerController {
   static upVoteAnswer(request, response) {
     const questId = parseInt(request.params.questionId, 10);
     const answerId = parseInt(request.params.answerId, 10);
-   
+
     client.query('SELECT * FROM questions WHERE questionId =$1', [questId])
       .then((data) => {
         Question.noContent(request, response, data, 'There is no question with this ID');
@@ -119,7 +120,7 @@ class AnswerController {
             }
 
             return client.query('UPDATE answers SET upvotes = upvotes + 1 where answerId=$1 AND questionId=$2 RETURNING upvotes',
-              [ answerId, questId])
+              [answerId, questId])
               .then((upvote) => {
                 response.status(200).json({
                   status: 'success',
@@ -130,10 +131,10 @@ class AnswerController {
 
           })
       }).catch(error => response.status(500).json({ message: error.message }));
-   
-    }
 
-     /**
+  }
+
+  /**
 * @description method to downvote an answer
 * 
 * @static voteAnswer
@@ -149,7 +150,7 @@ class AnswerController {
   static downVoteAnswer(request, response) {
     const questId = parseInt(request.params.questionId, 10);
     const answerId = parseInt(request.params.answerId, 10);
-   
+
     client.query('SELECT * FROM questions WHERE questionId =$1', [questId])
       .then((data) => {
         Question.noContent(request, response, data, 'There is no question with this ID');
@@ -163,7 +164,7 @@ class AnswerController {
             }
 
             return client.query('UPDATE answers SET downvotes = downvotes + 1 where answerId=$1 AND questionId=$2 RETURNING downvotes',
-              [ answerId, questId])
+              [answerId, questId])
               .then((downvote) => {
                 response.status(200).json({
                   status: 'success',
@@ -174,7 +175,7 @@ class AnswerController {
 
           })
       }).catch(error => response.status(500).json({ message: error.message }));
-   
-    }
+
+  }
 }
-  export default AnswerController;
+export default AnswerController;

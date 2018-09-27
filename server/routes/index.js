@@ -15,7 +15,7 @@ const router = express.Router();
 router.post('/auth/signup', SignupValidation.validateUserInputs, SignupValidation.checkLength, UserController.userSignup);
 router.post('/auth/login', SignupValidation.signInValidation, UserController.userLogin);
 
-//router.get('/user',  UserController.getUserProfile);
+router.get('/user', Middleware.checkUser, UserController.getUserProfile);
 router.get('/questions',  QuestionController.getAllQuestions);
 router.post('/questions', Middleware.checkUser, QuestionValidation.validateInputs, QuestionValidation.checkDuplicateQuery, QuestionController.postQuestion); 
 router.delete('/questions/:questionId', Middleware.checkUser, QuestionValidation.authorizeDeleteQuestion, QuestionController.deleteQuestion);

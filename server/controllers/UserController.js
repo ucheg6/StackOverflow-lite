@@ -106,34 +106,35 @@ class UserController {
       });
   }
 
-  // /**
-  //  * @description Get the profile of a logged in user
-  //  *
-  //  * @param {Object} request - HTTP Request
-  //  * @param {Object} response - HTTP Response
-  //  *
-  //  * @returns {object} response JSON Object
-  //  */
-  // static getUserProfile(request, response) {
-  //   const { userid: userId } = request.user;
-  //   client.query('SELECT * FROM users WHERE userId = $1', [userId])
-  //     .then((user) => {
-  //       if (user.length < 1) {
-  //         return response.status(404).json({
-  //           status: 'error',
-  //           message: 'User not found!',
-  //         });
-  //       }
+  /**
+   * @description Get the profile of a logged in user
+   *
+   * @param {Object} request - HTTP Request
+   * @param {Object} response - HTTP Response
+   *
+   * @returns {object} response JSON Object
+   */
+  static getUserProfile(request, response) {
+    const { userid: userId } = request.user;
+    
+    client.query('SELECT userid, fullName, questionCount, answerCount FROM users WHERE userId = $1', [userId])
+        .then((user) => {
+          if (user.length < 1) {
+          return response.status(404).json({
+            status: 'error',
+            message: 'User not found!',
+          });
+        }
 
-  //       return response.status(200).json({
-  //         status: 'success',
-  //         message: 'User found!',
-  //         user: user[0],
-  //       });
-  //     })
+        return response.status(200).json({
+          status: 'success',
+          message: 'User found!',
+          user: user.rows,
+        });
+      })
 
-  //     .catch(error => response.status(500).json({ message: error.message }));
-  // }
+      .catch(error => response.status(500).json({ message: error.message }));
+  }
 
 
 }

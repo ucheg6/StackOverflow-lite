@@ -18,7 +18,7 @@
     "test-local": "set NODE_ENV=local&& npm run mig-two && nyc --reporter=html --reporter=text mocha --require babel-core/register --timeout 6000 server/test/index.js --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build-babel": "babel -d ./build ./server -s",
-    "build": "rm -rf build && npm run mig && npm run build-babel",
+    "build": "rm -rf build  && npm run build-babel",
     "start": "npm run build && node build/app.js"
   },
   "repository": {

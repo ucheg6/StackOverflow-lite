@@ -18,7 +18,8 @@ class QuestionController {
    * @returns {object} response JSON Object
    */
   static getAllQuestions(request, response, next) {
-    client.query('SELECT * FROM questions').then((data) => {
+    client.query('SELECT q.questionId, q.questionTopic, q.questionBody, q.created_at, u.fullName  FROM questions q INNER JOIN users u ON q.userId = u.userId order by questionId desc')
+    .then((data) => {
       if (data.rows.length > 0) {
         return response.status(200).json({
           message: 'Questions successfully retrieved',
@@ -54,11 +55,16 @@ class QuestionController {
         newQuestion.questionTopic,
         newQuestion.questionBody],
     };
-    client.query(query).then(() => response.status(201).json({
+    client.query(query).then(() => {
+      return client.query('UPDATE users SET questionCount = questionCount + 1 where userId=$1 ',
+      [ userId])
+    }).then(() =>response.status(201).json({
       success: 'true',
       message: 'Question Successfully created',
       newQuestion,
-    })).catch(error => response.status(500).json({ message: error.message }));
+       
+     }))
+    .catch(error => response.status(500).json({ message: error.message }));
   }
 
 
@@ -97,7 +103,7 @@ class QuestionController {
     const questId = parseInt(request.params.questionId, 10);
 
     Question.checkNaN(request, response);
-    client.query('SELECT a.answerId, a.answer, a.is_preferred, u.fullName  FROM answers a INNER JOIN users u ON a.userId = u.userId WHERE a.questionId=$1', [questId])
+    client.query('SELECT a.answerId, a.answer, a.is_preferred, a.upvotes, a.downvotes, u.fullName  FROM answers a INNER JOIN users u ON a.userId = u.userId WHERE a.questionId=$1', [questId])
       .then((answers) => {
         return client.query('SELECT q.questionId, q.questionTopic, q.questionBody, u.fullName FROM questions q INNER JOIN users u ON q.userId = u.userId WHERE q.questionId=$1', [questId])
           .then((data) => {
@@ -154,7 +160,7 @@ class QuestionController {
   }
   /**
      * @description - This method returns all searched questions
-     * @static getUserQuestions
+     * @static searchQuestions
      * 
      * @param {object} request - HTTP Request Object containing search query
      * @param {object} response - HTTP Response Object containing searched questions 

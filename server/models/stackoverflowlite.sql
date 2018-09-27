@@ -1,4 +1,4 @@
- \c stackoverflow_lite_test;
+\c stackoverflow_lite_test;
 
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
@@ -6,6 +6,8 @@ CREATE TABLE users (
  fullName VARCHAR (50) NOT NULL,
  email VARCHAR (50) NOT NULL,
  pass VARCHAR (250) NOT NULL,
+ questionCount INT DEFAULT 0,
+ answerCount INT DEFAULT 0,
  created_at TIMESTAMP DEFAULT NOW()
 );
 
