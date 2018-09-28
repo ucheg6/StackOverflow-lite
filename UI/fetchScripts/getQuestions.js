@@ -11,8 +11,10 @@ window.onload = () => {
     .then(response => response.json())
     .then((data) => {
         data.data.map((questions) => {
-        console.log(questions )
+       
         const { questionid, userid, fullname, questiontopic, questionbody, created_at } = questions
+       
+        console.log(questions)
         let result =
           ` <div class="feed">
         <div class="feed-item">
@@ -42,8 +44,8 @@ window.onload = () => {
             <ul class="action-buttons">
 
               <li class="button" id="button-up">
-                <a href="question.html">
-                  <i class="fa fa-edit"></i> Answer </a>
+              <a href="question.html?id=${questionid}">
+                  <i class="fa fa-plane"></i> View Question </a>
               </li>
 
             </ul>
@@ -52,7 +54,8 @@ window.onload = () => {
         </div>
       </div>`;
         document.getElementById('questionResult').children[1].innerHTML += result;
-      });
+       // document.getElementsByClassName('button').addEventListener('click', saveQuestionId )
+       });
     }).catch((error) => {
       console.log(error);
     });
