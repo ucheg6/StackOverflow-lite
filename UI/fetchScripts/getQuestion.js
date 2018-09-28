@@ -12,13 +12,13 @@ window.onload = () => {
     .then((data) => {
         data.data.map((questions) => {
         console.log(questions )
-        const { questionid, userid, questiontopic, questionbody, created_at } = questions
+        const { questionid, userid, fullname, questiontopic, questionbody, created_at } = questions
         let result =
           ` <div class="feed">
         <div class="feed-item">
           <div class="post-title">
             <span class="user-name">
-              Jessica Su
+             ${fullname}
             </span>
             <span class="light-grey">
               asked a question.
