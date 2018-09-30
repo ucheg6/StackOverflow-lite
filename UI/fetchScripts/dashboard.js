@@ -26,7 +26,7 @@ window.onload = () => {
       console.log(error);
     });
 
-    fetch('https://stackoverflow-litee.herokuapp.com/api/v1/questions', options)
+    fetch('https://stackoverflow-litee.herokuapp.com/api/v1/user/questions', options)
     .then(response => response.json())
     .then((data) => {
         data.data.map((questions) => {
