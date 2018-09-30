@@ -575,7 +575,10 @@ text-align: center;
 .topnav .icon {
   display: none;
 }
-
+a {
+  text-decoration: none;
+  color: #538dc2;
+}
  /* media queries */
 @media screen and (max-width: 769px) {
 
@@ -603,9 +606,13 @@ font-size: 12px;
 }
 
 .feed-item-actions .action-buttons .button {
-
-font-size: 7px;
+  display: inline-block;
+  border: 1px solid #538dc2;
+  border-radius: 5px;
+  padding: 2px;
+  font-size: 7px;
 }
+
 .content-wrap .content-head .action button {
 border: 0;
 background: #4b84fe;
