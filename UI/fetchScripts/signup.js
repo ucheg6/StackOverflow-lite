@@ -18,7 +18,7 @@ const dangerTimeout = () => {
 const successTimeout = () => {
   setTimeout(() => {
     successDiv.style.display = 'none';
-    window.location.href = './index.html ';
+    window.location.href = './login.html ';
   }, 3000);
 };
 

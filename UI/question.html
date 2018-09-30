@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   <link rel="stylesheet" href="css/styles5.css">
+  <link rel="stylesheet" href="css/alert.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
   <title>StackOverflow-lite</title>
 </head>
@@ -26,169 +27,92 @@
 
 
   </div>
-  <div id="questionsResult" class="main-col">
-     <!-- <div  class="feed">
-     <div class="feed-item">
-        <div class="post-title">
-          <span class="user-name">
-            Uche Akogwu
-          </span>
-
-          <span class="post-time">
-            2m ago
-          </span>
-        </div>
-
-        <div class="feed-user-pic">
-          <img class="pic" src="images/1.jpg" />
-        </div>
+  <!-- <div class="main-col">
+    <div class="feed">
+      <div id="questionsResult">
+        <div class="feed">
+          <div class="feed-item">
+          
+              <div class="post-title">
+                  <span class="user-name" id="user_name"></span>
+        
+                  <span class="post-time">
+                    2m ago
+                  </span>
+                </div>
+           
 
 
-        <div class="article-title">
-          What are CSS positioning rudiments?
-        </div>
-        <div class="post-body">
-
-          <div class="article-author">
-            Santiago Garza
-
-            <span class="light-grey">
-              answered.
-            </span>
-            <span class="post-time">
-              2m ago
-            </span>
-          </div>
-          <div class="article-preview">
-            This is my first attempt at using CSS to create a page.
-            <br/>
-            <br/> I decided to use the Quora feed page because it would force me to create a navigation bar, a grid ...
-            <a href="/" class="more-link">
-              (more)
-            </a>
           </div>
         </div>
-        <div class="feed-item-actions">
-          <ul class="action-buttons">
-            <li class="button" id="button-up">
-              <i class="fa fa-hand-point-up"></i> Upvote
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-hand-point-down"></i> downvote
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-edit"></i> Comment
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-check-square"></i> accept
-            </li>
+      </div>
 
-          </ul>
-        </div>
+      <div class="alert-div success" id="success-alert">
+        SUCCESS!
+        <span id="close-success">
+          <i class="fa fa-close"></i>
+        </span>
+      </div>
 
-        <div class="post-body">
-
-          <div class="article-author">
-            Santiago Garza
-
-            <span class="light-grey">
-              answered.
-            </span>
-            <span class="post-time">
-              2m ago
-            </span>
-          </div>
-          <div class="article-preview">
-            This is my first attempt at using CSS to create a page.
-            <br/>
-            <br/> I decided to use the Quora feed page because it would force me to create a navigation bar, a grid ...
-            <a href="/" class="more-link">
-              (more)
-            </a>
-          </div>
-        </div>
-        <div class="feed-item-actions">
-          <ul class="action-buttons">
-            <li class="button" id="button-up">
-              <i class="fa fa-hand-point-up"></i> Upvote
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-hand-point-down"></i> downvote
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-edit"></i> Comment
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-check-square"></i> accept
-            </li>
-
-          </ul>
-        </div>
-        <div class="post-body">
-
-          <div class="article-author">
-            Santiago Garza
-
-            <span class="light-grey">
-              answered.
-            </span>
-            <span class="post-time">
-              2m ago
-            </span>
-          </div>
-          <div class="article-preview">
-            This is my first attempt at using CSS to create a page.
-            <br/>
-            <br/> I decided to use the Quora feed page because it would force me to create a navigation bar, a grid ...
-            <a href="/" class="more-link">
-              (more)
-            </a>
-          </div>
-        </div>
-        <div class="feed-item-actions">
-          <ul class="action-buttons">
-            <li class="button" id="button-up">
-              <i class="fa fa-hand-point-up"></i> Upvote
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-hand-point-down"></i> downvote
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-edit"></i> Comment
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-check-square"></i> accept
-            </li>
-
-          </ul>
-        </div>
-        <div class="">
-          <form>
-            <textarea name="" id="" cols="20" class="form-input" rows="7" placeholder="Enter your answer here"></textarea>
-            <button class="search-btn"> Submit</button>
-
-          </form>
-        </div>
-
-
-
-
-      </div> -->
-
+      <div class="alert-div danger" id="danger-alert">
+        ERROR!
+        <span id="close-danger">
+          <i class="fa fa-close"></i>
+        </span>
+      </div>
+      <div class="">
+        <form>
+          <textarea name="" id="answerBody" cols="20" class="form-input" rows="7" placeholder="Enter your answer here"></textarea>
+          <button id="submitAnswer" class="search-btn fa fa-edit"> Submit Answer</button>
+        </form>
+      </div>
 
     </div>
 
-   
 
-    <footer class="footer">
 
-      <p>Designed by Uche Akogwu © 2018 </p>
 
-    </footer>
+  </div> -->
 
-    <script src="js/tab.js"></script>
-    <script src="./fetchScripts/helpers/functions.js"></script>
-    <script src="./fetchScripts/getQuestionById.js"></script> 
+  <div id="questionsResult" class="main-col">
+      <div  class="feed">
+      <div class="feed-item">
+         <div class="post-title">
+           <span class="user-name" id="author_name"></span>
+           <span class="post-time">
+             2m ago
+           </span>
+         </div>
+         <div class="feed-user-pic">
+           <img class="pic" src="images/1.jpg" />
+         </div>
+         <div class="article-title" id="question_body"></div>
+         <!-- post body -->
+          <div id="post_answers">
+
+          </div>
+         <!-- reactions -->
+
+         <div class="">
+           <form>
+             <textarea name="" id="" cols="20" class="form-input" rows="7" placeholder="Enter your answer here"></textarea>
+             <button class="search-btn"  id="submitAnswer"> Submit</button>
+           </form>
+         </div>
+       </div>
+ 
+ 
+ </div>
+  <footer class="footer">
+
+    <p>Designed by Uche Akogwu © 2018 </p>
+
+  </footer>
+
+  <script src="js/tab.js"></script>
+  <script src="./fetchScripts/helpers/functions.js"></script>
+  <script src="./fetchScripts/getQuestionById.js"></script>
+  <script src="./fetchScripts/postAnswer.js"></script>
 
 </body>
 
