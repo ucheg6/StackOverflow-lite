@@ -526,8 +526,9 @@ label {
   }
 
   .feed-item-actions .action-buttons .button {
-   
-    font-size: 8px;
+    border-radius: 5px;
+    padding: 6px;
+    font-size: 7px;
   }
   .feed-item {
     width: 100%;

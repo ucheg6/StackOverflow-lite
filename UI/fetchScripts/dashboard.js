@@ -3,11 +3,30 @@ window.onload = () => {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: token,
     },
 
   };
 
-  fetch('https://stackoverflow-litee.herokuapp.com/api/v1/questions', options)
+  fetch('https://stackoverflow-litee.herokuapp.com/api/v1/user', options)
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data)
+
+      const user = data.user[0].fullname;
+      const questionCount = data.user[0].questioncount;
+      const answerCount = data.user[0].answercount;
+
+
+      document.getElementById('user_name').textContent = user;
+      document.getElementById('questCount').textContent = questionCount;
+      document.getElementById('ansCount').textContent = answerCount;
+      
+    }).catch((error) => {
+      console.log(error);
+    });
+
+    fetch('https://stackoverflow-litee.herokuapp.com/api/v1/questions', options)
     .then(response => response.json())
     .then((data) => {
         data.data.map((questions) => {
@@ -53,7 +72,7 @@ window.onload = () => {
 
         </div>
       </div>`;
-        document.getElementById('questionResult').children[1].innerHTML += result;
+        document.getElementById('result').children[1].innerHTML += result;
       });
     }).catch((error) => {
       console.log(error);

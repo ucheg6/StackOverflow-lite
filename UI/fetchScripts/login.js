@@ -54,7 +54,7 @@ const loginUser = (e) => {
         }
       else {
         localStorage.setItem('authToken', `Bearer ${data.token}`);
-        localStorage.setItem('currentUser', 'data.user.fullname');
+        localStorage.setItem('currentUser', 'data.user[0].fullname');
         emailInput.value = '';
         passwordInput.value = '';
         successDiv.innerHTML = `${data.message}`;

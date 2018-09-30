@@ -64,8 +64,8 @@
           <img src="https://images.unsplash.com/photo-1440589473619-3cde28941638?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=42ebdb92a644e864e032a2ebccaa25b6&auto=format&fit=crop&w=100&q=80"
             alt="Amanda King">
         </div>
-        <figcaption>
-          Uche Akogwu
+        <figcaption id="user_name">
+
         </figcaption>
       </figure>
 
@@ -128,7 +128,7 @@
             </div>
 
             <div class="box-content">
-              <span class="big">44</span>
+              <span id="questCount" class="big"></span>
               Questions Count
             </div>
           </div>
@@ -142,7 +142,7 @@
             </div>
 
             <div class="box-content">
-              <span class="big">132</span>
+              <span id="ansCount" class="big"></span>
               Answers Count
             </div>
           </div>
@@ -158,227 +158,75 @@
   <div id="page-wrap">
 
 
-    <div class="main-col">
+    <div id="result" class="main-col">
       <div class="feed-switcher">
         <ul class="list-contents">
 
           <li class="feed-tab" id="feed-tab-2">
-            Most Popular Questions
+            Your Questions
           </li>
         </ul>
       </div>
 
       <div class="feed">
-        <div class="feed-item">
-          <div class="post-title">
-            <span class="user-name">
-              Uche Akogwu
-            </span>
 
-            <span class="post-time">
-              2m ago
-            </span>
-          </div>
+      </div>
+    </div>
 
 
+    <!-- New Entry Modal -->
+    <div id="entryModal" class="modal">
+      <!-- Modal content -->
+      <div class="alert-div success" id="success-alert">
+        SUCCESS!
+        <span id="close-success">
+          <i class="fa fa-close"></i>
+        </span>
+      </div>
 
-
-
-          <div class="post-body">
-            <div class="article-title">
-              CSS Positioning Basics
+      <div class="alert-div danger" id="danger-alert">
+        ERROR!
+        <span id="close-danger">
+          <i class="fa fa-close"></i>
+        </span>
+      </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h3>Ask your Question</h3>
+        </div>
+        <div class="modal-body">
+          <form class="edit_form">
+            <div class="form_group">
+              <label>Question Title</label>
+              <input id="questionTopic" type="text" placeholder="Entry Title">
             </div>
-            <div class="article-author">
-              Santiago Garza
+            <div class="form_group">
+              <label>Question Body</label>
+              <textarea id="questionBody" rows="10" cols="100" class="form-control"></textarea>
             </div>
-            <div class="article-preview">
-              This is my first attempt at using CSS to create a page.
-              <br/>
-              <br/> I decided to use the Quora feed page because it would force me to create a navigation bar, a grid ...
-              <a href="/" class="more-link">
-                (more)
-              </a>
-            </div>
-          </div>
-          <div class="feed-item-actions">
-            <ul class="action-buttons">
-              <li class="button" id="button-up">
-                <i class="fa fa-hand-point-up"></i> Upvote
-              </li>
-              <li class="button" id="button-up">
-                <i class="fa fa-hand-point-down"></i> downvote
-              </li>
-              <li class="button" id="button-up">
-                <i class="fa fa-edit"></i> Comment
-              </li>
-              <li class="button" id="button-up">
-                <i class="fa fa-check-square"></i> accept
-              </li>
-
-            </ul>
-          </div>
-
-        </div>
-
-
-
-      </div>
-      <div class="feed-item">
-        <div class="post-title">
-          <span class="user-name">
-            Uche Akogwu
-          </span>
-
-          <span class="post-time">
-            2m ago
-          </span>
-        </div>
-
-
-
-        <div class="post-body">
-          <div class="article-title">
-            CSS Positioning Basics
-          </div>
-          <div class="article-author">
-            Santiago Garza
-          </div>
-          <div class="article-preview">
-            This is my first attempt at using CSS to create a page.
-            <br/>
-            <br/> I decided to use the Quora feed page because it would force me to create a navigation bar, a grid ...
-            <a href="/" class="more-link">
-              (more)
-            </a>
-          </div>
-        </div>
-        <div class="feed-item-actions">
-          <ul class="action-buttons">
-            <li class="button" id="button-up">
-              <i class="fa fa-hand-point-up"></i> Upvote
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-hand-point-down"></i> downvote
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-edit"></i> Comment
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-check-square"></i> accept
-            </li>
-
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="feed-item">
-        <div class="post-title">
-          <span class="user-name">
-            Uche Akogwu
-          </span>
-
-          <span class="post-time">
-            44m ago
-          </span>
-        </div>
-
-
-
-
-
-        <div class="post-body">
-          <div class="article-title">
-            Puerto Rico: Why is Puerto Rico not a state?
-          </div>
-
-          <div class="article-author">
-            Steven Haddock, B.A. in Political Science
-          </div>
-          <div class="article-preview">
-            For the same reason D.C. isn't a state - it's full of Democrats.
-            <br/>
-            <br/> If Puerto Rico became a state it would bring 2 new Democrat senators. It would also be entitled to about ...
-            <a href="/" class="more-link">
-              (more)
-            </a>
-          </div>
-        </div>
-        <div class="feed-item-actions">
-          <ul class="action-buttons">
-            <li class="button" id="button-up">
-              <i class="fa fa-hand-point-up"></i> Upvote
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-hand-point-down"></i> downvote
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-edit"></i> Comment
-            </li>
-            <li class="button" id="button-up">
-              <i class="fa fa-check-square"></i> accept
-            </li>
-
-          </ul>
+            <button id="submitQuestion" class="btn btn-blue fa fa-share-square">Add Question</button>
+          </form>
         </div>
       </div>
-
-
-    </div>
-  </div>
-
-
-  <!-- New Entry Modal -->
-  <div id="entryModal" class="modal">
-    <!-- Modal content -->
-    <div class="alert-div success" id="success-alert">
-      SUCCESS!
-      <span id="close-success">
-        <i class="fa fa-close"></i>
-      </span>
     </div>
 
-    <div class="alert-div danger" id="danger-alert">
-      ERROR!
-      <span id="close-danger">
-        <i class="fa fa-close"></i>
-      </span>
-    </div>
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close">&times;</span>
-        <h3>Ask your Question</h3>
-      </div>
-      <div class="modal-body">
-        <form class="edit_form">
-          <div class="form_group">
-            <label>Question Title</label>
-            <input id="questionTopic" type="text" placeholder="Entry Title">
-          </div>
-          <div class="form_group">
-            <label>Question Body</label>
-            <textarea id="questionBody" rows="10" cols="100" class="form-control"></textarea>
-          </div>
-          <button id="submitQuestion" class="btn btn-blue">Add Question</button>
-        </form>
-      </div>
-    </div>
-  </div>
 
 
 
 
 
 
+    <footer class="footer">
 
-  <footer class="footer">
+      <p>Designed by Uche Akogwu © 2018 </p>
 
-    <p>Designed by Uche Akogwu © 2018 </p>
-
-  </footer>
-  <script src="js/modal.js"></script>
-  <script src="js/tab.js"></script>
-  <script src="./fetchScripts/postQuestion.js"></script> 
+    </footer>
+    <script src="js/modal.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="./fetchScripts/helpers/functions.js"></script>
+    <script src="./fetchScripts/postQuestion.js"></script>
+    <script src="./fetchScripts/dashboard.js"></script>
 </body>
 
 </html>
