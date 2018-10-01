@@ -72,8 +72,8 @@ function downvote(answerid){
   .then((data) => {
     if(data){
       const { success, message}= data;
-      window.location.reload();
-
+     window.location.reload();
+   
     }
   })
   .catch((error) => {
@@ -106,17 +106,21 @@ function loadPage(){
   fetch(`https://stackoverflow-litee.herokuapp.com/api/v1/questions/${id}`, options)
     .then(response => response.json())
     .then((data) => {
-      
+      console.log(data)
+      if (data.answers.length === 0 ) {
+        document.getElementById('post_answers').innerHTML = 'There is no answer for this question yet!';
+      }
+
       const author = data.data[0].fullname;
+      const post_time = formatTime(data.data[0].created_at);
       const questionBody = data.data[0].questionbody;
 
       document.getElementById('author_name').innerHTML = author;
+      document.getElementById('post_time').innerHTML = post_time;
       document.getElementById('question_body').innerHTML = questionBody;
       data.answers.map((answers) => {
-       
+             
         const {answerid, fullname, answer, downvotes, upvotes, is_preferred, created_at, } = answers
-
-       
         
        let result = `
             <div class="post-body">
@@ -126,7 +130,7 @@ function loadPage(){
                 answered.
               </span>
               <span class="post-time">
-                2m ago
+              ${formatTime(created_at)}
               </span>
             </div>
             <div class="article-preview">
@@ -150,7 +154,9 @@ function loadPage(){
                 <i class="fa fa-hand-point-down" id="downvoter"></i> ${downvotes}
               </li>
               <li class="button" id="button-up">
-                <i class="fa fa-edit"></i> Comments
+                 <a href="comment.html?id=${answerid}">
+                  <i class="fa fa-edit"></i> Comments</a>
+                  
               </li>
               <li class="button" id="button-up" onclick="accept(${answerid})";>
                 ${ is_accepted(is_preferred)}

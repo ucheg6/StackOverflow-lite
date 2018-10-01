@@ -81,7 +81,7 @@ class CommentController {
       });
     }
 
-    client.query('SELECT c.commentId, c.commentBody, u.fullName  FROM comments c INNER JOIN users u ON c.userId = u.userId WHERE c.answerId=$1', [answerId])
+    client.query('SELECT c.*, u.fullName  FROM comments c INNER JOIN users u ON c.userId = u.userId WHERE c.answerId=$1', [answerId])
       .then((comments) => {
         if (comments.rows < 1) {
           return response.status(404).json({

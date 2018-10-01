@@ -17,8 +17,7 @@
       <a href="index.html" id="logoo">StackOverflow-lite®</a>
     </div>
     <div class="nav" class="topnav" id="myTopnav">
-      <a class=" active" href="question.html">QUESTION</a>
-      <a href="dashboard.html">PROFILE</a>
+      <a class=" active" href="comment.html">COMMENT</a>
       <a href="#" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
@@ -27,19 +26,17 @@
 
 
   </div>
-  <div id="questionsResult" class="main-col">
+  <div id="commentsResult" class="main-col">
       <div  class="feed">
       <div class="feed-item">
          <div class="post-title">
-           <span class="user-name" id="author_name"></span>
-           <span class="post-time" id="post_time">
+           <span class="user-name" id="comment_author"></span>
+           <span class="post-time">
              
            </span>
          </div>
-         <div class="feed-user-pic">
-           <img class="pic" src="images/1.jpg" />
-         </div>
-         <div class="article-title" id="question_body"></div>
+        
+         <div class="article-title" id="comment_body"></div>
          
          <div class="alert-div success" id="success-alert">
             SUCCESS!
@@ -55,15 +52,15 @@
             </span>
           </div>
          <!-- post body -->
-          <div id="post_answers">
+          <div id="post_comments">
 
           </div>
          <!-- reactions -->
       
          <div class="">
            <form>
-             <textarea name="" id="answerBody" cols="20" class="form-input" rows="7" placeholder="Enter your answer here"></textarea>
-             <button class="search-btn fa fa-share-square "  id="submitAnswer" > Submit Answer</button>
+             <textarea name="" id="commentBody" cols="20" class="form-input" rows="7" placeholder="Enter your comment here"></textarea>
+             <button class="search-btn fa fa-share-square "  id="submitComment" > Post Comment</button>
            </form>
          </div>
        </div>
@@ -78,9 +75,9 @@
 
   <script src="js/tab.js"></script>
   <script src="./fetchScripts/helpers/functions.js"></script>
-  <script src="./fetchScripts/getQuestionById.js"></script>
-  <script src="./fetchScripts/postAnswer.js"></script>
-
+  <script src="./fetchScripts/comments.js"></script>
+  <script src="./fetchScripts/postComment.js"></script>
+ 
 </body>
 
 </html>
