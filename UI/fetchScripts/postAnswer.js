@@ -16,7 +16,9 @@ const dangerTimeout = () => {
 const successTimeout = () => {
   setTimeout(() => {
     successDiv.style.display = 'none';
+    window.location.reload();
   }, 3000);
+
 };
 
 const createAnswer = (e) => {
@@ -52,7 +54,9 @@ const createAnswer = (e) => {
         document.getElementById('answerBody').value = '';
         successDiv.innerHTML = `${data.message}`;
         successDiv.style.display = 'block';
+        
        successTimeout();
+      //  loadPage();
        }
     }).catch((error) => {
       console.log(error);

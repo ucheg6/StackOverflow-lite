@@ -62,3 +62,4 @@ const createQuestion = (e) => {
 };
 
 submitQuestion.addEventListener('click', createQuestion);
+

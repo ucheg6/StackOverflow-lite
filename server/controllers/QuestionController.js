@@ -103,9 +103,9 @@ class QuestionController {
     const questId = parseInt(request.params.questionId, 10);
 
     Question.checkNaN(request, response);
-    client.query('SELECT a.answerId, a.answer, a.is_preferred, a.upvotes, a.downvotes, created_at, u.fullName  FROM answers a INNER JOIN users u ON a.userId = u.userId WHERE a.questionId=$1', [questId])
+    client.query('SELECT a.*, u.fullName  FROM answers a INNER JOIN users u ON a.userId = u.userId WHERE a.questionId=$1', [questId])
       .then((answers) => {
-        return client.query('SELECT q.questionId, q.questionTopic, q.questionBody, created_at, u.fullName FROM questions q INNER JOIN users u ON q.userId = u.userId WHERE q.questionId=$1', [questId])
+        return client.query('SELECT q.*, u.fullName FROM questions q INNER JOIN users u ON q.userId = u.userId WHERE q.questionId=$1', [questId])
           .then((data) => {
             Question.noContent(request, response, data, 'There is no question with this ID');
             return response.status(200)
@@ -136,9 +136,9 @@ class QuestionController {
   static getUserQuestions(request, response) {
     const { userid: userId } = request.user;
 
-    client.query('SELECT a.answerId, a.answer, a.is_preferred, created_at, u.fullName  FROM answers a INNER JOIN users u ON a.userId = u.userId WHERE a.userId=$1', [userId])
+    client.query('SELECT a.*, u.fullName  FROM answers a INNER JOIN users u ON a.userId = u.userId WHERE a.userId=$1', [userId])
       .then((answers) => {
-        return client.query('SELECT q.questionId, q.questionTopic, q.questionBody, created_at, u.fullName FROM questions q INNER JOIN users u ON q.userId = u.userId WHERE q.userId=$1', [userId])
+        return client.query('SELECT q.*, u.fullName FROM questions q INNER JOIN users u ON q.userId = u.userId WHERE q.userId=$1', [userId])
           .then((data) => {
             if (data.rows.length > 0) {
               return response.status(200)
