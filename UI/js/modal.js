@@ -4,6 +4,7 @@ const span = document.getElementsByClassName('close')[0];
 
 btn.onclick = () => {
   modal.style.display = 'block';
+  console.log('clicked')
 }
 
 span.onclick = () => {
