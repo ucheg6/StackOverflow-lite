@@ -14,11 +14,17 @@ const formatTime = (time) => {
       ? `${minutes} minute ago` : `${minutes} minutes ago`;
   }
 
-  if (difference >= 3600) {
+  if (difference >= 3600 && difference <= 86399) {
     const hours = Math.floor(difference / 3600);
 
     return hours === 1
       ? `${hours} hour ago` : `${hours} hours ago`;
+  }
+  if (difference >= 86400) {
+    const days = Math.floor(difference / 86400);
+
+    return days === 1
+      ? `${days} days ago` : `${days} days ago`;
   }
 };
 
