@@ -82,7 +82,7 @@ window.onload = () => {
 
               <li class="button" id="button-up">
                 <a href="question.html">
-                  <i class="fa fa-plane"></i>${answersnumber} Answers </a>
+                  <i class="fa fa-share-square"></i> ${ answersnumber} Answers </a>
               </li>
 
             </ul>

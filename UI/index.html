@@ -6,6 +6,7 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   <link rel="stylesheet" href="css/styles1.css">
   <link rel="stylesheet" href="css/alert.css">
+  <link rel="stylesheet" href="css/search.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
   <title>StackOverflow-lite</title>
 </head>
@@ -31,10 +32,19 @@
   <div class="header">
     <div class="imgBanner">
       <h3 class="search-title">Have a Question?</h3>
+      <div class="alert-div danger" id="danger-alert">
+        ERROR!
+        <span id="close-danger">
+          <i class="fa fa-close"></i>
+        </span>
+      </div>
       <p class="search-tag-line">If you have any question you can ask below or enter what you are looking for!</p>
       <form autocomplete="off" method="get" class="search-form clearfix" id="search-form">
-        <input type="text" title="* Please enter a search term!" placeholder="Type your search terms here" class="search-term " autocomplete="off">
+        <input type="text" id="myInput" onkeyup="searchFunc();" placeholder="Type your search terms here" class="search-term " autocomplete="off">
         <input type="submit" value="Search" class="search-btn">
+        <ul id="myUL">
+           
+        </ul>
       </form>
     </div>
 
@@ -128,6 +138,7 @@
     <script src="js/modal.js"></script>
     <script src="js/tab.js"></script>
     <script src="./fetchScripts/helpers/functions.js"></script>
+    <script src="./fetchScripts/search.js"></script>
     <script src="./fetchScripts/postQuestion.js"></script>
     <script src="./fetchScripts/getQuestions.js"></script>
 </body>
