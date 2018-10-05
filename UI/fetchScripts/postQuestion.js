@@ -1,4 +1,4 @@
-// const token = localStorage.getItem('authToken');
+const token = localStorage.getItem('authToken');
 
 const postQuestionUrl = 'https://stackoverflow-litee.herokuapp.com/api/v1/questions';
 
