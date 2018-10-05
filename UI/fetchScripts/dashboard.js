@@ -62,9 +62,9 @@ window.onload = () => {
           <div class="feed-item-actions">
             <ul class="action-buttons">
 
-              <li class="button" id="button-up">
-              <a href="question.html?id=${questionid}">
-                  <i class="fa fa-share-square"></i> View Question </a>
+              <li class="button" id="deleteBtn" onclick="deleteQuestion();">
+              <a href="dashboard.html?id=${questionid}">
+                  <i class="fa fa-trash"></i> Delete </a>
               </li>
 
             </ul>
@@ -78,3 +78,40 @@ window.onload = () => {
       console.log(error);
     });
 }                
+
+
+
+const deleteQuestion = () => {
+  let id = getUrlParameter('id');
+ 
+  const deleteUrl = `https://stackoverflow-litee.herokuapp.com/api/v1/questions/${id}`;
+
+  const deleteBtn = document.getElementById('deleteBtn');
+  const options = {
+    method: 'DELETE',
+    headers: {
+       Authorization: token,
+    },
+  };
+
+  fetch(deleteUrl, options)
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data)
+      var result = confirm("Want to delete?");
+      
+      if (data.success === 'false') {
+        dangerDiv.innerHTML = `${data.message}`;
+        dangerDiv.style.display = 'block';
+        dangerTimeout();
+      } else if (result) {
+        successDiv.innerHTML = `${data.message}`;
+        successDiv.style.display = 'block';
+       successTimeout();
+      }
+      
+      
+    }).catch((error) => {
+      console.log(error);
+    });
+};

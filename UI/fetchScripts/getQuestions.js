@@ -81,7 +81,7 @@ window.onload = () => {
             <ul class="action-buttons">
 
               <li class="button" id="button-up">
-                <a href="question.html">
+                <a href="question.html?id=${questionid}">
                   <i class="fa fa-share-square"></i> ${ answersnumber} Answers </a>
               </li>
 
