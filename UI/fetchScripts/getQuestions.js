@@ -62,12 +62,10 @@ window.onload = () => {
     fetch('https://stackoverflow-litee.herokuapp.com/api/v1//questions/mostanswers', options)
     .then(response => response.json())
     .then((data) => {
-      console.log(data)
-        data.data.map((questions) => {
+          data.data.map((questions) => {
        
         const { questionid, answersnumber, questionbody, created_at } = questions
-       
-        console.log(questions)
+              
         let result =
           `  <div class="feed-item" id="mostAnswers">
           

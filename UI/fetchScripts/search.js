@@ -42,6 +42,10 @@ function searchFunc(){
           a.href=`question.html?id=${questionid}`;
           a.textContent= questionbody;
 
+          while(ul.firstChild) {
+            ul.removeChild(ul.firstChild)
+          }
+
            li.appendChild(a);
           ul.appendChild(li);
 
@@ -55,7 +59,3 @@ function searchFunc(){
       });
 
 }
-
-
-
-// submitAnswer.addEventListener('click', createAnswer);

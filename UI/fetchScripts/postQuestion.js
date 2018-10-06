@@ -1,5 +1,3 @@
-const token = localStorage.getItem('authToken');
-
 const postQuestionUrl = 'https://stackoverflow-litee.herokuapp.com/api/v1/questions';
 
 const questionTopic = document.getElementById('questionTopic');
