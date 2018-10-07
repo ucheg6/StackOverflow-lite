@@ -110,6 +110,7 @@ form.search-form input.search-btn:hover {
     background: #353b65 url("../images/Q.jpg");
     background-size: cover;
    padding-bottom: 150px;
+   position: static;
  
 }
 
@@ -130,7 +131,7 @@ form.search-form input.search-btn:hover {
     position: absolute;
     width: 35%;
     min-height: 641px;
-    top: 419px;
+    top: 460px;
     left: 790px;
   }
   .btn-nav {

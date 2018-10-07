@@ -20,8 +20,6 @@ const user = () => {
   fetch('https://stackoverflow-litee.herokuapp.com/api/v1/user', options)
     .then(response => response.json())
     .then((data) => {
-      console.log(data)
-
       const user = data.user[0].fullname;
       const questionCount = data.user[0].questioncount;
       const answerCount = data.user[0].answercount;
