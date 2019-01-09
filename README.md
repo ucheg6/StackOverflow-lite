@@ -25,7 +25,7 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
    
  View UI templates hosted on Github pages at (https://ucheg6.github.io/StackOverflow-lite/UI/) 
  
- Front End APP https://stackoverflow-litee.herokuapp.com/
+ Front End APP => https://stackoverflowlite-uche-react.herokuapp.com/
 
 # API 
    Heroku  https://stackoverflow-litee.herokuapp.com/api/v1
