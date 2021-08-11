@@ -23,7 +23,7 @@ const DATABASE_URL_TEST = {
 };
 
 let dbString = '';
-if (process.env.NODE_ENV === 'production') dbString = DATABASE_URL
+if (process.env.NODE_ENV === 'production') dbString = DATABASE_URL + "?sslmode=require"
 if (process.env.NODE_ENV === 'test') dbString = DATABASE_URL_TEST;
 if (process.env.NODE_ENV === 'local') dbString = DATABASE_URL;
 
