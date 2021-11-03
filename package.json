@@ -42,7 +42,7 @@
     "morgan": "^1.10.0",
     "pg": "^7.18.2",
     "should": "^13.2.1",
-    "validator": "^9.4.1"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
